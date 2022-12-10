@@ -26,10 +26,10 @@ public class UserDaoSQLImpl implements UserDao {
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) { // result set is iterator.
                 User user = new User();
-                user.setId(rs.getInt("idKorisnik"));
+                user.setId(rs.getInt("id"));
                 user.setUsername(rs.getString("username"));
                 user.setPassword(rs.getString("password"));
-                user.setSpol(rs.getString("spol"));
+                user.setGender(rs.getString("gender"));
                 rs.close();
                 return user;
             } else {
@@ -48,7 +48,7 @@ public class UserDaoSQLImpl implements UserDao {
             PreparedStatement stmt = this.connection.prepareStatement(query);
             stmt.setString(1, item.getUsername());
             stmt.setString(2, item.getPassword());
-            stmt.setString(3, item.getSpol());
+            stmt.setString(3, item.getGender());
             stmt.executeUpdate(); // moras ovo da napises da bi se upisalo u bazu
             return item;
         } catch (SQLException e) {

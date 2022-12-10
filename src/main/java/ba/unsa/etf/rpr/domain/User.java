@@ -4,17 +4,16 @@ public class User {
     private Integer id;
     private String username;
     private String password;
-    private String spol;
-    private int tokeni;
+    private String gender;
+    private int tokens;
 
-    public User(){};
-    public User(String username, String password, String spol) {
+    public User(){}
+
+    public User(String username, String password, String gender) {
         this.username = username;
         this.password = password;
-        this.spol = spol;
-        this.tokeni = 0;
+        this.gender = gender;
     }
-
 
     public Integer getId() {
         return id;
@@ -40,31 +39,19 @@ public class User {
         this.password = password;
     }
 
-
-    public int getTokeni() {
-        return tokeni;
+    public String getGender() {
+        return gender;
     }
 
-    public void setTokeni(int tokeni) {
-        this.tokeni = tokeni;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
-    public String getSpol() {
-        return spol;
+    public int getTokens() {
+        return tokens;
     }
 
-    public void setSpol(String spol) {
-        this.spol = spol;
+    public void setTokens(int tokens) {
+        this.tokens = tokens;
     }
-
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
-
-    @Override
-    public String toString() {
-        return this.username;
-    }
-
 }

@@ -4,7 +4,6 @@ import ba.unsa.etf.rpr.dao.UserDao;
 import ba.unsa.etf.rpr.dao.UserDaoSQLImpl;
 import ba.unsa.etf.rpr.domain.User;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 

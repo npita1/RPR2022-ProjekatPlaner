@@ -63,7 +63,7 @@ public class UserDaoSQLImpl implements UserDao {
 
     @Override
     public User update(User item) {
-        String insert = "UPDATE categories SET username = ?, password=?, gender=? WHERE id = ?";
+        String insert = "UPDATE users SET username = ?, password=?, gender=? WHERE id = ?";
         try{
             PreparedStatement stmt = this.connection.prepareStatement(insert, Statement.RETURN_GENERATED_KEYS);
             stmt.setObject(1, item.getUsername());
@@ -80,7 +80,14 @@ public class UserDaoSQLImpl implements UserDao {
 
     @Override
     public void delete(int id) {
-        
+        String insert = "DELETE FROM users WHERE id = ?";
+        try{
+            PreparedStatement stmt = this.connection.prepareStatement(insert, Statement.RETURN_GENERATED_KEYS);
+            stmt.setObject(1, id);
+            stmt.executeUpdate();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
     }
 
     @Override

@@ -40,6 +40,15 @@ public class App
         help.setTokens(user1.getTokens());
         dao.update(help);*/
 
-        
+        /*User user2;
+        user2 = dao.getById(12);
+        System.out.println(user2.getId());
+        System.out.println(user2.getUsername());
+        System.out.println(user2.getPassword());
+        System.out.println(user2.getGender());
+        System.out.println(user2.getTokens());*/
+
+
+
     }
 }

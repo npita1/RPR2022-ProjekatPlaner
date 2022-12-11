@@ -45,6 +45,22 @@ public class SubjectDaoSQLImpl implements SubjectDao{
 
     @Override
     public Subject add(Subject item) {
+        String insert = "INSERT INTO subjects (name,acronym,color,user_id) values (?, ?,?);";
+        try {
+            PreparedStatement stmt = this.connection.prepareStatement(insert,Statement.RETURN_GENERATED_KEYS);
+            stmt.setString(1, item.getName());
+            stmt.setString(2, item.getAcronym());
+            stmt.setString(3, item.getColor());
+            stmt.setInt(4, item.getUserId());
+            stmt.executeUpdate();
+
+            ResultSet rs = stmt.getGeneratedKeys();
+            rs.next(); // we know that there is one key
+            item.setId(rs.getInt(1)); //set id to return it back
+            return item;
+        } catch (SQLException e) {
+            e.printStackTrace(); // poor error handling
+        }
         return null;
     }
 

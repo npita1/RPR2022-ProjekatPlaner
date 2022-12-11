@@ -13,6 +13,7 @@ public class User {
         this.username = username;
         this.password = password;
         this.gender = gender;
+        this.tokens = 0;
     }
 
     public Integer getId() {

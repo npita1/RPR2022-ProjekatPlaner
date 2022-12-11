@@ -2,6 +2,7 @@ package ba.unsa.etf.rpr.dao;
 
 import ba.unsa.etf.rpr.domain.User;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.sql.*;
 
@@ -92,11 +93,33 @@ public class UserDaoSQLImpl implements UserDao {
 
     @Override
     public List<User> getAll() {
-        return null;
+        String query = "SELECT * FROM users";
+        List<User> users = new ArrayList<User>();
+        try{
+            PreparedStatement stmt = this.connection.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()){ // result set is iterator.
+                User user = new User();
+                user.setId(rs.getInt("id"));
+                user.setUsername(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setGender(rs.getString("gender"));
+                users.add(user);
+            }
+            rs.close();
+        }catch (SQLException e){
+            e.printStackTrace(); // poor error handling
+        }
+        return users;
     }
 
     @Override
     public User getByUsername(String username) {
+        return null;
+    }
+
+    @Override
+    public Integer updateTokens(int id, Integer value) {
         return null;
     }
 }

@@ -119,7 +119,17 @@ public class UserDaoSQLImpl implements UserDao {
     }
 
     @Override
-    public Integer updateTokens(int id, Integer value) {
-        return null;
+    public boolean updateTokens(User item, Integer value) {
+        String insert = "UPDATE users SET tokens=? WHERE id = ?";
+        try{
+            PreparedStatement stmt = this.connection.prepareStatement(insert, Statement.RETURN_GENERATED_KEYS);
+            stmt.setObject(1, item.getTokens()+value);
+            stmt.setObject(2, item.getId());
+            stmt.executeUpdate();
+            return true;
+        }catch (SQLException e){
+            e.printStackTrace();
+            return false;
+        }
     }
 }

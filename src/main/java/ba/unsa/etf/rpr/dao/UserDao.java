@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface UserDao extends Dao<User>{
     User getByUsername(String username);
-    Integer updateTokens(int id, Integer value);
+    boolean updateTokens(User item, Integer value);
 }

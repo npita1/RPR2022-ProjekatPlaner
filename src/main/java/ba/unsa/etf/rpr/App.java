@@ -48,6 +48,8 @@ public class App
         System.out.println(user2.getGender());
         System.out.println(user2.getTokens());*/
 
+        /*// testiranje delete
+        dao.delete(12);*/
 
 
     }

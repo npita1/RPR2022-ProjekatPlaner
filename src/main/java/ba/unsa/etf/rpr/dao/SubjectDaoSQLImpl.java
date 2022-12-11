@@ -24,13 +24,11 @@ public class SubjectDaoSQLImpl implements SubjectDao{
     }
 
     @Override
-    public Subject add(Subject item) {
-        return null;
+    public void add(Subject item) {
     }
 
     @Override
-    public Subject update(Subject item) {
-        return null;
+    public void update(Subject item) {
     }
 
     @Override

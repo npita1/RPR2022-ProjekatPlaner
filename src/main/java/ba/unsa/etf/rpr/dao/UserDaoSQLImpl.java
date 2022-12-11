@@ -42,7 +42,7 @@ public class UserDaoSQLImpl implements UserDao {
     }
 
     @Override
-    public User add(User item) {
+    public void add(User item) {
         String query = "INSERT INTO users (username,password,gender) values (?, ?,?);";
         try {
             PreparedStatement stmt = this.connection.prepareStatement(query);
@@ -50,16 +50,13 @@ public class UserDaoSQLImpl implements UserDao {
             stmt.setString(2, item.getPassword());
             stmt.setString(3, item.getGender());
             stmt.executeUpdate(); // moras ovo da napises da bi se upisalo u bazu
-            return item;
         } catch (SQLException e) {
             e.printStackTrace(); // poor error handling
         }
-        return null;
     }
 
     @Override
-    public User update(User item) {
-        return null;
+    public void update(User item) {
     }
 
     @Override
@@ -72,7 +69,7 @@ public class UserDaoSQLImpl implements UserDao {
     }
 
     @Override
-    public User searchByUsername(String username) {
+    public User getByUsername(String username) {
         return null;
     }
 }

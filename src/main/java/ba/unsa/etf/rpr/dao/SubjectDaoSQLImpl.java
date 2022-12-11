@@ -3,16 +3,23 @@ package ba.unsa.etf.rpr.dao;
 import ba.unsa.etf.rpr.domain.Subject;
 import ba.unsa.etf.rpr.domain.User;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.*;
 import java.util.List;
+import java.util.Properties;
 
 public class SubjectDaoSQLImpl implements SubjectDao{
 
     private Connection connection;
 
-    public SubjectDaoSQLImpl() {
+    public SubjectDaoSQLImpl() throws IOException {
+        Properties p = new Properties();
+        InputStream is = new FileInputStream("db.properties");
+        p.load(is);
         try {
-            this.connection = DriverManager.getConnection("jdbc:mysql://sql7.freemysqlhosting.net:3306/sql7583326", "sql7583326", "ddNCxnl689");
+            this.connection = DriverManager.getConnection(p.getProperty("url"), p.getProperty("username"), p.getProperty("password"));
         } catch (Exception e) {
             e.printStackTrace();
         }

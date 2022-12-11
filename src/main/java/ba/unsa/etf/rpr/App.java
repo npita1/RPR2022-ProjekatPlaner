@@ -4,11 +4,13 @@ import ba.unsa.etf.rpr.dao.UserDao;
 import ba.unsa.etf.rpr.dao.UserDaoSQLImpl;
 import ba.unsa.etf.rpr.domain.User;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 
 public class App
 {
-    public static void main( String[] args )
-    {
+    public static void main( String[] args ) throws IOException {
         UserDao dao = new UserDaoSQLImpl();
         User user1 = new User("PrviClan","1234","M");
 

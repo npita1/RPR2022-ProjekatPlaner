@@ -42,7 +42,7 @@ public class UserDaoSQLImpl implements UserDao {
     }
 
     @Override
-    public void add(User item) {
+    public User add(User item) {
         String insert = "INSERT INTO users (username,password,gender) values (?, ?,?);";
         try {
             PreparedStatement stmt = this.connection.prepareStatement(insert,Statement.RETURN_GENERATED_KEYS);
@@ -50,16 +50,20 @@ public class UserDaoSQLImpl implements UserDao {
             stmt.setString(2, item.getPassword());
             stmt.setString(3, item.getGender());
             stmt.executeUpdate();
+
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next(); // we know that there is one key
             item.setId(rs.getInt(1)); //set id to return it back
+            return item;
         } catch (SQLException e) {
             e.printStackTrace(); // poor error handling
         }
+        return null;
     }
 
     @Override
-    public void update(User item) {
+    public User update(User item) {
+        return null;
     }
 
     @Override

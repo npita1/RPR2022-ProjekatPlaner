@@ -5,7 +5,7 @@ public class Subject {
     private String name;
     private String acronym;
     private String color;
-    private Integer user_id;
+    private Integer userId;
 
     public Subject() {}
 
@@ -47,11 +47,11 @@ public class Subject {
         this.color = color;
     }
 
-    public Integer getUser_id() {
-        return user_id;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 }

@@ -1,9 +1,9 @@
 package ba.unsa.etf.rpr.dao;
 
 import ba.unsa.etf.rpr.domain.Subject;
+import ba.unsa.etf.rpr.domain.User;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.*;
 import java.util.List;
 
 public class SubjectDaoSQLImpl implements SubjectDao{
@@ -20,6 +20,26 @@ public class SubjectDaoSQLImpl implements SubjectDao{
 
     @Override
     public Subject getById(int id) {
+        String query = "SELECT * FROM subjects WHERE id = ?";
+        try {
+            PreparedStatement stmt = this.connection.prepareStatement(query);
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) { // result set is iterator.
+                Subject subject = new Subject();
+                subject.setId(rs.getInt("id"));
+                subject.setName(rs.getString("name"));
+                subject.setColor(rs.getString("color"));
+                subject.setAcronym(rs.getString("acronym"));
+                subject.setUserId(rs.getInt("user_id"));
+                rs.close();
+                return subject;
+            } else {
+                return null; // if there is no elements in the result set return null
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(); // poor error handling
+        }
         return null;
     }
 

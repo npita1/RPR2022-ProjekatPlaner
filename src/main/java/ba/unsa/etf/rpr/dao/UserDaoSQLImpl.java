@@ -43,13 +43,16 @@ public class UserDaoSQLImpl implements UserDao {
 
     @Override
     public void add(User item) {
-        String query = "INSERT INTO users (username,password,gender) values (?, ?,?);";
+        String insert = "INSERT INTO users (username,password,gender) values (?, ?,?);";
         try {
-            PreparedStatement stmt = this.connection.prepareStatement(query);
+            PreparedStatement stmt = this.connection.prepareStatement(insert,Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, item.getUsername());
             stmt.setString(2, item.getPassword());
             stmt.setString(3, item.getGender());
-            stmt.executeUpdate(); // moras ovo da napises da bi se upisalo u bazu
+            stmt.executeUpdate();
+            ResultSet rs = stmt.getGeneratedKeys();
+            rs.next(); // we know that there is one key
+            item.setId(rs.getInt(1)); //set id to return it back
         } catch (SQLException e) {
             e.printStackTrace(); // poor error handling
         }

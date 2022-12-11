@@ -12,13 +12,13 @@ public class App
         UserDao dao = new UserDaoSQLImpl();
         User user1 = new User("PrviClan","1234","M");
 
-        /*// add testiranje
+        // add testiranje
         dao.add(user1);
         System.out.println(user1.getId());
         System.out.println(user1.getUsername());
         System.out.println(user1.getPassword());
         System.out.println(user1.getGender());
-        System.out.println(user1.getTokens());*/
+        System.out.println(user1.getTokens());
 
         /*// update testiranje
         user1.setUsername("NoviName");
@@ -49,8 +49,10 @@ public class App
         System.out.println(user2.getTokens());*/
 
         /*// testiranje delete
-        dao.delete(12);*/
+        dao.delete(14);*/
 
-
+        dao.updateTokens(user1,50);
+        dao.updateTokens(user1,-20);
+        System.out.println(user1.getTokens());
     }
 }

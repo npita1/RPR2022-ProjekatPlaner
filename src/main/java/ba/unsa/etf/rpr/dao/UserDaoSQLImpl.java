@@ -126,6 +126,7 @@ public class UserDaoSQLImpl implements UserDao {
             stmt.setObject(1, item.getTokens()+value);
             stmt.setObject(2, item.getId());
             stmt.executeUpdate();
+            item.setTokens(item.getTokens()+value);
             return true;
         }catch (SQLException e){
             e.printStackTrace();

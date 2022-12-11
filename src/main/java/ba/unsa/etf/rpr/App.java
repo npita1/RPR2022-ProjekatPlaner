@@ -12,6 +12,6 @@ public class App
         UserDao dao = new UserDaoSQLImpl();
         User user = new User("ime","1234","M");
         User k = dao.add(user);
-        System.out.println(user.toString());
+        System.out.println(user);
     }
 }

@@ -3,14 +3,11 @@ package ba.unsa.etf.rpr;
 import ba.unsa.etf.rpr.dao.UserDao;
 import ba.unsa.etf.rpr.dao.UserDaoSQLImpl;
 import ba.unsa.etf.rpr.domain.User;
-import javafx.application.Application;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 
+public class App {
 
-public class App extends Application
-{
     public static void main( String[] args ) throws IOException {
         UserDao dao = new UserDaoSQLImpl();
         User user1 = new User("PrviClan","1234","M");
@@ -23,9 +20,5 @@ public class App extends Application
         System.out.println(user1.getGender());
         System.out.println(user1.getTokens());
     }
-
-    @Override
-    public void start(Stage stage) throws Exception {
-
-    }
 }
+

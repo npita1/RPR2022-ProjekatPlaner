@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="544.0" prefWidth="847.0" styleClass="pozadina" stylesheets="@../css/login.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.LoginController">
+<GridPane alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="544.0" prefWidth="847.0" styleClass="mainBackground" stylesheets="@../css/login.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.LoginController">
   <columnConstraints>
     <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -20,11 +20,11 @@
     <RowConstraints maxHeight="93.60000610351562" minHeight="10.0" prefHeight="93.60000610351562" valignment="CENTER" vgrow="SOMETIMES" />
     <RowConstraints maxHeight="81.6" minHeight="0.0" prefHeight="67.99999389648437" valignment="CENTER" vgrow="SOMETIMES" />
     <RowConstraints maxHeight="250.39996337890625" minHeight="10.0" prefHeight="201.8" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="117.59998779296876" minHeight="10.0" prefHeight="89.20003662109372" valignment="CENTER" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="84.60001220703128" minHeight="10.0" prefHeight="69.1999633789062" valignment="CENTER" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="117.59998779296876" minHeight="10.0" prefHeight="84.00002441406252" valignment="CENTER" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="84.60001220703128" minHeight="10.0" prefHeight="75.19997558593752" valignment="CENTER" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="437.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="437.0" styleClass="forms" stylesheets="@../css/login.css" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <children>
             <Label text="Username">
                <font>
@@ -68,17 +68,17 @@
             <Insets />
          </opaqueInsets>
       </VBox>
-      <Label alignment="CENTER" text="Welcome to Mirus planner!" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <Label alignment="CENTER" prefHeight="56.0" prefWidth="550.0" styleClass="welcomeMessage" stylesheets="@../css/login.css" text="Welcome to Mirus planner!" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <font>
             <Font name="Arial Bold" size="28.0" />
          </font>
       </Label>
-      <Button alignment="CENTER" mnemonicParsing="false" text="Log in" GridPane.rowIndex="4">
+      <Button alignment="CENTER" mnemonicParsing="false" styleClass="loginButton" text="Log in" GridPane.rowIndex="4">
          <font>
-            <Font name="Arial" size="20.0" />
+            <Font name="Arial Bold" size="20.0" />
          </font>
       </Button>
-      <GridPane GridPane.rowIndex="1">
+      <GridPane alignment="CENTER" maxWidth="-Infinity" prefHeight="58.0" prefWidth="550.0" styleClass="mediumTitle" stylesheets="@../css/login.css" GridPane.rowIndex="1">
         <columnConstraints>
           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -92,7 +92,7 @@
                   <Font name="Arial Bold" size="22.0" />
                </font>
             </Label>
-            <Label text="Insert your username and passwor and continue your planning where you left off!" GridPane.rowIndex="1">
+            <Label stylesheets="@../css/login.css" text="Type in your username and password and continue your planning where you left off!" GridPane.rowIndex="1">
                <font>
                   <Font name="Arial Italic" size="13.0" />
                </font>
@@ -104,7 +104,7 @@
       </GridPane>
       <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="379.0" GridPane.rowIndex="3">
          <children>
-            <Label text="Don't have an account? Sign up now!">
+            <Label prefHeight="10.0" prefWidth="265.0" text="Don't have an account? Sign up now!">
                <font>
                   <Font name="Arial" size="16.0" />
                </font>
@@ -112,9 +112,9 @@
                   <Insets top="5.0" />
                </HBox.margin>
             </Label>
-            <Button contentDisplay="CENTER" mnemonicParsing="false" text="Sign up" textAlignment="CENTER">
+            <Button contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" styleClass="signupButton" text="Sign up" textAlignment="CENTER">
                <HBox.margin>
-                  <Insets bottom="20.0" left="25.0" />
+                  <Insets left="5.0" />
                </HBox.margin>
                <font>
                   <Font name="Arial" size="16.0" />

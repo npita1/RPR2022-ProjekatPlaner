@@ -1,4 +1,23 @@
-.pozadina {
+.mainBackground {
 -fx-background-color:white;
 }
 
+.forms {
+-fx-background-color: whitesmoke;
+}
+
+.mediumTitle {
+-fx-background-color:powderblue;
+}
+
+.welcomeMessage {
+-fx-background-color:lightsalmon;
+}
+
+.loginButton {
+-fx-background-color:silver;
+}
+
+.signupButton {
+-fx-background-color:lightgrey;
+}

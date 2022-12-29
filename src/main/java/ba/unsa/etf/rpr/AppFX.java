@@ -19,8 +19,8 @@ public class AppFX extends Application
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
-        stage.setTitle("Log in");
-        stage.setScene(new Scene(root,300,275));
+        stage.setTitle("Mirus planner app");
+        stage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
         stage.show();
     }
 

@@ -1,4 +1,3 @@
-.root {
--fx-background-image:url('../images/pozadina.jpg');
--fx-background-size:cover;
+.pozadina {
+-fx-background-color:white;
 }

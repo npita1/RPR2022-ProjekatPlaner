@@ -112,7 +112,7 @@
                   <Insets top="5.0" />
                </HBox.margin>
             </Label>
-            <Button contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" styleClass="signupButton" text="Sign up" textAlignment="CENTER">
+            <Button fx:id="signupMain" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToSignup" prefHeight="30.0" prefWidth="80.0" styleClass="signupButton" text="Sign up" textAlignment="CENTER">
                <HBox.margin>
                   <Insets left="5.0" />
                </HBox.margin>

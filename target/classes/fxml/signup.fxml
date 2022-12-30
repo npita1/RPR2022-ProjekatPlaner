@@ -6,6 +6,7 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -54,12 +55,15 @@
             </Label>
             <HBox prefHeight="40.0" prefWidth="427.0">
                <children>
-                  <RadioButton mnemonicParsing="false" text="Male">
+                  <RadioButton mnemonicParsing="false" selected="true" text="Male">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="gender" />
+                     </toggleGroup>
                   </RadioButton>
-                  <RadioButton mnemonicParsing="false" text="Female">
+                  <RadioButton mnemonicParsing="false" text="Female" toggleGroup="$gender">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>

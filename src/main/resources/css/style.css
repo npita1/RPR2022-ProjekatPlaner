@@ -16,8 +16,10 @@
 
 .loginButton {
 -fx-background-color:silver;
+-fx-background-radius: 40;
 }
 
 .signupButton {
 -fx-background-color:lightgrey;
+-fx-background-radius: 40;
 }

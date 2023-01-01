@@ -28,4 +28,12 @@ public class LoginController {
         stage.show();
     }
 
+    public void switchToMain (ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/main.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root, stage.getScene().getWidth(),stage.getScene().getHeight());
+        stage.setScene(scene);
+        stage.show();
+    }
+
 }

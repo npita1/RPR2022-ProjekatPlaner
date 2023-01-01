@@ -14,12 +14,26 @@
 -fx-background-color:lightsalmon;
 }
 
-.loginButton {
+.mainButton {
 -fx-background-color:silver;
 -fx-background-radius: 40;
 }
 
-.signupButton {
+.sideButton {
 -fx-background-color:lightgrey;
 -fx-background-radius: 40;
+}
+
+.bottomStatusBar {
+-fx-background-color: powderblue;
+}
+
+.bottomStatusBarDate {
+-fx-background-color:powderblue;
+-fx-font-weight: bold;
+-fx-font-style: italic;
+}
+
+.topMenuBar {
+-fx-background-color:powderblue;
 }

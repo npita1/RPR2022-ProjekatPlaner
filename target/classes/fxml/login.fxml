@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="544.0" prefWidth="847.0" styleClass="mainBackground" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.LoginController">
+<GridPane alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="950.0" styleClass="mainBackground" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.LoginController">
   <columnConstraints>
     <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -73,7 +73,7 @@
             <Font name="Arial Bold" size="28.0" />
          </font>
       </Label>
-      <Button alignment="CENTER" mnemonicParsing="false" styleClass="loginButton" text="Log in" GridPane.rowIndex="4">
+      <Button fx:id="loginButton" alignment="CENTER" mnemonicParsing="false" onAction="#switchToMain" styleClass="mainButton" text="Log in" GridPane.rowIndex="4">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>
@@ -112,7 +112,7 @@
                   <Insets top="5.0" />
                </HBox.margin>
             </Label>
-            <Button fx:id="signupMain" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToSignup" prefHeight="30.0" prefWidth="80.0" styleClass="signupButton" text="Sign up" textAlignment="CENTER">
+            <Button fx:id="signupMain" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToSignup" prefHeight="30.0" prefWidth="80.0" styleClass="sideButton" text="Sign up" textAlignment="CENTER">
                <HBox.margin>
                   <Insets left="5.0" />
                </HBox.margin>

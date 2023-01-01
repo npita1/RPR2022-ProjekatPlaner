@@ -122,7 +122,7 @@
                 <Insets />
             </opaqueInsets>
         </VBox>
-        <Button alignment="CENTER" mnemonicParsing="false" styleClass="loginButton" text="Sign up" GridPane.rowIndex="2">
+        <Button alignment="CENTER" mnemonicParsing="false" styleClass="mainButton" text="Sign up" GridPane.rowIndex="2">
             <font>
                 <Font name="Arial Bold" size="20.0" />
             </font>
@@ -161,7 +161,7 @@
                   <Insets top="5.0" />
                </HBox.margin>
             </Label>
-            <Button fx:id="loginOnSignup" mnemonicParsing="false" onAction="#switchToLogin" styleClass="signupButton" text="Log in">
+            <Button fx:id="loginOnSignup" mnemonicParsing="false" onAction="#switchToLogin" styleClass="sideButton" text="Log in">
                <font>
                   <Font name="Arial" size="16.0" />
                </font>

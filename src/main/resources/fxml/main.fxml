@@ -41,28 +41,16 @@
       <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
           <Tab text="Subjects and tasks">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <padding>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                     </padding>
-                  </AnchorPane>
-            </content>
+              <fx:include source="subjectsAndTasksTab.fxml"/>
           </Tab>
           <Tab text="TO-DO list">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
+              <fx:include source="toDoTab.fxml"/>
           </Tab>
             <Tab text="Pomodoro timer">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
+                <fx:include source="timerTab.fxml"/>
             </Tab>
             <Tab text="Game">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
+                <fx:include source="gameTab.fxml"/>
             </Tab>
         </tabs>
       </TabPane>

@@ -37,3 +37,32 @@
 .topMenuBar {
 -fx-background-color:powderblue;
 }
+
+.tableViewFrame {
+-fx-background-color: #E4F6F8;
+}
+
+.subjectsTasksTableView .column-header {
+	-fx-background-color: whitesmoke;
+	-fx-border-color: white;
+}
+
+.subjectsTasksTableView {
+	-fx-background-color: white;
+	-fx-border-color: white;
+}
+
+.redButtons {
+-fx-background-color: whitesmoke;
+-fx-background-radius: 10;
+}
+
+.toDoButton {
+-fx-background-color: lightsalmon;
+-fx-background-radius: 10;
+}
+
+.addButtons {
+-fx-background-color:silver;
+-fx-background-radius: 10;
+}

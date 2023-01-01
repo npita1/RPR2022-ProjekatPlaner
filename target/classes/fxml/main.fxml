@@ -7,7 +7,6 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -21,19 +20,10 @@
           <Menu mnemonicParsing="false" text="Profile">
             <items>
               <MenuItem mnemonicParsing="false" text="Edit profile" />
-                  <MenuItem mnemonicParsing="false" text="Personalize" />
                   <MenuItem mnemonicParsing="false" text="Log out" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Adding subjects" />
-                  <MenuItem mnemonicParsing="false" text="Adding tasks" />
-                  <MenuItem mnemonicParsing="false" text="TO-DO list" />
-                  <MenuItem mnemonicParsing="false" text="Timer" />
-                  <MenuItem mnemonicParsing="false" text="Tokens and game" />
-            </items>
-          </Menu>
+          <Menu mnemonicParsing="false" text="Help" />
         </menus>
       </MenuBar>
    </top>
@@ -41,16 +31,16 @@
       <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
           <Tab text="Subjects and tasks">
-              <fx:include source="subjectsAndTasksTab.fxml"/>
+              <fx:include source="subjectsAndTasksTab.fxml" />
           </Tab>
           <Tab text="TO-DO list">
-              <fx:include source="toDoTab.fxml"/>
+              <fx:include source="toDoTab.fxml" />
           </Tab>
             <Tab text="Pomodoro timer">
-                <fx:include source="timerTab.fxml"/>
+                <fx:include source="timerTab.fxml" />
             </Tab>
             <Tab text="Game">
-                <fx:include source="gameTab.fxml"/>
+                <fx:include source="gameTab.fxml" />
             </Tab>
         </tabs>
       </TabPane>

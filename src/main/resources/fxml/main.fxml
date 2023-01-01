@@ -20,19 +20,10 @@
           <Menu mnemonicParsing="false" text="Profile">
             <items>
               <MenuItem mnemonicParsing="false" text="Edit profile" />
-                  <MenuItem mnemonicParsing="false" text="Personalize" />
                   <MenuItem mnemonicParsing="false" text="Log out" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Adding subjects" />
-                  <MenuItem mnemonicParsing="false" text="Adding tasks" />
-                  <MenuItem mnemonicParsing="false" text="TO-DO list" />
-                  <MenuItem mnemonicParsing="false" text="Timer" />
-                  <MenuItem mnemonicParsing="false" text="Tokens and game" />
-            </items>
-          </Menu>
+          <Menu mnemonicParsing="false" text="Help" />
         </menus>
       </MenuBar>
    </top>

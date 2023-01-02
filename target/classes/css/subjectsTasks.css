@@ -26,11 +26,6 @@
 	-fx-border-color: white;
 }
 
-.redButtons {
--fx-background-color: whitesmoke;
--fx-background-radius: 10;
-}
-
 .toDoButton {
 -fx-background-color: lightsalmon;
 -fx-background-radius: 10;
@@ -44,4 +39,9 @@
 .toDoButton {
 -fx-background-color:powderblue;
 -fx-background-radius: 10;
+}
+
+.removeButton {
+-fx-background-color:lightcoral;
+-fx-background-radius: 40;
 }

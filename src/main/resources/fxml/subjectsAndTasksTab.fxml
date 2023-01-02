@@ -18,9 +18,9 @@
     <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" minWidth="10.0" prefWidth="574.0" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints maxHeight="120.0" minHeight="0.0" prefHeight="45.0" vgrow="NEVER" />
+    <RowConstraints maxHeight="45.0" minHeight="45.0" prefHeight="45.0" vgrow="NEVER" />
     <RowConstraints minHeight="10.0" prefHeight="413.0" valignment="CENTER" vgrow="ALWAYS" />
-    <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="NEVER" />
+    <RowConstraints maxHeight="45.0" minHeight="45.0" prefHeight="45.0" vgrow="NEVER" />
   </rowConstraints>
    <children>
       <Pane prefHeight="200.0" prefWidth="200.0" styleClass="tableViewFrame" stylesheets="@../css/subjectsTasks.css" GridPane.rowIndex="1">
@@ -60,7 +60,7 @@
       </TableView>
       <Label text="Subjects">
          <font>
-            <Font name="System Bold" size="26.0" />
+            <Font name="Arial Bold" size="26.0" />
          </font>
          <GridPane.margin>
             <Insets bottom="10.0" left="15.0" right="10.0" top="10.0" />
@@ -87,9 +87,9 @@
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" styleClass="redButtons" stylesheets="@../css/subjectsTasks.css" text="Remove subject">
+            <Button mnemonicParsing="false" styleClass="removeButton" stylesheets="@../css/subjectsTasks.css" text="Remove subject">
                <font>
-                  <Font name="Arial" size="14.0" />
+                  <Font name="Arial Bold" size="14.0" />
                </font>
             </Button>
         </buttons>
@@ -112,9 +112,9 @@
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="287.0" styleClass="redButtons" stylesheets="@../css/subjectsTasks.css" text="Remove task">
+            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="287.0" styleClass="removeButton" stylesheets="@../css/subjectsTasks.css" text="Remove task">
                <font>
-                  <Font name="Arial" size="14.0" />
+                  <Font name="Arial Bold" size="14.0" />
                </font>
             </Button>
         </buttons>

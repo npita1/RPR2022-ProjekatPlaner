@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="950.0" styleClass="mainBackground" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.LoginController">
+<GridPane alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="950.0" styleClass="mainBackground" stylesheets="@../css/loginSignUp.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.LoginController">
   <columnConstraints>
     <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -24,7 +24,7 @@
       <RowConstraints maxHeight="84.60001220703128" minHeight="10.0" prefHeight="75.19997558593752" valignment="CENTER" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="437.0" styleClass="forms" stylesheets="@../css/style.css" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="437.0" styleClass="forms" stylesheets="@../css/loginSignUp.css" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <children>
             <Label text="Username">
                <font>
@@ -68,7 +68,7 @@
             <Insets />
          </opaqueInsets>
       </VBox>
-      <Label alignment="CENTER" prefHeight="56.0" prefWidth="550.0" styleClass="welcomeMessage" stylesheets="@../css/style.css" text="Welcome to Mirus planner!" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <Label alignment="CENTER" prefHeight="56.0" prefWidth="550.0" styleClass="welcomeMessage" stylesheets="@../css/loginSignUp.css" text="Welcome to Mirus planner!" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <font>
             <Font name="Arial Bold" size="28.0" />
          </font>
@@ -78,7 +78,7 @@
             <Font name="Arial Bold" size="20.0" />
          </font>
       </Button>
-      <GridPane alignment="CENTER" maxWidth="-Infinity" prefHeight="58.0" prefWidth="550.0" styleClass="mediumTitle" stylesheets="@../css/style.css" GridPane.rowIndex="1">
+      <GridPane alignment="CENTER" maxWidth="-Infinity" prefHeight="58.0" prefWidth="550.0" styleClass="mediumTitle" stylesheets="@../css/loginSignUp.css" GridPane.rowIndex="1">
         <columnConstraints>
           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -92,7 +92,7 @@
                   <Font name="Arial Bold" size="22.0" />
                </font>
             </Label>
-            <Label stylesheets="@../css/style.css" text="Type in your username and password and continue your planning where you left off!" GridPane.rowIndex="1">
+            <Label stylesheets="@../css/loginSignUp.css" text="Type in your username and password and continue your planning where you left off!" GridPane.rowIndex="1">
                <font>
                   <Font name="Arial Italic" size="13.0" />
                </font>

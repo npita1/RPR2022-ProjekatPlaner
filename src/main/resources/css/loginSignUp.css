@@ -1,0 +1,25 @@
+.mainBackground {
+-fx-background-color:white;
+}
+
+.forms {
+-fx-background-color: whitesmoke;
+}
+
+.mediumTitle {
+-fx-background-color:powderblue;
+}
+
+.welcomeMessage {
+-fx-background-color:lightsalmon;
+}
+
+.mainButton {
+-fx-background-color:silver;
+-fx-background-radius: 40;
+}
+
+.sideButton {
+-fx-background-color:lightgrey;
+-fx-background-radius: 40;
+}

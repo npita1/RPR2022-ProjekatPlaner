@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="544.0" prefWidth="847.0" styleClass="mainBackground" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.SignupController">
+<GridPane alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="544.0" prefWidth="847.0" styleClass="mainBackground" stylesheets="@../css/loginSignUp.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.SignupController">
     <columnConstraints>
         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     </columnConstraints>
@@ -25,7 +25,7 @@
       <RowConstraints maxHeight="84.60001220703128" minHeight="10.0" prefHeight="46.0" valignment="CENTER" vgrow="SOMETIMES" />
     </rowConstraints>
     <children>
-        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="313.0" prefWidth="437.0" styleClass="forms" stylesheets="@../css/style.css" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="313.0" prefWidth="437.0" styleClass="forms" stylesheets="@../css/loginSignUp.css" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
             <children>
                 <Label text="Username">
                     <font>
@@ -127,7 +127,7 @@
                 <Font name="Arial Bold" size="20.0" />
             </font>
         </Button>
-        <GridPane alignment="CENTER" maxWidth="-Infinity" prefHeight="58.0" prefWidth="550.0" styleClass="mediumTitle" stylesheets="@../css/style.css">
+        <GridPane alignment="CENTER" maxWidth="-Infinity" prefHeight="58.0" prefWidth="550.0" styleClass="mediumTitle" stylesheets="@../css/loginSignUp.css">
             <columnConstraints>
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
@@ -141,7 +141,7 @@
                         <Font name="Arial Bold" size="22.0" />
                     </font>
                 </Label>
-                <Label stylesheets="@../css/style.css" text="Register now to start your ultimate planning journey!" GridPane.rowIndex="1">
+                <Label stylesheets="@../css/loginSignUp.css" text="Register now to start your ultimate planning journey!" GridPane.rowIndex="1">
                     <font>
                         <Font name="Arial Italic" size="13.0" />
                     </font>

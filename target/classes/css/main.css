@@ -1,0 +1,27 @@
+.mainBackground {
+-fx-background-color:white;
+}
+
+.bottomStatusBar {
+-fx-background-color: powderblue;
+}
+
+.bottomStatusBarDate {
+-fx-background-color:powderblue;
+-fx-font-weight: bold;
+-fx-font-style: italic;
+}
+
+.topMenuBar {
+-fx-background-color:powderblue;
+}
+
+.mainButton {
+-fx-background-color:silver;
+-fx-background-radius: 40;
+}
+
+.sideButton {
+-fx-background-color:lightgrey;
+-fx-background-radius: 40;
+}

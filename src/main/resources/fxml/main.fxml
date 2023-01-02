@@ -13,9 +13,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="950.0" styleClass="mainBackground" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.MainController">
+<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="950.0" styleClass="mainBackground" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.MainController">
    <top>
-      <MenuBar styleClass="topMenuBar" BorderPane.alignment="CENTER">
+      <MenuBar styleClass="topMenuBar" stylesheets="@../css/main.css" BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="Profile">
             <items>
@@ -46,7 +46,7 @@
       </TabPane>
    </center>
    <bottom>
-      <GridPane prefHeight="34.0" prefWidth="600.0" styleClass="bottomStatusBar" stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
+      <GridPane prefHeight="34.0" prefWidth="600.0" styleClass="bottomStatusBar" stylesheets="@../css/main.css" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -55,7 +55,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label prefHeight="28.0" prefWidth="65.0" styleClass="bottomStatusBar" stylesheets="@../css/style.css" text="Tokens">
+            <Label prefHeight="28.0" prefWidth="65.0" styleClass="bottomStatusBar" stylesheets="@../css/loginSignUp.css" text="Tokens">
                <font>
                   <Font name="Arial Bold Italic" size="16.0" />
                </font>
@@ -66,7 +66,7 @@
                   <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                </padding>
             </Label>
-            <Label prefHeight="30.0" prefWidth="145.0" styleClass="bottomStatusBarDate" stylesheets="@../css/style.css" text="Sunday, 1.1.2023." GridPane.columnIndex="1">
+            <Label prefHeight="30.0" prefWidth="145.0" styleClass="bottomStatusBarDate" stylesheets="@../css/main.css" text="Sunday, 1.1.2023." GridPane.columnIndex="1">
                <font>
                   <Font name="Arial" size="16.0" />
                </font>

@@ -82,7 +82,7 @@
       </Label>
       <ButtonBar buttonMinWidth="80.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0" GridPane.rowIndex="2">
         <buttons>
-          <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="238.0" styleClass="addButtons" stylesheets="@../css/subjectsTasks.css" text="Add subject">
+          <Button fx:id="addSubjectButton" mnemonicParsing="false" onAction="#openAddSubject" prefHeight="26.0" prefWidth="238.0" styleClass="addButtons" stylesheets="@../css/subjectsTasks.css" text="Add subject">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>

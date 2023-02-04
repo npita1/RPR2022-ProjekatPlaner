@@ -1,0 +1,15 @@
+.mainBackground {
+-fx-background-color:white;
+}
+
+.vBoxStyle {
+-fx-background-color: #E4F6F8;
+}
+
+.addButton {
+-fx-background-color: silver;
+}
+
+.cancelButton {
+-fx-background-color: lightgrey;
+}

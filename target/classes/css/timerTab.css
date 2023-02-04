@@ -1,0 +1,19 @@
+.mainBackground {
+-fx-background-color:white;
+}
+
+.vBoxStyle {
+-fx-background-color: white;
+}
+
+.time {
+    -fx-background-color: white;
+}
+
+.subgridWork {
+    -fx-background-color: #90EE90;
+}
+
+.subgridBreak {
+    -fx-background-color: whitesmoke;
+}

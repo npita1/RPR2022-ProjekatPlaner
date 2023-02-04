@@ -107,7 +107,7 @@
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="26.0" styleClass="addButtons" stylesheets="@../css/subjectsTasks.css" text="Add task">
+            <Button fx:id="addTaskButton" mnemonicParsing="false" onAction="#openAddTask" prefHeight="26.0" styleClass="addButtons" stylesheets="@../css/subjectsTasks.css" text="Add task">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>

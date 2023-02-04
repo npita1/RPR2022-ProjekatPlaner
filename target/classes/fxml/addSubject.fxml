@@ -79,7 +79,7 @@
       </VBox>
       <ButtonBar prefHeight="98.0" prefWidth="455.0" GridPane.rowIndex="2">
         <buttons>
-            <Button mnemonicParsing="false" styleClass="cancelButton" stylesheets="@../css/addSubject.css" text="Cancel">
+            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#closeWindow" styleClass="cancelButton" stylesheets="@../css/addSubject.css" text="Cancel">
                <font>
                   <Font name="Arial" size="16.0" />
                </font>

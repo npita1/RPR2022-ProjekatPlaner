@@ -16,9 +16,20 @@ public class SubjectTaskTabController {
     public void openAddSubject (ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("/fxml/addSubject.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 510, 550);
+        Scene scene = new Scene(fxmlLoader.load(), 510, 540);
         Stage stage = new Stage();
         stage.setTitle("Add subject");
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+    }
+
+    public void openAddTask (ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/fxml/addTask.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 510, 540);
+        Stage stage = new Stage();
+        stage.setTitle("Add task");
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();

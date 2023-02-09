@@ -1,6 +1,8 @@
 package ba.unsa.etf.rpr.domain;
 
-public class User {
+import java.util.Objects;
+
+public class User implements Idable{
     private Integer id;
     private String username;
     private String password;
@@ -16,11 +18,12 @@ public class User {
         this.tokens = 0;
     }
 
-    public Integer getId() {
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -54,5 +57,23 @@ public class User {
 
     public void setTokens(int tokens) {
         this.tokens = tokens;
+    }
+
+    @Override
+    public String toString() {
+        return "subject";
+    }
+
+    @Override
+    public boolean equals (Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return id == user.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, username, password, gender);
     }
 }

@@ -9,7 +9,7 @@ import java.io.IOException;
 public class App {
 
     public static void main( String[] args ) throws IOException {
-        UserDao dao = new UserDaoSQLImpl();
+        /*UserDao dao = new UserDaoSQLImpl();
         User user1 = new User("PrviClan","1234","M");
 
         //test baza
@@ -18,7 +18,7 @@ public class App {
         System.out.println(user1.getUsername());
         System.out.println(user1.getPassword());
         System.out.println(user1.getGender());
-        System.out.println(user1.getTokens());
+        System.out.println(user1.getTokens());*/
     }
 }
 

@@ -1,34 +1,36 @@
 package ba.unsa.etf.rpr.domain;
 
 import java.util.Date;
+import java.util.Objects;
 
-public class Task {
+public class Task implements Idable{
     private Integer id;
-    private String task_text;
+    private String taskText;
     private Date deadline;
-    private Integer subject_id;
+    private Integer subjectId;
 
     public Task(){}
     public Task(String task_text, Date deadline, Integer subject_id) {
-        this.task_text = task_text;
+        this.taskText = task_text;
         this.deadline = deadline;
-        this.subject_id = subject_id;
+        this.subjectId = subject_id;
     }
 
-    public Integer getId() {
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getTask_text() {
-        return task_text;
+    public String getTaskText() {
+        return taskText;
     }
 
-    public void setTask_text(String task_text) {
-        this.task_text = task_text;
+    public void setTaskText(String task_text) {
+        this.taskText = task_text;
     }
 
     public Date getDeadline() {
@@ -39,11 +41,29 @@ public class Task {
         this.deadline = deadline;
     }
 
-    public Integer getSubject_id() {
-        return subject_id;
+    public Integer getSubjectId() {
+        return subjectId;
     }
 
-    public void setSubject_id(Integer subject_id) {
-        this.subject_id = subject_id;
+    public void setSubjectId(Integer subject_id) {
+        this.subjectId = subject_id;
+    }
+
+    @Override
+    public String toString() {
+        return "task";
+    }
+
+    @Override
+    public boolean equals (Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Task task = (Task) o;
+        return id == task.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, taskText, deadline);
     }
 }

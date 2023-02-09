@@ -17,3 +17,7 @@
 .subgridBreak {
     -fx-background-color: whitesmoke;
 }
+
+.startTimerButton {
+    -fx-background-color: silver;
+}

@@ -45,9 +45,9 @@
                   <Insets bottom="20.0" />
                </VBox.margin>
             </ComboBox>
-            <Button mnemonicParsing="false" prefHeight="49.0" prefWidth="139.0" text="START TIMER" VBox.vgrow="ALWAYS">
+            <Button mnemonicParsing="false" prefHeight="49.0" prefWidth="139.0" styleClass="startTimerButton" text="START TIMER" VBox.vgrow="ALWAYS">
                <font>
-                  <Font name="Arial" size="14.0" />
+                  <Font name="Arial Bold" size="14.0" />
                </font>
                <VBox.margin>
                   <Insets top="20.0" />

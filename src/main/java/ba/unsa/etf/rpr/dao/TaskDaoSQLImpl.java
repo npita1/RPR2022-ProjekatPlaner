@@ -11,7 +11,7 @@ public class TaskDaoSQLImpl extends AbstractDao<Task> implements TaskDao{
     private static TaskDaoSQLImpl instance = null;
 
     private TaskDaoSQLImpl() {
-        super("subjects");
+        super("tasks");
     }
 
     public static TaskDaoSQLImpl getInstance(){

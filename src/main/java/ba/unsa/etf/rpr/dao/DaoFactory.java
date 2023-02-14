@@ -9,15 +9,15 @@ public class DaoFactory {
     private DaoFactory(){
     }
 
-    public static UserDao categoryDao(){
+    public static UserDao userDao(){
         return userDao;
     }
 
-    public static TaskDao quoteDao(){
+    public static TaskDao taskDao(){
         return taskDao;
     }
 
-    public static SubjectDao quoteHistoryDao(){
+    public static SubjectDao subjectDao(){
         return subjectDao;
     }
 

@@ -7,11 +7,8 @@ import ba.unsa.etf.rpr.exceptions.PlanerException;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.sql.*;
-import java.util.Map;
-import java.util.Properties;
 
 public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao {
 
@@ -34,17 +31,33 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao {
 
     @Override
     public User row2object(ResultSet rs) throws PlanerException {
-        return null;
+        try {
+            User u = new User();
+            u.setId(rs.getInt("id"));
+            u.setUsername(rs.getString("username"));
+            u.setPassword(rs.getString("password"));
+            u.setGender(rs.getString("gender"));
+            u.setTokens(rs.getInt("tokens"));
+            return u;
+        } catch (Exception e) {
+            throw new PlanerException(e.getMessage(), e);
+        }
     }
 
     @Override
     public Map<String, Object> object2row(User object) {
-        return null;
+        Map<String, Object> item = new TreeMap<>();
+        item.put("id", object.getId());
+        item.put("username", object.getUsername());
+        item.put("password", object.getPassword());
+        item.put("gender", object.getGender());
+        item.put("tokens", object.getTokens());
+        return item;
     }
 
     @Override
-    public User getByUsername(String username) {
-        return null;
+    public User getByUsername(String username) throws PlanerException{
+        return executeQueryUnique("SELECT * FROM users WHERE username= ", new Object[]{username});
     }
 
     @Override
@@ -52,7 +65,18 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao {
         return false;
     }
 
+    @Override
+    public  boolean validUsername(User user) throws PlanerException{
+        ArrayList<User> users = (ArrayList<User>) executeQuery("SELECT * FROM users WHERE username =?", new Object[]{user.getUsername()});
+        if(users.size() == 1) return true;
+        return false;
+    }
 
+    @Override
+    public boolean validPassword(User user) {
+        //
+        return false;
+    }
 
     /*public UserDaoSQLImpl() throws IOException {
         Properties p = new Properties();

@@ -47,7 +47,7 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao {
     @Override
     public Map<String, Object> object2row(User object) {
         Map<String, Object> item = new TreeMap<>();
-        item.put("id", object.getId());
+        //item.put("id", object.getId());
         item.put("username", object.getUsername());
         item.put("password", object.getPassword());
         item.put("gender", object.getGender());

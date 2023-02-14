@@ -92,14 +92,6 @@ public class SignupController {
     }
 
 
-    public void switchToLogin(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root, stage.getScene().getWidth(),stage.getScene().getHeight());
-        stage.setScene(scene);
-        stage.show();
-    }
-
     public void signUpAccount(ActionEvent event) throws PlanerException, IOException {
         if(!userManager.validatePasswordLength(passwordField.getText()) && userManager.validateConfirmPassword(passwordField.getText(),confirmPasswordField.getText()) && !userManager.validateNewUsernameExist(usernameField.getText()) && !userManager.validateNewUsernameLength(usernameField.getText())) {
             String gen = "";
@@ -110,7 +102,7 @@ public class SignupController {
 
             userManager.add(u);
 
-            Alert succesSignUp = new Alert(Alert.AlertType.CONFIRMATION);
+            switchToMain(event);
 
         } else {
             System.out.println("nece");
@@ -120,6 +112,24 @@ public class SignupController {
         }
     }
 
+
+
+    public void switchToMain (ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/main.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root, stage.getScene().getWidth(),stage.getScene().getHeight());
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
+    public void switchToLogin(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root, stage.getScene().getWidth(),stage.getScene().getHeight());
+        stage.setScene(scene);
+        stage.show();
+    }
 
 
 

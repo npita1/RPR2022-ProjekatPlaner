@@ -127,7 +127,7 @@
                 <Insets />
             </opaqueInsets>
         </VBox>
-        <Button alignment="CENTER" mnemonicParsing="false" styleClass="mainButton" text="Sign up" GridPane.rowIndex="2">
+        <Button fx:id="signUpButton" alignment="CENTER" mnemonicParsing="false" onAction="#signUpAccount" styleClass="mainButton" text="Sign up" GridPane.rowIndex="2">
             <font>
                 <Font name="Arial Bold" size="20.0" />
             </font>

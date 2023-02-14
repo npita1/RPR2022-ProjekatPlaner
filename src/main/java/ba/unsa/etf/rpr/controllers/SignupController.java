@@ -1,6 +1,7 @@
 package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.business.UserManager;
+import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.exceptions.PlanerException;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -29,6 +30,8 @@ public class SignupController {
     public PasswordField passwordField;
     public PasswordField confirmPasswordField;
     public Label warningLabel;
+    public Button signUpButton;
+    public ToggleGroup gender;
 
     private Stage stage;
     private Scene scene;
@@ -95,6 +98,26 @@ public class SignupController {
         scene = new Scene(root, stage.getScene().getWidth(),stage.getScene().getHeight());
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void signUpAccount(ActionEvent event) throws PlanerException, IOException {
+        if(!userManager.validatePasswordLength(passwordField.getText()) && userManager.validateConfirmPassword(passwordField.getText(),confirmPasswordField.getText()) && !userManager.validateNewUsernameExist(usernameField.getText()) && !userManager.validateNewUsernameLength(usernameField.getText())) {
+            String gen = "";
+            if(maleRadioButton.isSelected()) gen = maleRadioButton.getText();
+            else gen = femaleRadioButton.getText();
+
+            User u = new User(usernameField.getText(), passwordField.getText(), gen);
+
+            userManager.add(u);
+
+            Alert succesSignUp = new Alert(Alert.AlertType.CONFIRMATION);
+
+        } else {
+            System.out.println("nece");
+            System.out.println(passwordField.getText());
+            System.out.println(usernameField.getText());
+            System.out.println(confirmPasswordField.getText());
+        }
     }
 
 

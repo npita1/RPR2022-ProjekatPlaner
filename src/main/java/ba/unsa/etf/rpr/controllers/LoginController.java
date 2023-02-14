@@ -3,6 +3,7 @@ package ba.unsa.etf.rpr.controllers;
 import ba.unsa.etf.rpr.business.UserManager;
 import ba.unsa.etf.rpr.exceptions.PlanerException;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
 import javafx.scene.Node;
@@ -27,10 +28,25 @@ public class LoginController {
     public Label usernameWarning;
     public PasswordField passwordField;
     public Label passwordWarning;
-    public Button loginButton; // ovaj ima onaction za main page
+    public Button loginButton;
     private Stage stage;
     private Scene scene;
 
+
+    @FXML
+    public void initialize() {
+        usernameField.setOnMouseClicked((e)-> {
+            if(!usernameWarning.textProperty().getValue().equals("")) {
+                passwordWarning.textProperty().setValue("");
+                usernameWarning.textProperty().setValue("");
+            }
+        });
+        passwordField.setOnMouseClicked((e) -> {
+            if(!passwordWarning.textProperty().getValue().equals("")) {
+                passwordWarning.textProperty().setValue("");
+            }
+        });
+    }
 
     public void switchToSignup(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/signup.fxml"));
@@ -58,14 +74,15 @@ public class LoginController {
                 switchToMain(event);
             } else {
                 passwordField.textProperty().setValue("");
+                passwordWarning.requestFocus();
                 passwordWarning.textProperty().setValue("Incorrect password.");
             }
         } else {
             passwordField.textProperty().setValue("");
             usernameField.textProperty().setValue("");
-            usernameWarning.textProperty().setValue("Wrong or non existing username.");
+            usernameField.requestFocus();
+            usernameWarning.textProperty().setValue("Incorrect username.");
         }
-
     }
 
 }

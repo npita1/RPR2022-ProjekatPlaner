@@ -35,7 +35,7 @@
                         <Insets bottom="7.0" right="10.0" top="5.0" />
                     </padding>
                 </Label>
-                <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="421.0">
+                <TextField fx:id="usernameField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="421.0">
                     <VBox.margin>
                         <Insets />
                     </VBox.margin>
@@ -55,7 +55,7 @@
             </Label>
             <HBox prefHeight="40.0" prefWidth="427.0">
                <children>
-                  <RadioButton mnemonicParsing="false" selected="true" text="Male">
+                  <RadioButton fx:id="maleRadioButton" mnemonicParsing="false" selected="true" text="Male">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
@@ -63,7 +63,7 @@
                         <ToggleGroup fx:id="gender" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton mnemonicParsing="false" text="Female" toggleGroup="$gender">
+                  <RadioButton fx:id="femaleRadioButton" mnemonicParsing="false" text="Female" toggleGroup="$gender">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
@@ -87,7 +87,7 @@
                         <Insets bottom="7.0" right="10.0" />
                     </padding>
                 </Label>
-                <PasswordField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="421.0">
+                <PasswordField fx:id="passwordField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="421.0">
                     <font>
                         <Font name="Arial" size="14.0" />
                     </font>
@@ -103,7 +103,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Label>
-            <PasswordField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="421.0">
+            <PasswordField fx:id="confirmPasswordField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="421.0">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>
@@ -111,6 +111,11 @@
                   <Insets bottom="5.0" />
                </VBox.margin>
             </PasswordField>
+            <Label fx:id="warningLabel" styleClass="warning">
+               <font>
+                  <Font name="Arial Italic" size="12.0" />
+               </font>
+            </Label>
             </children>
             <padding>
                 <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />

@@ -81,6 +81,35 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao {
         return false;
     }
 
+    @Override
+    public boolean validNewUsernameExist(String username) throws PlanerException {
+        ArrayList<User> users = (ArrayList<User>) executeQuery("SELECT * FROM users WHERE username=?", new Object[]{username});
+        if(users.size() != 0)  return true;
+        return false;
+    }
+
+    @Override
+    public boolean validNewUsernameLength (String username) {
+        if(username.length() < 3 || username.length() > 20)
+            return true;
+        return false;
+    }
+
+    @Override
+    public boolean validPasswordLength(String password) throws PlanerException {
+        if(password.length() < 6 || password.length() > 25)
+            return true;
+        return false;
+    }
+
+    @Override
+    public boolean validConfirmPassword(String password, String confirmPassword) throws PlanerException {
+        if(password.equals(confirmPassword)) return true;
+        return false;
+    }
+
+
+
     /*public UserDaoSQLImpl() throws IOException {
         Properties p = new Properties();
         InputStream is = new FileInputStream("db.properties");

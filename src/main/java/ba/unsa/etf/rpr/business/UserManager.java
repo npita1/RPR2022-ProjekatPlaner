@@ -25,8 +25,8 @@ public class UserManager {
         DaoFactory.userDao().update(u);
     }
 
-    public User add(User q) throws PlanerException{
-        return DaoFactory.userDao().add(q);
+    public User add(User u) throws PlanerException{
+        return DaoFactory.userDao().add(u);
     }
 
     public boolean validateUsername(String username) throws PlanerException{
@@ -37,5 +37,20 @@ public class UserManager {
         return DaoFactory.userDao().validPassword(username,password);
     }
 
+    public boolean validateNewUsernameExist (String username) throws PlanerException {
+        return DaoFactory.userDao().validNewUsernameExist(username);
+    }
+
+    public boolean validateNewUsernameLength (String username) throws PlanerException {
+        return DaoFactory.userDao().validNewUsernameLength(username);
+    }
+
+    public boolean validatePasswordLength(String password) throws PlanerException {
+        return DaoFactory.userDao().validPasswordLength(password);
+    }
+
+    public boolean validateConfirmPassword(String password, String confirmPassword) throws PlanerException {
+        return DaoFactory.userDao().validConfirmPassword(password, confirmPassword);
+    }
 
 }

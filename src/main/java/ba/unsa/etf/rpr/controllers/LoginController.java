@@ -1,6 +1,7 @@
 package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.business.UserManager;
+import ba.unsa.etf.rpr.exceptions.PlanerException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
@@ -47,7 +48,23 @@ public class LoginController {
         stage.show();
     }
 
-    public void validate(ActionEvent event) throws IOException {
+    public void validate(ActionEvent event) throws IOException, PlanerException {
+        if(userManager.validateUsername(usernameField.getText())) {
+            if(userManager.validatePassword(usernameField.getText(), passwordField.getText())) {
+                if(!passwordWarning.getText().equals("") || !usernameWarning.getText().equals("")) {
+                    passwordWarning.textProperty().setValue("");
+                    usernameWarning.textProperty().setValue("");
+                }
+                switchToMain(event);
+            } else {
+                passwordField.textProperty().setValue("");
+                passwordWarning.textProperty().setValue("Incorrect password.");
+            }
+        } else {
+            passwordField.textProperty().setValue("");
+            usernameField.textProperty().setValue("");
+            usernameWarning.textProperty().setValue("Wrong or non existing username.");
+        }
 
     }
 

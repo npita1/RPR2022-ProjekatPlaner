@@ -29,10 +29,12 @@ public class UserManager {
         return DaoFactory.userDao().add(q);
     }
 
-    public boolean validateUser(User user) throws PlanerException{
-        if(DaoFactory.userDao().validUsername(user) && DaoFactory.userDao().validPassword(user))
-            return true;
-        return false;
+    public boolean validateUsername(String username) throws PlanerException{
+        return DaoFactory.userDao().validUsername(username);
+    }
+
+    public boolean validatePassword(String username,String password) throws PlanerException{
+        return DaoFactory.userDao().validPassword(username,password);
     }
 
 

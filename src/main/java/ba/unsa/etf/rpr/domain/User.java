@@ -61,7 +61,7 @@ public class User implements Idable{
 
     @Override
     public String toString() {
-        return "subject";
+        return this.username + "," +this.password;
     }
 
     @Override

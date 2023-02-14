@@ -4,7 +4,9 @@ import ba.unsa.etf.rpr.domain.Idable;
 import ba.unsa.etf.rpr.exceptions.PlanerException;
 
 import java.io.Closeable;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.*;
 import java.util.*;
 
@@ -19,13 +21,19 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
 
     private static void createConnection(){
         if(AbstractDao.connection==null) {
-            try {
-                Properties p = new Properties();
+
+                /*Properties p = new Properties();
                 p.load(ClassLoader.getSystemResource("db.properties").openStream());
                 String url = p.getProperty("url");
                 String username = p.getProperty("username");
                 String password = p.getProperty("password");
-                AbstractDao.connection = DriverManager.getConnection(url, username, password);
+                AbstractDao.connection = DriverManager.getConnection(url, username, password);*/
+            try {
+                Properties p = new Properties();
+                InputStream is = new FileInputStream("db.properties");
+                p.load(is);
+                AbstractDao.connection = DriverManager.getConnection(p.getProperty("url"), p.getProperty("username"), p.getProperty("password"));
+
             } catch (Exception e) {
                 e.printStackTrace();
             }finally {

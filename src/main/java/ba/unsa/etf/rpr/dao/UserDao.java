@@ -9,7 +9,7 @@ public interface UserDao extends Dao<User>{
     User getByUsername(String username) throws PlanerException;
     boolean updateTokens(User item, Integer value);
 
-    boolean validUsername(User user) throws PlanerException;
+    boolean validUsername(String username) throws PlanerException;
 
-    boolean validPassword(User user);
+    boolean validPassword(String username, String password) throws PlanerException;
 }

@@ -66,15 +66,18 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao {
     }
 
     @Override
-    public  boolean validUsername(User user) throws PlanerException{
-        ArrayList<User> users = (ArrayList<User>) executeQuery("SELECT * FROM users WHERE username =?", new Object[]{user.getUsername()});
+    public  boolean validUsername(String username) throws PlanerException{
+        ArrayList<User> users = (ArrayList<User>) executeQuery("SELECT * FROM users WHERE username=?", new Object[]{username});
+        //System.out.println(users.toString());
         if(users.size() == 1) return true;
         return false;
     }
 
     @Override
-    public boolean validPassword(User user) {
-        //
+    public boolean validPassword(String username, String password) throws PlanerException {
+        ArrayList<User> users = (ArrayList<User>) executeQuery("SELECT * FROM users WHERE username=? AND password=?", new Object[]{username,password});
+        //System.out.println(users.toString());
+        if(users.size() == 1) return true;
         return false;
     }
 

@@ -86,7 +86,7 @@
             <Font name="Arial Bold" size="28.0" />
          </font>
       </Label>
-      <Button fx:id="loginButton" alignment="CENTER" mnemonicParsing="false" onAction="#switchToMain" styleClass="mainButton" text="Log in" GridPane.rowIndex="4">
+      <Button fx:id="loginButton" alignment="CENTER" mnemonicParsing="false" onAction="#validate" styleClass="mainButton" text="Log in" GridPane.rowIndex="4">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>

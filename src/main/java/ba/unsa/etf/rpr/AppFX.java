@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr;
 
+import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.dao.UserDao;
 import ba.unsa.etf.rpr.domain.User;
 import javafx.application.Application;
@@ -22,6 +23,8 @@ public class AppFX extends Application
         stage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
         stage.setMinHeight(650);
         stage.setMinWidth(960);
+        //UserDao userDao = DaoFactory.userDao();
+        //System.out.println(userDao.getAll().toString());
         stage.show();
     }
 

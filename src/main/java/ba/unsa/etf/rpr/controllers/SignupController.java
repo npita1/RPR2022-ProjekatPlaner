@@ -3,22 +3,16 @@ package ba.unsa.etf.rpr.controllers;
 import ba.unsa.etf.rpr.business.UserManager;
 import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.exceptions.PlanerException;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-
-import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class SignupController {
 
@@ -105,10 +99,19 @@ public class SignupController {
             switchToMain(event);
 
         } else {
-            System.out.println("nece");
-            System.out.println(passwordField.getText());
-            System.out.println(usernameField.getText());
-            System.out.println(confirmPasswordField.getText());
+            if(userManager.validateNewUsernameLength(usernameField.getText())) {
+                warningLabel.textProperty().setValue("");
+                warningLabel.setText("Username must be between 3 and 20 characters long.");
+            } else if (userManager.validateNewUsernameExist(usernameField.getText())) {
+                warningLabel.textProperty().setValue("");
+                warningLabel.setText("This username is already taken.");
+            } else if (userManager.validatePasswordLength(passwordField.getText())) {
+                warningLabel.textProperty().setValue("");
+                warningLabel.setText("Password must be between 6 and 25 characters long.");
+            } else {
+                warningLabel.textProperty().setValue("");
+                warningLabel.setText("Confirmation password does not match the initial password.");
+            }
         }
     }
 
@@ -130,8 +133,6 @@ public class SignupController {
         stage.setScene(scene);
         stage.show();
     }
-
-
 
 
 

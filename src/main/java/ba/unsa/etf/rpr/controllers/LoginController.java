@@ -34,6 +34,7 @@ public class LoginController {
     private Scene scene;
     private Parent root;
 
+    @FXML SubjectTaskTabController subjectTaskTabController;
 
     @FXML
     public void initialize() {
@@ -64,11 +65,16 @@ public class LoginController {
 
         MainController main = loader.getController();
         main.setUsername(usernameField.getText());
+        //main.initializeDateAndTokens();
         main.initialize();
+        System.out.println(main + "   U LOGIN KONTROLERU");
+        System.out.println(main.getUsername());
+
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, stage.getScene().getWidth(),stage.getScene().getHeight());
         stage.setScene(scene);
         stage.show();
+
         /*Parent root = FXMLLoader.load(getClass().getResource("/fxml/main.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, stage.getScene().getWidth(),stage.getScene().getHeight());

@@ -31,15 +31,19 @@
       <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
           <Tab text="Subjects and tasks">
-              <fx:include source="subjectsAndTasksTab.fxml" />
+              <content>
+                  <fx:include fx:id="subjectsAndTasksTab" source="subjectsAndTasksTab.fxml" />
+              </content>
           </Tab>
           <Tab text="TO-DO list">
-              <fx:include source="toDoTab.fxml" />
+              <content>
+                  <fx:include fx:id="toDoTab" source="toDoTab.fxml" />
+              </content>
           </Tab>
-            <Tab text="Pomodoro timer">
+            <Tab fx:id="timerTab" text="Pomodoro timer">
                 <fx:include source="timerTab.fxml" />
             </Tab>
-            <Tab text="Game">
+            <Tab fx:id="gameTab" text="Game">
                 <fx:include source="gameTab.fxml" />
             </Tab>
         </tabs>

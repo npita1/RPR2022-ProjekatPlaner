@@ -66,7 +66,7 @@
                   <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                </padding>
             </Label>
-            <Label prefHeight="30.0" prefWidth="145.0" styleClass="bottomStatusBarDate" stylesheets="@../css/main.css" text="Sunday, 1.1.2023." GridPane.columnIndex="1">
+            <Label fx:id="currentDate" styleClass="bottomStatusBarDate" stylesheets="@../css/main.css" text="Sunday, 1.1.2023." GridPane.columnIndex="1">
                <font>
                   <Font name="Arial" size="16.0" />
                </font>
@@ -74,10 +74,10 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
                <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="15.0" top="5.0" />
+                  <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
                </GridPane.margin>
             </Label>
-            <Label text="number">
+            <Label fx:id="tokenNumber" text="number">
                <font>
                   <Font name="Arial" size="16.0" />
                </font>

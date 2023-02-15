@@ -57,7 +57,7 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao {
 
     @Override
     public User getByUsername(String username) throws PlanerException{
-        return executeQueryUnique("SELECT * FROM users WHERE username= ", new Object[]{username});
+        return executeQueryUnique("SELECT * FROM users WHERE username=?", new Object[]{username});
     }
 
     @Override

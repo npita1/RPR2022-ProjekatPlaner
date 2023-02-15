@@ -15,6 +15,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+
 import java.io.IOException;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
@@ -31,6 +32,7 @@ public class LoginController {
     public Button loginButton;
     private Stage stage;
     private Scene scene;
+    private Parent root;
 
 
     @FXML
@@ -56,12 +58,26 @@ public class LoginController {
         stage.show();
     }
 
-    public void switchToMain (ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/main.fxml"));
+    public void switchToMain (ActionEvent event) throws IOException, PlanerException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
+        root = loader.load();
+
+        MainController main = loader.getController();
+        main.setUsername(usernameField.getText());
+        main.initialize();
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, stage.getScene().getWidth(),stage.getScene().getHeight());
         stage.setScene(scene);
         stage.show();
+        /*Parent root = FXMLLoader.load(getClass().getResource("/fxml/main.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root, stage.getScene().getWidth(),stage.getScene().getHeight());
+        stage.setScene(scene);
+        stage.show();*/
+    }
+
+    public  String loadUsername() {
+        return usernameField.getText();
     }
 
     public void validate(ActionEvent event) throws IOException, PlanerException {

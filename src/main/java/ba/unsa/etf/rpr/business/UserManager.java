@@ -53,4 +53,8 @@ public class UserManager {
         return DaoFactory.userDao().validConfirmPassword(password, confirmPassword);
     }
 
+    public User getUserByUsername(String username) throws PlanerException {
+        return DaoFactory.userDao().getByUsername(username);
+    }
+
 }

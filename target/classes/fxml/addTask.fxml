@@ -94,7 +94,7 @@
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </padding>
         </ButtonBar>
-        <Label text="Add subject">
+        <Label text="Add task">
             <font>
                 <Font name="Arial Bold" size="35.0" />
             </font>

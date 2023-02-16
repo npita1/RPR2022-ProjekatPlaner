@@ -34,8 +34,6 @@ public class LoginController {
     private Scene scene;
     private Parent root;
 
-    @FXML SubjectTaskTabController subjectTaskTabController;
-
     @FXML
     public void initialize() {
         usernameField.setOnMouseClicked((e)-> {

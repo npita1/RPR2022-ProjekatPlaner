@@ -37,4 +37,12 @@ public class SubjectManager {
         return DaoFactory.subjectDao().getSubjectByName(name);
     }
 
+    public boolean hasDuplicateSubjectUser(int userID,String subjectName) throws PlanerException {
+        return DaoFactory.subjectDao().duplicateSubjectForOneUser(userID,subjectName);
+    }
+
+    public boolean hasDuplicateAcronymUser (int userID, String acronym) throws PlanerException {
+        return DaoFactory.subjectDao().duplicateAcronymForUser(userID,acronym);
+    }
+
 }

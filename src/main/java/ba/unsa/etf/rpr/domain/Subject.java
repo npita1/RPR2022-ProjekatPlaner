@@ -11,10 +11,11 @@ public class Subject implements Idable {
 
     public Subject() {}
 
-    public Subject(String name, String acronym, String color) {
+    public Subject(String name, String acronym, String color,Integer userId) {
         this.name = name;
         this.acronym = acronym;
         this.color = color;
+        this.userId = userId;
     }
 
     public int getId() {

@@ -37,6 +37,12 @@
 .subjectsTasksTableView .table-row-cell:selected {
 	-fx-background-color: powderblue;
 }
+
+.subjectsTasksTableView .table-row-cell:filled:selected .table-cell{
+	-fx-text-fill: azure;
+}
+
+
 .subjectsTasksTableView .table-row-cell:selected .table-cell{
 	-fx-text-fill: black;
 }

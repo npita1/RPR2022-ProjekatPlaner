@@ -13,4 +13,7 @@ public interface SubjectDao extends Dao<Subject>{
     List<Subject> getSubjectsFromUserID(int id) throws PlanerException;
     //List<Subject> getSubjectsFromUsername (String username) throws PlanerException;
 
+    boolean duplicateSubjectForOneUser(int userID, String subjectName) throws PlanerException;
+    boolean duplicateAcronymForUser(int userID,String acronym) throws PlanerException;
+
 }

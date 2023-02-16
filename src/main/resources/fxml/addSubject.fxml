@@ -34,7 +34,7 @@
                   <Insets bottom="5.0" left="10.0" right="10.0" top="65.0" />
                </VBox.margin>
             </Label>
-            <TextField>
+            <TextField fx:id="subjectNameField">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" />
                </VBox.margin>
@@ -47,7 +47,7 @@
                   <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin>
             </Label>
-            <TextField>
+            <TextField fx:id="subjectAcronymField">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" />
                </VBox.margin>
@@ -62,7 +62,7 @@
                   <Font name="Arial" size="16.0" />
                </font>
             </Button>
-          <Button mnemonicParsing="false" styleClass="addButton" stylesheets="@../css/addSubject.css" text="Add">
+          <Button fx:id="addButton" mnemonicParsing="false" onAction="#addSubjectToList" styleClass="addButton" stylesheets="@../css/addSubject.css" text="Add">
                <font>
                   <Font name="Arial" size="16.0" />
                </font></Button>

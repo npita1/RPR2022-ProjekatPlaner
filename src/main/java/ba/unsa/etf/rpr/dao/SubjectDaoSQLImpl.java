@@ -77,6 +77,20 @@ public class SubjectDaoSQLImpl extends AbstractDao<Subject> implements SubjectDa
         return subjects;
     }
 
+    @Override
+    public boolean duplicateSubjectForOneUser(int userID, String subjectName) throws PlanerException {
+        ArrayList<Subject> subjects = (ArrayList<Subject>) executeQuery("SELECT * FROM subjects WHERE user_id=? AND name=?", new Object[]{userID,subjectName});
+        if(subjects.size() != 0) return true;
+        return false;
+    }
+
+    @Override
+    public boolean duplicateAcronymForUser(int userID, String acronym) throws PlanerException {
+        ArrayList<Subject> subjects = (ArrayList<Subject>) executeQuery("SELECT * FROM subjects WHERE user_id=? AND acronym=?", new Object[]{userID,acronym});
+        if(subjects.size() != 0) return true;
+        return false;
+    }
+
 
 
 

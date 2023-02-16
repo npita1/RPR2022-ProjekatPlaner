@@ -11,12 +11,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class SubjectTaskTabController {
 
@@ -35,25 +37,29 @@ public class SubjectTaskTabController {
     }
     @FXML
     public void initialize() throws PlanerException {
-        //System.out.println("tasskkkk");
+
         if(main != null) {
-            //System.out.println(main);
-            //System.out.println("EVO ME U SUBJECT KONTROLER  " + main.getUsername());
 
             User user = userManager.getUserByUsername(main.getUsername());
 
             ObservableList<Subject> userSubjects = FXCollections.observableArrayList(subjectManager.getSubjectsFromUser(user.getId()));
-            for (Subject subject : userSubjects)
+            Subject subject;
+            /*for (Subject subject : userSubjects)
             {
                 System.out.println(subject.getName());
-            }
+            }*/
 
             subjectTableColumn.setCellValueFactory(new PropertyValueFactory<Subject,String>("name"));
+            //subject = subjectManager.getSubjectByName(subjectName.getProperty());
+
+            //subjectTableColumn.setStyle("-fx-background-color: " +  subject.getColor() + ";");
+
             acronymTableColumn.setCellValueFactory(new PropertyValueFactory<Subject,String>("acronym"));
 
             subjectsTableView.setItems(userSubjects);
 
         }
+
     }
 
 

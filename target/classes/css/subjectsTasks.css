@@ -21,9 +21,24 @@
 	-fx-border-color: white;
 }
 
+.subjectsTasksTableView .cell {
+    -fx-text-fill: black;
+    -fx-font-size: 10pt;
+    -fx-font-weight:bold;
+    -fx-border-color:white;
+    -fx-alignment: center;
+}
+
 .subjectsTasksTableView {
 	-fx-background-color: white;
 	-fx-border-color: white;
+}
+
+.subjectsTasksTableView .table-row-cell:selected {
+	-fx-background-color: powderblue;
+}
+.subjectsTasksTableView .table-row-cell:selected .table-cell{
+	-fx-text-fill: black;
 }
 
 .toDoButton {

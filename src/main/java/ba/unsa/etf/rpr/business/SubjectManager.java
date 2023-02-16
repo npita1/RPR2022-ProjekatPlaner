@@ -2,7 +2,6 @@ package ba.unsa.etf.rpr.business;
 
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Subject;
-import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.exceptions.PlanerException;
 
 import java.util.ArrayList;
@@ -32,6 +31,10 @@ public class SubjectManager {
 
     public ArrayList<Subject> getSubjectsFromUser(int id) throws PlanerException {
         return (ArrayList<Subject>) DaoFactory.subjectDao().getSubjectsFromUserID(id);
+    }
+
+    public Subject getSubjectByName(String name) throws PlanerException {
+        return DaoFactory.subjectDao().getSubjectByName(name);
     }
 
 }

@@ -30,8 +30,8 @@ public class SubjectManager {
         return DaoFactory.subjectDao().add(u);
     }
 
-    public ArrayList<Subject> getSubjectsFromUser(String username) throws PlanerException {
-        return (ArrayList<Subject>) DaoFactory.subjectDao().getSubjectsFromUsername(username);
+    public ArrayList<Subject> getSubjectsFromUser(int id) throws PlanerException {
+        return (ArrayList<Subject>) DaoFactory.subjectDao().getSubjectsFromUserID(id);
     }
 
 }

@@ -34,6 +34,7 @@ public class SubjectDaoSQLImpl extends AbstractDao<Subject> implements SubjectDa
         try {
             Subject u = new Subject();
             u.setId(rs.getInt("id"));
+            // ovdje je negdje greska gdje prepoznaje ko usera valjda umjesto da je
             u.setName(rs.getString("name"));
             u.setAcronym(rs.getString("acronym"));
             u.setColor(rs.getString("color"));
@@ -76,12 +77,6 @@ public class SubjectDaoSQLImpl extends AbstractDao<Subject> implements SubjectDa
         return subjects;
     }
 
-    @Override
-    public List<Subject> getSubjectsFromUsername(String username) throws PlanerException {
-        User user = (User) executeQuery("SELECT * FROM users WHERE username=?", new Object[]{username});
-        ArrayList<Subject> subjects = (ArrayList<Subject>) executeQuery("SELECT * FROM subjects WHERE user_id=?", new Object[]{user.getId()});
-        return subjects;
-    }
 
 
 

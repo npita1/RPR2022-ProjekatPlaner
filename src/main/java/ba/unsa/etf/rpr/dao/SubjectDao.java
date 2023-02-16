@@ -11,6 +11,6 @@ public interface SubjectDao extends Dao<Subject>{
     Subject getSubjectByColor(String color) throws PlanerException;
 
     List<Subject> getSubjectsFromUserID(int id) throws PlanerException;
-    List<Subject> getSubjectsFromUsername (String username) throws PlanerException;
+    //List<Subject> getSubjectsFromUsername (String username) throws PlanerException;
 
 }

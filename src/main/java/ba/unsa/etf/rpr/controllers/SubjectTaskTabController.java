@@ -21,8 +21,8 @@ import java.io.IOException;
 public class SubjectTaskTabController {
 
     public TableView subjectsTableView;
-    public TableColumn acronymTableColumn;
-    public TableColumn subjectTableColumn;
+    public TableColumn<Subject,String> acronymTableColumn;
+    public TableColumn<Subject,String> subjectTableColumn;
 
 
     private MainController main;
@@ -42,10 +42,14 @@ public class SubjectTaskTabController {
 
             User user = userManager.getUserByUsername(main.getUsername());
 
-            ObservableList<Subject> userSubjects = FXCollections.observableArrayList(subjectManager.getSubjectsFromUser(main.getUsername()));
+            ObservableList<Subject> userSubjects = FXCollections.observableArrayList(subjectManager.getSubjectsFromUser(user.getId()));
+            for (Subject subject : userSubjects)
+            {
+                System.out.println(subject.getName());
+            }
 
-            subjectTableColumn.setCellFactory(new PropertyValueFactory<Subject,String>("Subject"));
-            acronymTableColumn.setCellFactory(new PropertyValueFactory<Subject,String>("Acronym"));
+            subjectTableColumn.setCellValueFactory(new PropertyValueFactory<Subject,String>("name"));
+            acronymTableColumn.setCellValueFactory(new PropertyValueFactory<Subject,String>("acronym"));
 
             subjectsTableView.setItems(userSubjects);
 

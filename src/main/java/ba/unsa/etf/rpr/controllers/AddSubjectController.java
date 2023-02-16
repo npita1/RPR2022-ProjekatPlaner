@@ -67,6 +67,7 @@ public class AddSubjectController {
 
                 SubjectTaskTabController subtask = this.getSubjectTaskTabController();
                 subtask.injectAddSubjectController(this);
+
                 subtask.getInfo(username, subjectName, subjectAcronym);
                 subtask.initialize();
 

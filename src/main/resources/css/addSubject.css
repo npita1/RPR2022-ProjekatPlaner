@@ -13,3 +13,7 @@
 .cancelButton {
 -fx-background-color: lightgrey;
 }
+
+.warning {
+    -fx-text-fill: orangered;
+}

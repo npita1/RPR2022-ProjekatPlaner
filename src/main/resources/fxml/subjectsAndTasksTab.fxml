@@ -87,7 +87,7 @@
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" styleClass="removeButton" stylesheets="@../css/subjectsTasks.css" text="Remove subject">
+            <Button fx:id="removeSubjectButton" mnemonicParsing="false" onAction="#removeSubjectAction" styleClass="removeButton" stylesheets="@../css/subjectsTasks.css" text="Remove subject">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>

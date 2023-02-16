@@ -45,10 +45,11 @@ public class MainController {
     @FXML
     public void initialize() throws PlanerException {
         if(username != null) {
-            System.out.println("evo me u initialize maina");
+            //System.out.println("evo me u initialize maina");
             //System.out.println("Username nije null " + new Date());
-            Alert al = new Alert(Alert.AlertType.CONFIRMATION, username);
-            al.show();
+            //Alert al = new Alert(Alert.AlertType.CONFIRMATION, username);
+            //al.show();
+
             User currentUser = userManager.getUserByUsername(username);
             tokenNumber.setText(Integer.toString(currentUser.getTokens()));
 
@@ -59,7 +60,7 @@ public class MainController {
 
             subjectsAndTasksTabController.injectMainController(this);
             subjectsAndTasksTabController.initialize();
-            
+
             //System.out.println("EVO ME U MAIN KONTROLER INITIALIZE " + this.getUsername());
         }
 
@@ -78,7 +79,7 @@ public class MainController {
             System.out.println("Username je null " + new Date());*/
     }
 
-    public void initializeDateAndTokens() throws PlanerException, IOException {
+    /*public void initializeDateAndTokens() throws PlanerException, IOException {
         System.out.println("Username nije null " + new Date());
         Alert al = new Alert(Alert.AlertType.CONFIRMATION, username);
         al.show();
@@ -89,7 +90,7 @@ public class MainController {
         SimpleDateFormat dateFormat = new SimpleDateFormat("EEEEEEEEEE, dd.MM.yyyy.");
         currentDate.setText(dateFormat.format(date));
 
-    }
+    }*/
 
     public void setUsername (String usernamea) {
         username = usernamea;

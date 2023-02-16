@@ -6,7 +6,7 @@ public class ToDoTabController {
 
     @FXML
     public void initialize() {
-        System.out.println("todotodo");
+        //System.out.println("todotodo");
         //System.out.println(main.getUsername());
     }
 }

@@ -67,8 +67,8 @@ public class LoginController {
         main.setUsername(usernameField.getText());
         //main.initializeDateAndTokens();
         main.initialize();
-        System.out.println(main + "   U LOGIN KONTROLERU");
-        System.out.println(main.getUsername());
+        //System.out.println(main + "   U LOGIN KONTROLERU");
+        //System.out.println(main.getUsername());
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, stage.getScene().getWidth(),stage.getScene().getHeight());

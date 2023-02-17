@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 public class AddSubjectController {
 
@@ -58,7 +59,7 @@ public class AddSubjectController {
         stage.close();
     }
 
-    public void addSubjectToList(ActionEvent actionEvent) throws IOException, PlanerException {
+    public void addSubjectToList(ActionEvent actionEvent) throws IOException, PlanerException, ParseException {
         User user = userManager.getUserByUsername(username);
         if(!subjectManager.hasDuplicateAcronymUser(user.getId(),subjectAcronymField.getText()) && !subjectManager.hasDuplicateSubjectUser(user.getId(),subjectNameField.getText()) ) {
             if(subjectNameField.getText().length() >= 5 && subjectAcronymField.getText().length()>=2) {

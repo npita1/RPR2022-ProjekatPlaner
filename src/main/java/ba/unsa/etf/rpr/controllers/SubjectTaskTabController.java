@@ -23,6 +23,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -59,7 +60,7 @@ public class SubjectTaskTabController {
 
 
     @FXML
-    public void initialize() throws PlanerException {
+    public void initialize() throws PlanerException, ParseException {
 
         // Initial initialization after login
         if(main != null) {
@@ -96,7 +97,10 @@ public class SubjectTaskTabController {
                 if(changedSubjectTask.getName().equals(((Subject) o).getName())) {
                     ObservableList<Task> taskFromClickedSubject = FXCollections.observableArrayList(taskManager.getTasksWithSubjectID(changedSubjectTask.getId()));
                     for(Task t : taskFromClickedSubject) {
-
+                        if(!taskManager.validateEnteredDate(t.getDeadline())) {
+                            taskFromClickedSubject.remove(t);
+                            taskManager.delete(t.getId());
+                        }
                     }
                     taskTextTableColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("taskText"));
                     deadlineTableColumn.setCellValueFactory(new PropertyValueFactory<Task, Date>("deadline"));
@@ -167,12 +171,20 @@ public class SubjectTaskTabController {
         taskManager.delete(sub.getId());
     }
 
-    public void clickedItem(MouseEvent mouseEvent) throws PlanerException {
+    public void clickedItem(MouseEvent mouseEvent) throws PlanerException, ParseException {
         Object o = subjectsTableView.getSelectionModel().getSelectedItem();
         if(o instanceof Subject) {
             //Subject clickedSubject = subjectManager.getSubjectByName(((Subject) o).getName());
 
             ObservableList<Task> taskFromClickedSubject = FXCollections.observableArrayList(taskManager.getTasksWithSubjectID(((Subject) o).getId()));
+            ObservableList<Task> remove =   FXCollections.observableArrayList();
+            for(Task t : taskFromClickedSubject) {
+                if(!taskManager.validateEnteredDate(t.getDeadline())) {
+                    remove.add(t);
+                    taskManager.delete(t.getId());
+                }
+            }
+            taskFromClickedSubject.removeAll(remove);
 
             taskTextTableColumn.setCellValueFactory(new PropertyValueFactory<Task,String>("taskText"));
             deadlineTableColumn.setCellValueFactory(new PropertyValueFactory<Task,Date>("deadline"));

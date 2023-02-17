@@ -65,8 +65,10 @@ public class TaskDaoSQLImpl extends AbstractDao<Task> implements TaskDao{
         String stringDate = dateFormat.format(new Date());
         Date d = dateFormat.parse(stringDate);
 
-        if(date.before(d) || !d.equals(date))  {
-            return false;
+        if(date != null) {
+            if (date.before(d)) {
+                return false;
+            }
         }
         return true;
     }

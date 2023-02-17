@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 
 import javax.inject.Inject;
 import java.io.IOException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -43,7 +44,7 @@ public class MainController {
     private String username;
 
     @FXML
-    public void initialize() throws PlanerException {
+    public void initialize() throws PlanerException, ParseException {
         if(username != null) {
             //System.out.println("evo me u initialize maina");
             //System.out.println("Username nije null " + new Date());

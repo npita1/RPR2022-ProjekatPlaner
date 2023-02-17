@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 
 
 import java.io.IOException;
+import java.text.ParseException;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
@@ -57,7 +58,7 @@ public class LoginController {
         stage.show();
     }
 
-    public void switchToMain (ActionEvent event) throws IOException, PlanerException {
+    public void switchToMain (ActionEvent event) throws IOException, PlanerException, ParseException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
         root = loader.load();
 
@@ -84,7 +85,7 @@ public class LoginController {
         return usernameField.getText();
     }
 
-    public void validate(ActionEvent event) throws IOException, PlanerException {
+    public void validate(ActionEvent event) throws IOException, PlanerException, ParseException {
         if(userManager.validateUsername(usernameField.getText())) {
             if(userManager.validatePassword(usernameField.getText(), passwordField.getText())) {
                 if(!passwordWarning.getText().equals("") || !usernameWarning.getText().equals("")) {

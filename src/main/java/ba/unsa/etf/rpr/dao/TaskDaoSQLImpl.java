@@ -3,8 +3,10 @@ package ba.unsa.etf.rpr.dao;
 import ba.unsa.etf.rpr.domain.Subject;
 import ba.unsa.etf.rpr.domain.Task;
 import ba.unsa.etf.rpr.exceptions.PlanerException;
+import javafx.collections.ObservableList;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -50,4 +52,11 @@ public class TaskDaoSQLImpl extends AbstractDao<Task> implements TaskDao{
 
         return item;
     }
+
+    @Override
+    public ArrayList<Task> getTasksBySubjectID(int id) throws PlanerException {
+        return (ArrayList<Task>) executeQuery("SELECT * FROM tasks WHERE subject_id=?",new Object[]{id});
+    }
+
+
 }

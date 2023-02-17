@@ -28,7 +28,7 @@
             <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
          </GridPane.margin>
       </Pane>
-      <TableView fx:id="subjectsTableView" prefHeight="200.0" prefWidth="200.0" styleClass="subjectsTasksTableView" stylesheets="@../css/subjectsTasks.css" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+      <TableView fx:id="subjectsTableView" onMouseClicked="#clickedItem" prefHeight="200.0" prefWidth="200.0" styleClass="subjectsTasksTableView" stylesheets="@../css/subjectsTasks.css" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
         <columns>
           <TableColumn fx:id="acronymTableColumn" editable="false" maxWidth="109.0" minWidth="109.0" prefWidth="109.0" text="Acronym" />
           <TableColumn fx:id="subjectTableColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="235.0" prefWidth="235.0" text="Subject" />

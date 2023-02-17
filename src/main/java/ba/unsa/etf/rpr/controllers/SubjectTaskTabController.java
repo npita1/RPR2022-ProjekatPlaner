@@ -1,13 +1,16 @@
 package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.business.SubjectManager;
+import ba.unsa.etf.rpr.business.TaskManager;
 import ba.unsa.etf.rpr.business.UserManager;
 import ba.unsa.etf.rpr.domain.Subject;
+import ba.unsa.etf.rpr.domain.Task;
 import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.exceptions.PlanerException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,16 +19,19 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class SubjectTaskTabController {
 
     // Database managers
     private final UserManager userManager = new UserManager();
     private final SubjectManager subjectManager = new SubjectManager();
+    private final TaskManager taskManager = new TaskManager();
 
     // FX COMPONENTS
     @FXML public TableView subjectsTableView;
@@ -33,9 +39,9 @@ public class SubjectTaskTabController {
     @FXML public TableColumn<Subject,String> subjectTableColumn;
     public Button removeSubjectButton;
     public TableView tasksTableView;
-    public TableColumn subjectTaskTableColumn;
-    public TableColumn taskTextTableColumn;
-    public TableColumn deadlineTableColumn;
+    public TableColumn<Task,String> subjectTaskTableColumn;
+    public TableColumn<Task,String> taskTextTableColumn;
+    public TableColumn<Task, Date> deadlineTableColumn;
 
 
     // Controllers for injection
@@ -153,5 +159,20 @@ public class SubjectTaskTabController {
     public void injectAddTaskController (AddTaskController addTaskController) {
         this.addTaskController = addTaskController;
     }
-    
+
+    public void clickedItem(MouseEvent mouseEvent) throws PlanerException {
+        Object o = subjectsTableView.getSelectionModel().getSelectedItem();
+        if(o instanceof Subject) {
+            Subject clickedSubject = subjectManager.getSubjectByName(((Subject) o).getName());
+
+            ObservableList<Task> taskFromClickedSubject = FXCollections.observableArrayList(taskManager.getTasksWithSubjectID(((Subject) o).getId()));
+
+            taskTextTableColumn.setCellValueFactory(new PropertyValueFactory<Task,String>("taskText"));
+            deadlineTableColumn.setCellValueFactory(new PropertyValueFactory<Task,Date>("deadline"));
+
+            tasksTableView.setItems(taskFromClickedSubject);
+
+        }
+    }
+
 }

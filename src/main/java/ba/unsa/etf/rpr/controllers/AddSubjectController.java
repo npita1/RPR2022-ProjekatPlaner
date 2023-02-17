@@ -16,14 +16,12 @@ import java.io.IOException;
 
 public class AddSubjectController {
 
+    // Database managers
     private final SubjectManager subjectManager = new SubjectManager();
     private final UserManager userManager = new UserManager();
 
 
-    private String username;
-    private String subjectName;
-    private String subjectAcronym;
-
+    // FX COMPONENTS
     @FXML
     public Button cancelButton;
     public TextField subjectAcronymField;
@@ -31,7 +29,15 @@ public class AddSubjectController {
     public TextField subjectNameField;
     public Label warningMessage;
 
+
+    // Controllers for injection
     private SubjectTaskTabController subjectTaskTabController;
+
+    // Needed data
+    private String username;
+    private String subjectName;
+    private String subjectAcronym;
+
 
     @FXML
     public void initialize() {

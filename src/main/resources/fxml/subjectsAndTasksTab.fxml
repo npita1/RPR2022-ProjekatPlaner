@@ -45,11 +45,11 @@
             <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
          </GridPane.margin>
       </Pane>
-      <TableView prefHeight="421.0" prefWidth="524.0" styleClass="subjectsTasksTableView" stylesheets="@../css/subjectsTasks.css" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+      <TableView fx:id="tasksTableView" prefHeight="421.0" prefWidth="524.0" styleClass="subjectsTasksTableView" stylesheets="@../css/subjectsTasks.css" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
         <columns>
-          <TableColumn maxWidth="109.0" minWidth="109.0" prefWidth="109.0" text="Subject" />
-          <TableColumn maxWidth="1.7976931348623157E308" minWidth="270.0" prefWidth="270.0" text="Task" />
-            <TableColumn maxWidth="170.0" minWidth="170.0" prefWidth="170.0" text="Deadline" />
+          <TableColumn fx:id="subjectTaskTableColumn" maxWidth="109.0" minWidth="109.0" prefWidth="109.0" text="Subject" />
+          <TableColumn fx:id="taskTextTableColumn" maxWidth="1.7976931348623157E308" minWidth="270.0" prefWidth="270.0" text="Task" />
+            <TableColumn fx:id="deadlineTableColumn" maxWidth="170.0" minWidth="170.0" prefWidth="170.0" text="Deadline" />
         </columns>
          <GridPane.margin>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

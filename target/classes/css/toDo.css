@@ -8,7 +8,7 @@
 }
 
 .sideButton {
--fx-background-color:lightgrey;
+-fx-background-color:silver;
 -fx-background-radius: 40;
 }
 
@@ -26,10 +26,28 @@
 	-fx-border-color: white;
 }
 
+.subjectsTasksTableView .cell {
+    -fx-text-fill: black;
+    -fx-font-size: 10pt;
+    -fx-font-weight:bold;
+    -fx-border-color:white;
+    -fx-alignment: center;
+}
+
 .subjectsTasksTableView {
 	-fx-background-color: whitesmoke;
 	-fx-border-color: white;
 }
+
+.subjectsTasksTableView .table-row-cell:selected {
+	-fx-background-color: lightgrey;
+}
+
+.subjectsTasksTableView .table-row-cell:filled:selected .table-cell{
+	-fx-text-fill: whitesmoke;
+}
+
+
 
 .toDoButton {
 -fx-background-color: lightsalmon;

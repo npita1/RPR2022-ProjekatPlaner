@@ -95,7 +95,9 @@ public class SubjectTaskTabController {
             if(o instanceof Subject) {
                 if(changedSubjectTask.getName().equals(((Subject) o).getName())) {
                     ObservableList<Task> taskFromClickedSubject = FXCollections.observableArrayList(taskManager.getTasksWithSubjectID(changedSubjectTask.getId()));
+                    for(Task t : taskFromClickedSubject) {
 
+                    }
                     taskTextTableColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("taskText"));
                     deadlineTableColumn.setCellValueFactory(new PropertyValueFactory<Task, Date>("deadline"));
 
@@ -137,8 +139,6 @@ public class SubjectTaskTabController {
         addTask.setInsertedSubjects(userSubjects);
         addTask.initialize();
 
-        //fxmlLoader.setLocation(getClass().getResource("/fxml/addTask.fxml"));
-
         Scene scene = new Scene(root, 510, 540);
         Stage stage = new Stage();
         stage.setTitle("Add task");
@@ -165,10 +165,6 @@ public class SubjectTaskTabController {
         oneTask.forEach(allTasks::remove);
 
         taskManager.delete(sub.getId());
-        System.out.println("brisem " + sub.getId());
-        System.out.println(sub.getTaskText());
-        System.out.println(sub.getSubjectId());
-        System.out.println(sub.getDeadline());
     }
 
     public void clickedItem(MouseEvent mouseEvent) throws PlanerException {

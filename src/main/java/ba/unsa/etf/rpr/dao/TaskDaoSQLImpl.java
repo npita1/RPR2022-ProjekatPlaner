@@ -61,7 +61,11 @@ public class TaskDaoSQLImpl extends AbstractDao<Task> implements TaskDao{
 
     @Override
     public boolean checkDate(Date date) throws PlanerException, ParseException {
-        if(date.before(new Date())) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String stringDate = dateFormat.format(new Date());
+        Date d = dateFormat.parse(stringDate);
+
+        if(date.before(d) || !d.equals(date))  {
             return false;
         }
         return true;

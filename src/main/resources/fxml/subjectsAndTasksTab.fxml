@@ -29,7 +29,10 @@
          </GridPane.margin>
       </Pane>
       <TableView fx:id="subjectsTableView" onMouseClicked="#clickedItem" prefHeight="200.0" prefWidth="200.0" styleClass="subjectsTasksTableView" stylesheets="@../css/subjectsTasks.css" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
-        <columns>
+          <placeholder>
+              <Label text="Add subjects"/>
+          </placeholder>
+          <columns>
           <TableColumn fx:id="acronymTableColumn" editable="false" maxWidth="109.0" minWidth="109.0" prefWidth="109.0" text="Acronym" />
           <TableColumn fx:id="subjectTableColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="235.0" prefWidth="235.0" text="Subject" />
         </columns>
@@ -46,7 +49,10 @@
          </GridPane.margin>
       </Pane>
       <TableView fx:id="tasksTableView" prefHeight="421.0" prefWidth="524.0" styleClass="tasksTableView" stylesheets="@../css/subjectsTasks.css" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
-        <columns>
+          <placeholder>
+              <Label text="Select one subject from subject list to open task list"/>
+          </placeholder>
+          <columns>
           <TableColumn fx:id="taskTextTableColumn" maxWidth="1.7976931348623157E308" minWidth="270.0" prefWidth="270.0" text="Task" />
             <TableColumn fx:id="deadlineTableColumn" maxWidth="170.0" minWidth="170.0" prefWidth="170.0" text="Deadline" />
         </columns>

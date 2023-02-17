@@ -85,6 +85,14 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" />
                </VBox.margin>
             </DatePicker>
+            <Label fx:id="dateWarning" styleClass="warning">
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Arial Italic" size="13.0" />
+               </font>
+            </Label>
                 <Label text="NOTE: You can add tasks only for added subjects.">
                     <font>
                         <Font name="Arial" size="13.0" />

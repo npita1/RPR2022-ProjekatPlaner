@@ -88,13 +88,18 @@ public class SubjectTaskTabController {
         }
         // Initialization after adding task
         if(addTaskController != null) {
-            ObservableList<Task> taskFromClickedSubject = FXCollections.observableArrayList(taskManager.getTasksWithSubjectID(changedSubjectTask.getId()));
+            Object o = subjectsTableView.getSelectionModel().getSelectedItem();
+            if(o instanceof Subject) {
+                if(changedSubjectTask.getName().equals(((Subject) o).getName())) {
+                    ObservableList<Task> taskFromClickedSubject = FXCollections.observableArrayList(taskManager.getTasksWithSubjectID(changedSubjectTask.getId()));
 
-            taskTextTableColumn.setCellValueFactory(new PropertyValueFactory<Task,String>("taskText"));
-            deadlineTableColumn.setCellValueFactory(new PropertyValueFactory<Task,Date>("deadline"));
+                    taskTextTableColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("taskText"));
+                    deadlineTableColumn.setCellValueFactory(new PropertyValueFactory<Task, Date>("deadline"));
 
-            tasksTableView.setItems(taskFromClickedSubject);
-            subjectsTableView.refresh();
+                    tasksTableView.setItems(taskFromClickedSubject);
+                    subjectsTableView.refresh();
+                }
+            }
         }
 
     }
@@ -177,6 +182,7 @@ public class SubjectTaskTabController {
             deadlineTableColumn.setCellValueFactory(new PropertyValueFactory<Task,Date>("deadline"));
 
             tasksTableView.setItems(taskFromClickedSubject);
+            tasksTableView.refresh();
 
         }
     }

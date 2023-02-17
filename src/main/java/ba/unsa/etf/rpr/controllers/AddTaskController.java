@@ -55,19 +55,46 @@ public class AddTaskController {
     }
 
     public void addTaskToList(ActionEvent actionEvent) throws PlanerException, ParseException {
+            if(deadlineDatePicker.getValue() != null) {
+                LocalDate currentDate = deadlineDatePicker.getValue();
+                ZoneId systemTimeZone = ZoneId.systemDefault();
+                ZonedDateTime zonedDateTime = currentDate.atStartOfDay(systemTimeZone);
+                Date utilDate = Date.from(zonedDateTime.toInstant());
 
-            LocalDate currentDate = deadlineDatePicker.getValue();
-            ZoneId systemTimeZone = ZoneId.systemDefault();
-            ZonedDateTime zonedDateTime = currentDate.atStartOfDay(systemTimeZone);
-            Date utilDate = Date.from(zonedDateTime.toInstant());
+                if (taskManager.validateEnteredDate(utilDate)) {
 
-            if (taskManager.validateEnteredDate(utilDate)) {
 
+                    if (!subjectComboBox.getSelectionModel().isEmpty()) {
+                        if (taskTextField.getText().length() >= 3 || !taskTextField.getText().replaceAll("\\s", "").isEmpty()) { // dodaj i u ostalim dijelovima ove provjere
+                            Subject chosenSubject = subjectManager.getSubjectByName((String) subjectComboBox.getValue());
+
+                            taskManager.add(new Task(taskTextField.getText(), utilDate, chosenSubject.getId()));
+
+                            SubjectTaskTabController subtask = this.getSubjectTaskTabController();
+                            subtask.injectAddTaskController(this);
+                            subtask.getAddedTaskSubject(chosenSubject);
+                            subtask.initialize();
+
+                            Stage stage = (Stage) addTaskButton.getScene().getWindow();
+                            stage.close();
+                        } else {
+                            taskTextField.setText("");
+                            taskWarning.setText("Task text must be at least 3 characters long!");
+                        }
+
+                    } else {
+                        subjectWarning.setText("Subject must be selected.");
+                    }
+
+                } else {
+                    dateWarning.setText("Deadline cannot be in the past.");
+                }
+            } else {
                 if (!subjectComboBox.getSelectionModel().isEmpty()) {
-                    if(taskTextField.getText().length() >= 3 || !taskTextField.getText().replaceAll("\\s", "").isEmpty()) { // dodaj i u ostalim dijelovima ove provjere
+                    if (taskTextField.getText().length() >= 3 || !taskTextField.getText().replaceAll("\\s", "").isEmpty()) { // dodaj i u ostalim dijelovima ove provjere
                         Subject chosenSubject = subjectManager.getSubjectByName((String) subjectComboBox.getValue());
 
-                        taskManager.add(new Task(taskTextField.getText(), utilDate, chosenSubject.getId()));
+                        taskManager.add(new Task(taskTextField.getText(), null, chosenSubject.getId()));
 
                         SubjectTaskTabController subtask = this.getSubjectTaskTabController();
                         subtask.injectAddTaskController(this);
@@ -81,13 +108,9 @@ public class AddTaskController {
                         taskWarning.setText("Task text must be at least 3 characters long!");
                     }
 
-                } else{
+                } else {
                     subjectWarning.setText("Subject must be selected.");
                 }
-
-
-            } else {
-                dateWarning.setText("Deadline cannot be in the past.");
             }
 
     }

@@ -9,10 +9,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -32,6 +29,9 @@ public class AddTaskController {
     public TextField taskTextField;
     public DatePicker deadlineDatePicker;
     public Button addTaskButton;
+    public Label taskWarning;
+    public Label subjectWarning;
+    public Label dateWarning;
 
     private SubjectTaskTabController subjectTaskTabController;
 
@@ -55,16 +55,14 @@ public class AddTaskController {
     }
 
     public void addTaskToList(ActionEvent actionEvent) throws PlanerException, ParseException {
-        System.out.println("Ulaz");
+
             LocalDate currentDate = deadlineDatePicker.getValue();
             ZoneId systemTimeZone = ZoneId.systemDefault();
             ZonedDateTime zonedDateTime = currentDate.atStartOfDay(systemTimeZone);
             Date utilDate = Date.from(zonedDateTime.toInstant());
 
             if (taskManager.validateEnteredDate(utilDate)) {
-                //System.out.println("ok");
-                // vidi kakav ti je format kad ukucas datum uneses tas
-                // u Main controller imas formatiranje datuma
+
                 if (!subjectComboBox.getSelectionModel().isEmpty()) {
                     if(taskTextField.getText().length() >= 3 || !taskTextField.getText().replaceAll("\\s", "").isEmpty()) { // dodaj i u ostalim dijelovima ove provjere
                         Subject chosenSubject = subjectManager.getSubjectByName((String) subjectComboBox.getValue());
@@ -78,14 +76,19 @@ public class AddTaskController {
 
                         Stage stage = (Stage) addTaskButton.getScene().getWindow();
                         stage.close();
-                    } else
-                        System.out.println("duzina uslov");
+                    } else {
+                        taskTextField.setText("");
+                        taskWarning.setText("Task text must be at least 3 characters long!");
+                    }
 
-                } else
-                    System.out.println("combo box uslov");
+                } else{
+                    subjectWarning.setText("Subject must be selected.");
+                }
 
-            }else
-                System.out.println("datum validnost");
+
+            } else {
+                dateWarning.setText("Deadline cannot be in the past.");
+            }
 
     }
 

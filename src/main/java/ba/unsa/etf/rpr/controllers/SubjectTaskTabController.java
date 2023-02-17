@@ -39,7 +39,6 @@ public class SubjectTaskTabController {
     @FXML public TableColumn<Subject,String> subjectTableColumn;
     public Button removeSubjectButton;
     public TableView tasksTableView;
-    public TableColumn<Task,String> subjectTaskTableColumn;
     public TableColumn<Task,String> taskTextTableColumn;
     public TableColumn<Task, Date> deadlineTableColumn;
 
@@ -56,6 +55,7 @@ public class SubjectTaskTabController {
     private String subAddName;
     private String subAddAcronym;
     private String username;
+    private Subject changedSubjectTask;
 
 
     @FXML
@@ -88,7 +88,13 @@ public class SubjectTaskTabController {
         }
         // Initialization after adding task
         if(addTaskController != null) {
+            ObservableList<Task> taskFromClickedSubject = FXCollections.observableArrayList(taskManager.getTasksWithSubjectID(changedSubjectTask.getId()));
 
+            taskTextTableColumn.setCellValueFactory(new PropertyValueFactory<Task,String>("taskText"));
+            deadlineTableColumn.setCellValueFactory(new PropertyValueFactory<Task,Date>("deadline"));
+
+            tasksTableView.setItems(taskFromClickedSubject);
+            subjectsTableView.refresh();
         }
 
     }
@@ -163,7 +169,7 @@ public class SubjectTaskTabController {
     public void clickedItem(MouseEvent mouseEvent) throws PlanerException {
         Object o = subjectsTableView.getSelectionModel().getSelectedItem();
         if(o instanceof Subject) {
-            Subject clickedSubject = subjectManager.getSubjectByName(((Subject) o).getName());
+            //Subject clickedSubject = subjectManager.getSubjectByName(((Subject) o).getName());
 
             ObservableList<Task> taskFromClickedSubject = FXCollections.observableArrayList(taskManager.getTasksWithSubjectID(((Subject) o).getId()));
 
@@ -173,6 +179,10 @@ public class SubjectTaskTabController {
             tasksTableView.setItems(taskFromClickedSubject);
 
         }
+    }
+
+    public void getAddedTaskSubject (Subject subject) {
+        this.changedSubjectTask = subject;
     }
 
 }

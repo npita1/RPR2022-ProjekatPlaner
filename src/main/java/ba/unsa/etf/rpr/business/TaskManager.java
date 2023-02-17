@@ -1,12 +1,13 @@
 package ba.unsa.etf.rpr.business;
 
 import ba.unsa.etf.rpr.dao.DaoFactory;
-import ba.unsa.etf.rpr.domain.Subject;
 import ba.unsa.etf.rpr.domain.Task;
 import ba.unsa.etf.rpr.exceptions.PlanerException;
-import javafx.collections.ObservableList;
 
+import java.text.ParseException;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class TaskManager {
@@ -36,5 +37,8 @@ public class TaskManager {
         return DaoFactory.taskDao().getTasksBySubjectID(id);
     }
 
+    public boolean validateEnteredDate (Date date) throws PlanerException, ParseException {
+        return DaoFactory.taskDao().checkDate(date);
+    }
 
 }

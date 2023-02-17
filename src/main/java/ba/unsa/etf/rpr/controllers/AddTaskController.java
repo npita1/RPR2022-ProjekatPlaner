@@ -3,6 +3,8 @@ package ba.unsa.etf.rpr.controllers;
 import ba.unsa.etf.rpr.business.SubjectManager;
 import ba.unsa.etf.rpr.business.TaskManager;
 import ba.unsa.etf.rpr.domain.Subject;
+import ba.unsa.etf.rpr.domain.Task;
+import ba.unsa.etf.rpr.exceptions.PlanerException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,8 +16,11 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.util.Date;
 
 public class AddTaskController {
 
@@ -49,7 +54,38 @@ public class AddTaskController {
 
     }
 
-    public void addTaskToList(ActionEvent actionEvent) {
+    public void addTaskToList(ActionEvent actionEvent) throws PlanerException, ParseException {
+        System.out.println("Ulaz");
+            LocalDate currentDate = deadlineDatePicker.getValue();
+            ZoneId systemTimeZone = ZoneId.systemDefault();
+            ZonedDateTime zonedDateTime = currentDate.atStartOfDay(systemTimeZone);
+            Date utilDate = Date.from(zonedDateTime.toInstant());
+
+            if (taskManager.validateEnteredDate(utilDate)) {
+                //System.out.println("ok");
+                // vidi kakav ti je format kad ukucas datum uneses tas
+                // u Main controller imas formatiranje datuma
+                if (!subjectComboBox.getSelectionModel().isEmpty()) {
+                    if(taskTextField.getText().length() >= 3 || !taskTextField.getText().replaceAll("\\s", "").isEmpty()) { // dodaj i u ostalim dijelovima ove provjere
+                        Subject chosenSubject = subjectManager.getSubjectByName((String) subjectComboBox.getValue());
+
+                        taskManager.add(new Task(taskTextField.getText(), utilDate, chosenSubject.getId()));
+
+                        SubjectTaskTabController subtask = this.getSubjectTaskTabController();
+                        subtask.injectAddTaskController(this);
+                        subtask.getAddedTaskSubject(chosenSubject);
+                        subtask.initialize();
+
+                        Stage stage = (Stage) addTaskButton.getScene().getWindow();
+                        stage.close();
+                    } else
+                        System.out.println("duzina uslov");
+
+                } else
+                    System.out.println("combo box uslov");
+
+            }else
+                System.out.println("datum validnost");
 
     }
 

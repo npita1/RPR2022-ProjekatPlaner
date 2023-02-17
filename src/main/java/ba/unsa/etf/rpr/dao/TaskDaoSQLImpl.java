@@ -6,10 +6,10 @@ import ba.unsa.etf.rpr.exceptions.PlanerException;
 import javafx.collections.ObservableList;
 
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.*;
 
 public class TaskDaoSQLImpl extends AbstractDao<Task> implements TaskDao{
     private static TaskDaoSQLImpl instance = null;
@@ -56,6 +56,14 @@ public class TaskDaoSQLImpl extends AbstractDao<Task> implements TaskDao{
     @Override
     public ArrayList<Task> getTasksBySubjectID(int id) throws PlanerException {
         return (ArrayList<Task>) executeQuery("SELECT * FROM tasks WHERE subject_id=?",new Object[]{id});
+    }
+
+    @Override
+    public boolean checkDate(Date date) throws PlanerException, ParseException {
+        if(date.before(new Date())) {
+            return false;
+        }
+        return true;
     }
 
 

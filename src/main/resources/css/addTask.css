@@ -13,3 +13,23 @@
 .cancelButton {
 -fx-background-color: lightgrey;
 }
+
+
+.combo-box .list-cell
+{
+    -fx-background: red;
+    -fx-background-color: transparent;
+    -fx-text-fill: -fx-text-base-color;
+    -fx-padding: 3 0 2 7;
+    -fx-cell-size: 1.66667em;
+}
+
+.combo-box {
+    -fx-background-color: whitesmoke;
+    -fx-border-color: silver;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-font-size: 13px;
+    -fx-font-weight: 550;
+    -fx-font-family: 'Arial';
+}

@@ -7,10 +7,6 @@ import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.exceptions.PlanerException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -22,7 +18,6 @@ public class AddSubjectController {
 
     private final SubjectManager subjectManager = new SubjectManager();
     private final UserManager userManager = new UserManager();
-    public Label warningMessage;
 
 
     private String username;
@@ -34,6 +29,7 @@ public class AddSubjectController {
     public TextField subjectAcronymField;
     public Button addButton;
     public TextField subjectNameField;
+    public Label warningMessage;
 
     private SubjectTaskTabController subjectTaskTabController;
 

@@ -33,6 +33,7 @@ public class TaskDaoSQLImpl extends AbstractDao<Task> implements TaskDao{
     public Task row2object(ResultSet rs) throws PlanerException {
         try {
             Task u = new Task();
+            u.setId(rs.getInt("id"));
             u.setTaskText(rs.getString("task_text"));
             u.setDeadline(rs.getDate("deadline"));
             u.setSubjectId(rs.getInt("subject_id"));

@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.Objects;
 
 public class Task implements Idable{
-    private Integer id;
+    private int id;
     private String taskText;
     private Date deadline;
     private Integer subjectId;
@@ -18,7 +18,7 @@ public class Task implements Idable{
 
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(int id) {

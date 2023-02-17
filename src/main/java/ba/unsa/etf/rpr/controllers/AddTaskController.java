@@ -51,6 +51,27 @@ public class AddTaskController {
             subjectComboBox.setItems(comboBoxSubjectsNames);
 
         }
+        taskTextField.setOnMouseClicked((e)-> {
+            if(!taskWarning.textProperty().getValue().equals("") || !dateWarning.textProperty().getValue().equals("") || !subjectWarning.textProperty().getValue().equals("")) {
+                taskWarning.textProperty().setValue("");
+                dateWarning.textProperty().setValue("");
+                subjectWarning.textProperty().setValue("");
+            }
+        });
+        deadlineDatePicker.setOnMouseClicked((e) -> {
+            if(!taskWarning.textProperty().getValue().equals("") || !dateWarning.textProperty().getValue().equals("") || !subjectWarning.textProperty().getValue().equals("")) {
+                taskWarning.textProperty().setValue("");
+                dateWarning.textProperty().setValue("");
+                subjectWarning.textProperty().setValue("");
+            }
+        });
+        subjectComboBox.setOnMouseClicked((e) -> {
+            if(!taskWarning.textProperty().getValue().equals("") || !dateWarning.textProperty().getValue().equals("") || !subjectWarning.textProperty().getValue().equals("")) {
+                taskWarning.textProperty().setValue("");
+                dateWarning.textProperty().setValue("");
+                subjectWarning.textProperty().setValue("");
+            }
+        });
 
     }
 

@@ -30,7 +30,7 @@
       </Pane>
       <TableView fx:id="subjectsTableView" onMouseClicked="#clickedItem" prefHeight="200.0" prefWidth="200.0" styleClass="subjectsTasksTableView" stylesheets="@../css/subjectsTasks.css" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
           <placeholder>
-              <Label text="Add subjects"/>
+              <Label text="Add subjects" />
           </placeholder>
           <columns>
           <TableColumn fx:id="acronymTableColumn" editable="false" maxWidth="109.0" minWidth="109.0" prefWidth="109.0" text="Acronym" />
@@ -50,7 +50,7 @@
       </Pane>
       <TableView fx:id="tasksTableView" prefHeight="421.0" prefWidth="524.0" styleClass="tasksTableView" stylesheets="@../css/subjectsTasks.css" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
           <placeholder>
-              <Label text="Select one subject from subject list to open task list"/>
+              <Label text="Select one subject from subject list to open task list" />
           </placeholder>
           <columns>
           <TableColumn fx:id="taskTextTableColumn" maxWidth="1.7976931348623157E308" minWidth="270.0" prefWidth="270.0" text="Task" />
@@ -117,7 +117,7 @@
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="287.0" styleClass="removeButton" stylesheets="@../css/subjectsTasks.css" text="Remove task">
+            <Button fx:id="removeTaskButton" mnemonicParsing="false" onAction="#removeTaskAction" prefHeight="26.0" prefWidth="287.0" styleClass="removeButton" stylesheets="@../css/subjectsTasks.css" text="Remove task">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>

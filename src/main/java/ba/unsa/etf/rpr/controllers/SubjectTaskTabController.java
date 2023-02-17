@@ -60,6 +60,7 @@ public class SubjectTaskTabController {
 
     @FXML
     public void initialize() throws PlanerException {
+
         // Initial initialization after login
         if(main != null) {
             User user = userManager.getUserByUsername(main.getUsername());
@@ -72,6 +73,7 @@ public class SubjectTaskTabController {
             subjectsTableView.setItems(userSubjects);
 
         }
+
         // Initialization after adding subject
         if(addSubCon != null) {
 
@@ -86,6 +88,7 @@ public class SubjectTaskTabController {
             subjectsTableView.refresh();
 
         }
+
         // Initialization after adding task
         if(addTaskController != null) {
             Object o = subjectsTableView.getSelectionModel().getSelectedItem();
@@ -144,11 +147,6 @@ public class SubjectTaskTabController {
         stage.show();
     }
 
-    public void getInfo (String username, String subName, String subAcronym) {
-        this.username = username;
-        this.subAddName = subName;
-        this.subAddAcronym = subAcronym;
-    }
 
     public void removeSubjectAction(ActionEvent actionEvent) throws PlanerException {
         ObservableList<Subject> allSubjects, oneSubject;
@@ -159,16 +157,18 @@ public class SubjectTaskTabController {
         subjectManager.delete(sub.getId());
     }
 
+    public void removeTaskAction (ActionEvent actionEvent) throws PlanerException {
+        ObservableList<Task> allTasks, oneTask;
+        allTasks = tasksTableView.getItems();
+        oneTask = tasksTableView.getSelectionModel().getSelectedItems();
+        Task sub = oneTask.get(0);
+        oneTask.forEach(allTasks::remove);
 
-    // Controller injections
-    public void injectMainController(MainController mainController) {
-        this.main = mainController;
-    }
-    public void injectAddSubjectController(AddSubjectController addSubjectController) {
-        this.addSubCon = addSubjectController;
-    }
-    public void injectAddTaskController (AddTaskController addTaskController) {
-        this.addTaskController = addTaskController;
+        taskManager.delete(sub.getId());
+        System.out.println("brisem " + sub.getId());
+        System.out.println(sub.getTaskText());
+        System.out.println(sub.getSubjectId());
+        System.out.println(sub.getDeadline());
     }
 
     public void clickedItem(MouseEvent mouseEvent) throws PlanerException {
@@ -190,5 +190,24 @@ public class SubjectTaskTabController {
     public void getAddedTaskSubject (Subject subject) {
         this.changedSubjectTask = subject;
     }
+
+    public void getInfo (String username, String subName, String subAcronym) {
+        this.username = username;
+        this.subAddName = subName;
+        this.subAddAcronym = subAcronym;
+    }
+
+
+    // Controller injections
+    public void injectMainController(MainController mainController) {
+        this.main = mainController;
+    }
+    public void injectAddSubjectController(AddSubjectController addSubjectController) {
+        this.addSubCon = addSubjectController;
+    }
+    public void injectAddTaskController (AddTaskController addTaskController) {
+        this.addTaskController = addTaskController;
+    }
+
 
 }

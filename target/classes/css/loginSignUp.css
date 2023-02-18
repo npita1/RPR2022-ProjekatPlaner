@@ -19,9 +19,21 @@
 -fx-background-radius: 40;
 }
 
+.mainButton:hover {
+-fx-background-color: #adadad;
+-fx-background-radius: 40;
+-fx-cursor: hand;
+}
+
 .sideButton {
 -fx-background-color:lightgrey;
 -fx-background-radius: 40;
+}
+
+.sideButton:hover {
+-fx-background-color:#bebebe;
+-fx-background-radius: 40;
+-fx-cursor: hand;
 }
 
 .warning {

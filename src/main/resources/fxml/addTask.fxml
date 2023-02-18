@@ -80,7 +80,7 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" />
                     </VBox.margin>
                 </Label>
-            <DatePicker fx:id="deadlineDatePicker" editable="false" prefHeight="26.0" prefWidth="196.0" promptText="Adding deadline is optional">
+            <DatePicker fx:id="deadlineDatePicker" editable="false" prefHeight="26.0" prefWidth="196.0" promptText="Adding deadline is optional" styleClass="datePicker" stylesheets="@../css/addTask.css">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" />
                </VBox.margin>

@@ -34,9 +34,15 @@
 	-fx-border-color: white;
 }
 
+.subjectsTasksTableView .table-row-cell:hover {
+	-fx-background-color: #dff3f5;
+	-fx-cursor: hand;
+}
+
 .subjectsTasksTableView .table-row-cell:selected {
 	-fx-background-color: powderblue;
 }
+
 
 .subjectsTasksTableView .table-row-cell:filled:selected .table-cell{
 	-fx-text-fill: azure;
@@ -47,26 +53,57 @@
 	-fx-text-fill: black;
 }
 
-.toDoButton {
--fx-background-color: lightsalmon;
--fx-background-radius: 10;
-}
-
 .addButtons {
--fx-background-color:silver;
--fx-background-radius: 10;
-}
-
-.toDoButton {
 -fx-background-color:powderblue;
 -fx-background-radius: 10;
+-fx-border-radius: 10;
+-fx-border-color: #a4bbcb;
+-fx-border-width: 0.7px;
+}
+
+.addButtons:hover {
+-fx-background-radius: 10;
+-fx-border-radius: 10;
+-fx-background-color: #a4bbcb;
+-fx-border-width: 0.7px;
+-fx-cursor:hand;
+
+}
+
+.toDoButton {
+-fx-background-color:lightgrey;
+-fx-background-radius: 10;
+-fx-border-color: #bebebe;
+-fx-border-width: 0.7px;
+-fx-border-radius: 10;
+}
+
+.toDoButton:hover {
+-fx-background-color:#bebebe;
+-fx-background-radius: 10;
+-fx-border-color: #bebebe;
+-fx-border-width: 0.7px;
+-fx-border-radius: 10;
+-fx-cursor:hand;
 }
 
 .removeButton {
 -fx-background-color:lightcoral;
--fx-background-radius: 40;
+-fx-background-radius: 10;
+-fx-border-color: #d87373;
+-fx-border-width: 0.7px;
+-fx-border-radius: 10;
 }
 
+
+.removeButton:hover {
+-fx-background-color:#d87373;
+-fx-background-radius: 10;
+-fx-border-color: #d87373;
+-fx-border-width: 0.7px;
+-fx-border-radius: 10;
+-fx-cursor:hand;
+}
 
 .tasksTableView .column-header {
 	-fx-background-color: whitesmoke;
@@ -86,8 +123,13 @@
 	-fx-border-color: white;
 }
 
+
+.tasksTableView .table-row-cell:hover {
+	-fx-background-color: #ededed;
+	-fx-cursor: hand;
+}
 .tasksTableView .table-row-cell:selected {
-	-fx-background-color: lightgrey;
+	-fx-background-color: #dcdcdc;
 }
 
 .tasksTableView .table-row-cell:filled:selected .table-cell{

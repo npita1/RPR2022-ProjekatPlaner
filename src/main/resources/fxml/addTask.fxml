@@ -62,7 +62,7 @@
                         <Insets left="10.0" right="20.0" />
                     </VBox.margin>
                <font>
-                  <Font name="Arial Italic" size="13.0" />
+                  <Font name="Arial" size="13.0" />
                </font>
                 </TextField>
                 <Label fx:id="taskWarning" styleClass="warning">

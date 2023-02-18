@@ -59,7 +59,7 @@
                         <Insets right="40.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="removeOneTaskButton" mnemonicParsing="false" styleClass="sideButton" stylesheets="@../css/toDo.css" text="Remove task">
+                  <Button fx:id="removeOneTaskButton" mnemonicParsing="false" onAction="#removeOneTask" styleClass="sideButton" stylesheets="@../css/toDo.css" text="Remove task">
                      <HBox.margin>
                         <Insets left="15.0" right="15.0" />
                      </HBox.margin>
@@ -67,7 +67,7 @@
                         <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" styleClass="removeButton" text="Clear all tasks">
+                  <Button fx:id="removeAllTasksButton" mnemonicParsing="false" onAction="#removeAllTasks" styleClass="removeButton" text="Clear all tasks">
                      <HBox.margin>
                         <Insets right="15.0" />
                      </HBox.margin>

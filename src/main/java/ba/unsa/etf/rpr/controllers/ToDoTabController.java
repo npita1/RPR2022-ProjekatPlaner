@@ -149,4 +149,22 @@ public class ToDoTabController {
         this.mainController = mainController;
     }
 
+    public void removeOneTask(ActionEvent actionEvent) throws PlanerException {
+        Object o = toDoListTableView.getSelectionModel().getSelectedItem();
+        if(o instanceof ToDoList) {
+            User user;
+            if(mainController != null)
+                user = userManager.getUserByUsername(mainController.getUsername());
+            else
+                user = userManager.getUserByUsername(username);
+
+            ObservableList<ToDoList> toDoListItems = FXCollections.observableArrayList(toDoListManager.getAllToDoTasksFromUser(user.getId()) );
+            toDoListItems.remove(o);
+            toDoListTableView.setItems(toDoListItems);
+
+        }
+    }
+
+    public void removeAllTasks(ActionEvent actionEvent) {
+    }
 }

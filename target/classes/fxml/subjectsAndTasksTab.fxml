@@ -87,12 +87,12 @@
       </Label>
       <ButtonBar buttonMinWidth="80.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0" GridPane.rowIndex="2">
         <buttons>
-          <Button fx:id="addSubjectButton" mnemonicParsing="false" onAction="#openAddSubject" prefHeight="26.0" prefWidth="238.0" styleClass="addButtons" stylesheets="@../css/subjectsTasks.css" text="Add subject">
+          <Button fx:id="addSubjectButton" mnemonicParsing="false" onAction="#openAddSubject" prefHeight="26.0" prefWidth="238.0" styleClass="addButtons" stylesheets="@../css/subjectsTasks.css" text="Create subject">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="removeSubjectButton" mnemonicParsing="false" onAction="#removeSubjectAction" styleClass="removeButton" stylesheets="@../css/subjectsTasks.css" text="Remove subject">
+            <Button fx:id="removeSubjectButton" mnemonicParsing="false" onAction="#removeSubjectAction" styleClass="removeButton" stylesheets="@../css/subjectsTasks.css" text="Delete subject">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
@@ -112,12 +112,12 @@
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="addTaskButton" mnemonicParsing="false" onAction="#openAddTask" prefHeight="26.0" styleClass="addButtons" stylesheets="@../css/subjectsTasks.css" text="Add task">
+            <Button fx:id="addTaskButton" mnemonicParsing="false" onAction="#openAddTask" prefHeight="26.0" styleClass="addButtons" stylesheets="@../css/subjectsTasks.css" text="Create task">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="removeTaskButton" mnemonicParsing="false" onAction="#removeTaskAction" prefHeight="26.0" prefWidth="287.0" styleClass="removeButton" stylesheets="@../css/subjectsTasks.css" text="Remove task">
+            <Button fx:id="removeTaskButton" mnemonicParsing="false" onAction="#removeTaskAction" prefHeight="26.0" prefWidth="287.0" styleClass="removeButton" stylesheets="@../css/subjectsTasks.css" text="Delete task">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>

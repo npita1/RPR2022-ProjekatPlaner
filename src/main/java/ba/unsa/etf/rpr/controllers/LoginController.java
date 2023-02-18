@@ -3,6 +3,7 @@ package ba.unsa.etf.rpr.controllers;
 import ba.unsa.etf.rpr.business.UserManager;
 import ba.unsa.etf.rpr.exceptions.PlanerException;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
@@ -13,6 +14,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 
@@ -48,6 +51,16 @@ public class LoginController {
                 passwordWarning.textProperty().setValue("");
             }
         });
+
+        usernameField.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent keyEvent) {
+                if(keyEvent.getCode().equals(KeyCode.ENTER)) {
+                    passwordField.requestFocus();
+                }
+            }
+        });
+
     }
 
     public void switchToSignup(ActionEvent event) throws IOException {
@@ -86,7 +99,7 @@ public class LoginController {
                 switchToMain(event);
             } else {
                 passwordField.textProperty().setValue("");
-                passwordWarning.requestFocus();
+                passwordField.requestFocus();
                 passwordWarning.textProperty().setValue("Incorrect password.");
             }
         } else {
@@ -96,5 +109,7 @@ public class LoginController {
             usernameWarning.textProperty().setValue("Incorrect username.");
         }
     }
+
+
 
 }

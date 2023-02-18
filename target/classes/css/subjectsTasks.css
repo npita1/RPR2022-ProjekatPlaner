@@ -35,7 +35,7 @@
 }
 
 .subjectsTasksTableView .table-row-cell:hover {
-	-fx-background-color: #d8f0f3;
+	-fx-background-color: #dff3f5;
 	-fx-cursor: hand;
 }
 
@@ -57,14 +57,15 @@
 -fx-background-color:powderblue;
 -fx-background-radius: 10;
 -fx-border-radius: 10;
--fx-border-color: #a4bbcb;
+-fx-border-color: #9ecacf;
 -fx-border-width: 0.7px;
 }
 
 .addButtons:hover {
 -fx-background-radius: 10;
 -fx-border-radius: 10;
--fx-background-color: #a4bbcb;
+-fx-background-color: #9ecacf;
+-fx-border-color: #9ecacf;
 -fx-border-width: 0.7px;
 -fx-cursor:hand;
 

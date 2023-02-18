@@ -5,6 +5,7 @@ public class DaoFactory {
     private static final UserDao userDao = UserDaoSQLImpl.getInstance();
     private static final TaskDao taskDao = TaskDaoSQLImpl.getInstance();
     private static final SubjectDao subjectDao = SubjectDaoSQLImpl.getInstance();
+    private static final ToDoListDao toDoListDao = ToDoListDaoSQLImpl.getInstance();
 
     private DaoFactory(){
     }
@@ -19,6 +20,9 @@ public class DaoFactory {
 
     public static SubjectDao subjectDao(){
         return subjectDao;
+    }
+    public static ToDoListDao toDoListDao(){
+        return toDoListDao;
     }
 
 }

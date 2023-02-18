@@ -10,7 +10,6 @@ import ba.unsa.etf.rpr.exceptions.PlanerException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -24,7 +23,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Date;
 
 public class SubjectTaskTabController {
@@ -96,12 +94,17 @@ public class SubjectTaskTabController {
             if(o instanceof Subject) {
                 if(changedSubjectTask.getName().equals(((Subject) o).getName())) {
                     ObservableList<Task> taskFromClickedSubject = FXCollections.observableArrayList(taskManager.getTasksWithSubjectID(changedSubjectTask.getId()));
+
+                    // auto-removing tasks with deadlines in past
+                    ObservableList<Task> remove =   FXCollections.observableArrayList();
                     for(Task t : taskFromClickedSubject) {
                         if(!taskManager.validateEnteredDate(t.getDeadline())) {
-                            taskFromClickedSubject.remove(t);
+                            remove.add(t);
                             taskManager.delete(t.getId());
                         }
                     }
+                    taskFromClickedSubject.removeAll(remove);
+
                     taskTextTableColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("taskText"));
                     deadlineTableColumn.setCellValueFactory(new PropertyValueFactory<Task, Date>("deadline"));
 

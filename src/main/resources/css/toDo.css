@@ -8,7 +8,7 @@
 }
 
 .sideButton {
--fx-background-color:silver;
+-fx-background-color:lightcoral;
 -fx-background-radius: 40;
 }
 
@@ -32,6 +32,16 @@
     -fx-font-weight:bold;
     -fx-border-color:white;
     -fx-alignment: center;
+}
+
+
+.subjectsTasksTableView .table-row-cell .text {
+    -fx-text-fill: black;
+    -fx-font-size: 10pt;
+    -fx-font-weight:bold;
+    -fx-border-color:white;
+    -fx-alignment: center;
+    -fx-strikethrough: false;
 }
 
 .subjectsTasksTableView {
@@ -62,4 +72,22 @@
 .toDoButton {
 -fx-background-color:powderblue;
 -fx-background-radius: 10;
+}
+
+.doneButton {
+    -fx-background-color: lightseagreen;
+    -fx-background-radius: 40;
+    -fx-text-fill: white;
+}
+
+.progress-barLow {
+    -fx-progress-color: orangered;
+}
+
+.progress-barMedium {
+    -fx-progress-color: yellow;
+}
+
+.progress-barHigh {
+    -fx-progress-color: chartreuse;
 }

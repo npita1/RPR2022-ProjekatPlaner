@@ -21,7 +21,6 @@
         <columns>
            <TableColumn fx:id="subjectColumn" maxWidth="164.0" minWidth="100.0" prefWidth="100.0" text="Subject" />
           <TableColumn fx:id="taskColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="279.1999969482422" prefWidth="285.5999298095703" text="Task" />
-          <TableColumn fx:id="doneColumn" maxWidth="164.0" minWidth="91.0" prefWidth="91.0" text="DONE" />
         </columns>
          <BorderPane.margin>
             <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
@@ -34,7 +33,7 @@
    <right>
       <VBox alignment="CENTER" prefHeight="390.0" prefWidth="438.0" BorderPane.alignment="CENTER">
          <children>
-            <ProgressIndicator fx:id="progressCircle" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="211.0" prefWidth="319.0" progress="0.2">
+            <ProgressIndicator fx:id="progressCircle" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="211.0" prefWidth="319.0" progress="0.0" styleClass="progress-barLow" stylesheets="@../css/toDo.css">
                <VBox.margin>
                   <Insets bottom="7.0" left="7.0" right="7.0" />
                </VBox.margin>
@@ -52,9 +51,17 @@
             </Label>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" styleClass="sideButton" stylesheets="@../css/toDo.css" text="Remove task">
+                  <Button fx:id="doneButton" mnemonicParsing="false" onAction="#taskDoneAction" styleClass="doneButton" stylesheets="@../css/toDo.css" text="TASK DONE">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
                      <HBox.margin>
-                        <Insets right="15.0" />
+                        <Insets right="40.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="removeOneTaskButton" mnemonicParsing="false" styleClass="sideButton" stylesheets="@../css/toDo.css" text="Remove task">
+                     <HBox.margin>
+                        <Insets left="15.0" right="15.0" />
                      </HBox.margin>
                      <font>
                         <Font name="Arial Bold" size="14.0" />

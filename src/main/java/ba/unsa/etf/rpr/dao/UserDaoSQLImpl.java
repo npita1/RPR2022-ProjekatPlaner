@@ -61,8 +61,8 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao {
     }
 
     @Override
-    public boolean updateTokens(User item, Integer value) {
-        return false;
+    public User updateTokens(User item, Integer value) {
+        return null;
     }
 
     @Override

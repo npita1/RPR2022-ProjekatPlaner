@@ -63,4 +63,9 @@ public class ToDoListDaoSQLImpl extends AbstractDao<ToDoList> implements ToDoLis
         return (ArrayList<ToDoList>) executeQuery("SELECT * FROM to_do_lists WHERE user_todo_id=?",new Object[]{id});
     }
 
+    @Override
+    public ArrayList<ToDoList> checkIfTaskIDExists(int taskId) throws PlanerException {
+        return (ArrayList<ToDoList>) executeQuery("SELECT * FROM to_do_lists WHERE task_id=?", new Object[]{taskId});
+    }
+
 }

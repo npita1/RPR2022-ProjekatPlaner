@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface UserDao extends Dao<User>{
     User getByUsername (String username) throws PlanerException;
-    boolean updateTokens(User item, Integer value);
+    User updateTokens(User item, Integer value);
 
     boolean validUsername(String username) throws PlanerException;
 

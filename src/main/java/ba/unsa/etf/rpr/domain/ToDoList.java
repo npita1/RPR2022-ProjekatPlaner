@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr.domain;
 
+import java.awt.*;
 import java.util.Objects;
 
 public class ToDoList implements Idable {
@@ -10,8 +11,7 @@ public class ToDoList implements Idable {
     private String subjectAcronym;
     private int userId;
 
-
-    public ToDoList(int userID,int taskId, String taskText, String subjectAcronym) {
+    public ToDoList(int userID,int taskId, String taskText, String subjectAcronym ) {
         this.taskId = taskId;
         this.taskText = taskText;
         this.subjectAcronym = subjectAcronym;

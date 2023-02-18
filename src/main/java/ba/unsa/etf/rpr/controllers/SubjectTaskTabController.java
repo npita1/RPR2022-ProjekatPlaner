@@ -216,25 +216,31 @@ public class SubjectTaskTabController {
 
     public void sendToTODOList(ActionEvent actionEvent) throws PlanerException {
         if(toDoTabController != null) {
+
             Object o = tasksTableView.getSelectionModel().getSelectedItem();
             if(o instanceof Task) {
-                toDoTabController.setSelectedTask((Task) o);
-                Subject sub = subjectManager.getById(((Task) o).getSubjectId());
-                User user;
-                if(main != null) {
-                     user = userManager.getUserByUsername(main.getUsername());
-                } else {
-                    user = userManager.getUserByUsername(username);
-                }
-                toDoListManager.add(new ToDoList(user.getId(),((Task) o).getId(),((Task) o).getTaskText(),sub.getAcronym()));
-                if(main != null)
-                    toDoTabController.setUsername(main.getUsername());
-                else
-                    toDoTabController.setUsername(username);
+                ArrayList<ToDoList> checkIfExists = toDoListManager.chechIfTaskAlreadyAdded(((Task) o).getId());
+                if (checkIfExists.size() == 0) {
+                    toDoTabController.setSelectedTask((Task) o);
+                    Subject sub = subjectManager.getById(((Task) o).getSubjectId());
+                    User user;
+                    if (main != null) {
+                        user = userManager.getUserByUsername(main.getUsername());
+                    } else {
+                        user = userManager.getUserByUsername(username);
+                    }
+                    toDoListManager.add(new ToDoList(user.getId(), ((Task) o).getId(), ((Task) o).getTaskText(), sub.getAcronym()));
+                    if (main != null)
+                        toDoTabController.setUsername(main.getUsername());
+                    else
+                        toDoTabController.setUsername(username);
 
-                toDoTabController.initialize();
+                    toDoTabController.initialize();
+                }
             }
+
         }
+
     }
 
     // Controller injections

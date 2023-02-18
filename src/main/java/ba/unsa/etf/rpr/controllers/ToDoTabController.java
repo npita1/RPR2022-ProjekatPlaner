@@ -11,11 +11,14 @@ import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.exceptions.PlanerException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+
+import java.text.ParseException;
 
 public class ToDoTabController {
 
@@ -37,25 +40,9 @@ public class ToDoTabController {
     private SubjectTaskTabController subjectTaskTabController;
     private MainController mainController;
 
-    public Task getSelectedTask() {
-        return selectedTask;
-    }
-
-    public void setSelectedTask(Task selectedTask) {
-        this.selectedTask = selectedTask;
-    }
-
     private Task selectedTask;
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     private String username;
+    private Task doneTask;
 
 
     @FXML
@@ -63,21 +50,14 @@ public class ToDoTabController {
         if(subjectTaskTabController != null  && selectedTask!=null) {
 
             User user = userManager.getUserByUsername(username);
-            System.out.println(username);
-            System.out.println(user.getId());
+
             ObservableList<ToDoList> toDoListItems = FXCollections.observableArrayList(toDoListManager.getAllToDoTasksFromUser(user.getId()) );
 
-            // treba dodati checkbox kolonu i povezati sa onim progress barom
             subjectColumn.setCellValueFactory(new PropertyValueFactory<Subject,String>("subjectAcronym"));
             taskColumn.setCellValueFactory(new PropertyValueFactory<Subject,String>("taskText"));
 
             toDoListTableView.setItems(toDoListItems);
 
-            /*for(Object i : toDoListItems) {
-                if(i instanceof ToDoList) {
-                    System.out.println(((ToDoList) i).getTaskText());
-                }
-            }*/
         }
         if (mainController != null){
             User user = userManager.getUserByUsername(mainController.getUsername());
@@ -91,6 +71,70 @@ public class ToDoTabController {
         }
     }
 
+    // done removes from list and database + progress + tokens
+    // remove and clear removes from list + nothing
+    public void taskDoneAction(ActionEvent actionEvent) throws PlanerException, ParseException {
+        Object o = toDoListTableView.getSelectionModel().getSelectedItem();
+        if(o instanceof ToDoList) {
+
+            toDoListManager.delete(((ToDoList) o).getId());
+            this.initialize();
+            taskManager.delete(((ToDoList) o).getTaskId());
+            subjectTaskTabController.initialize();
+
+
+            if(progressCircle.getProgress() == 1) {
+                progressCircle.setProgress(0);
+            }
+            progressCircle.setProgress(progressCircle.getProgress() + 0.25);
+            if(progressCircle.getProgress() <= 0.33) {
+                progressCircle.getStyleClass().removeAll("progress-barMedium");
+                progressCircle.getStyleClass().removeAll("progress-barHigh");
+                progressCircle.getStyleClass().add("progress-barLow");
+            } else if(progressCircle.getProgress() >= 0.34 && progressCircle.getProgress() <= 0.66) {
+                progressCircle.getStyleClass().removeAll("progress-barLow");
+                progressCircle.getStyleClass().removeAll("progress-barHigh");
+                progressCircle.getStyleClass().add("progress-barMedium");
+            }else {
+                progressCircle.getStyleClass().removeAll("progress-barLow");
+                progressCircle.getStyleClass().removeAll("progress-barMedium");
+                progressCircle.getStyleClass().add("progress-barHigh");
+            }
+
+            User user = userManager.getById(((ToDoList) o).getUserId());
+            user.setTokens(user.getTokens() + 10);
+            userManager.update(user);
+            mainController.initialize();
+        }
+    }
+
+
+
+
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+
+    public Task getSelectedTask() {
+        return selectedTask;
+    }
+
+    public void setSelectedTask(Task selectedTask) {
+        this.selectedTask = selectedTask;
+    }
+    public Task getDoneTask() {
+        return doneTask;
+    }
+
+    public void setDoneTask(Task doneTask) {
+        this.doneTask = doneTask;
+    }
 
 
 
@@ -104,6 +148,5 @@ public class ToDoTabController {
     public void injectMainController(MainController mainController) {
         this.mainController = mainController;
     }
-
 
 }

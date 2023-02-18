@@ -36,4 +36,8 @@ public class ToDoListManager {
     public ArrayList<ToDoList> getAllToDoTasksFromUser (int id) throws PlanerException {
         return DaoFactory.toDoListDao().getAllTODOTasksFromUser(id);
     }
+
+    public ArrayList<ToDoList> chechIfTaskAlreadyAdded(int taskId) throws PlanerException {
+        return DaoFactory.toDoListDao().checkIfTaskIDExists(taskId);
+    }
 }

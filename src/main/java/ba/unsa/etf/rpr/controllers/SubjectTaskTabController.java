@@ -2,9 +2,11 @@ package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.business.SubjectManager;
 import ba.unsa.etf.rpr.business.TaskManager;
+import ba.unsa.etf.rpr.business.ToDoListManager;
 import ba.unsa.etf.rpr.business.UserManager;
 import ba.unsa.etf.rpr.domain.Subject;
 import ba.unsa.etf.rpr.domain.Task;
+import ba.unsa.etf.rpr.domain.ToDoList;
 import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.exceptions.PlanerException;
 import javafx.collections.FXCollections;
@@ -23,6 +25,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class SubjectTaskTabController {
@@ -31,6 +34,7 @@ public class SubjectTaskTabController {
     private final UserManager userManager = new UserManager();
     private final SubjectManager subjectManager = new SubjectManager();
     private final TaskManager taskManager = new TaskManager();
+    private final ToDoListManager toDoListManager = new ToDoListManager();
 
     // FX COMPONENTS
     @FXML public TableView subjectsTableView;
@@ -46,6 +50,7 @@ public class SubjectTaskTabController {
     private MainController main;
     private AddSubjectController addSubCon;
     private AddTaskController addTaskController;
+    private ToDoTabController toDoTabController;
 
 
     private Parent root;
@@ -209,6 +214,29 @@ public class SubjectTaskTabController {
     }
 
 
+    public void sendToTODOList(ActionEvent actionEvent) throws PlanerException {
+        if(toDoTabController != null) {
+            Object o = tasksTableView.getSelectionModel().getSelectedItem();
+            if(o instanceof Task) {
+                toDoTabController.setSelectedTask((Task) o);
+                Subject sub = subjectManager.getById(((Task) o).getSubjectId());
+                User user;
+                if(main != null) {
+                     user = userManager.getUserByUsername(main.getUsername());
+                } else {
+                    user = userManager.getUserByUsername(username);
+                }
+                toDoListManager.add(new ToDoList(user.getId(),((Task) o).getId(),((Task) o).getTaskText(),sub.getAcronym()));
+                if(main != null)
+                    toDoTabController.setUsername(main.getUsername());
+                else
+                    toDoTabController.setUsername(username);
+
+                toDoTabController.initialize();
+            }
+        }
+    }
+
     // Controller injections
     public void injectMainController(MainController mainController) {
         this.main = mainController;
@@ -219,6 +247,8 @@ public class SubjectTaskTabController {
     public void injectAddTaskController (AddTaskController addTaskController) {
         this.addTaskController = addTaskController;
     }
-
+    public void injectToDoListController (ToDoTabController toDoTabController) {
+        this.toDoTabController = toDoTabController;
+    }
 
 }

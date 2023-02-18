@@ -5,7 +5,6 @@ import ba.unsa.etf.rpr.domain.Task;
 import ba.unsa.etf.rpr.exceptions.PlanerException;
 
 import java.text.ParseException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;

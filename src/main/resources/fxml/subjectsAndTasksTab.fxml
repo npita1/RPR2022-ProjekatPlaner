@@ -107,7 +107,7 @@
       </ButtonBar>
       <ButtonBar buttonMinWidth="80.0" prefHeight="35.0" prefWidth="549.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
         <buttons>
-            <Button mnemonicParsing="false" styleClass="toDoButton" stylesheets="@../css/subjectsTasks.css" text="Add task to TO-DO list">
+            <Button fx:id="addTaskTODOButton" mnemonicParsing="false" onAction="#sendToTODOList" styleClass="toDoButton" stylesheets="@../css/subjectsTasks.css" text="Add task to TO-DO list">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>

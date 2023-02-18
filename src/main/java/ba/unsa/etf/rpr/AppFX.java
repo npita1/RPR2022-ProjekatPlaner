@@ -21,10 +21,8 @@ public class AppFX extends Application
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
         stage.setTitle("Mirus planner app");
         stage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
-        stage.setMinHeight(650);
-        stage.setMinWidth(960);
-        //UserDao userDao = DaoFactory.userDao();
-        //System.out.println(userDao.getAll().toString());
+        stage.setMinHeight(660);
+        stage.setMinWidth(970);
         stage.show();
     }
 

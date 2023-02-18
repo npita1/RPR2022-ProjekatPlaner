@@ -21,9 +21,12 @@ import java.util.Date;
 
 public class AddTaskController {
 
+    // Database managers
     private final SubjectManager subjectManager = new SubjectManager();
     private final TaskManager taskManager = new TaskManager();
 
+
+    // FX Components
     public Button cancelButton;
     public ComboBox subjectComboBox;
     public TextField taskTextField;
@@ -33,11 +36,14 @@ public class AddTaskController {
     public Label subjectWarning;
     public Label dateWarning;
 
+
+    // Controllers for injection
     private SubjectTaskTabController subjectTaskTabController;
 
-
+    // Observable lists
     private ObservableList<Subject> insertedSubjects;
     private ObservableList<String> comboBoxSubjectsNames = FXCollections.observableArrayList();
+
 
     @FXML
     public void initialize() {

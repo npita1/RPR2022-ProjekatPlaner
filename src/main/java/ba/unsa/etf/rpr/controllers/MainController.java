@@ -35,7 +35,6 @@ public class MainController {
     public MenuItem logOutButton;
     public Label tokenNumber;
     public Label currentDate;
-    public Tab subjectTaskTab;
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -46,10 +45,6 @@ public class MainController {
     @FXML
     public void initialize() throws PlanerException, ParseException {
         if(username != null) {
-            //System.out.println("evo me u initialize maina");
-            //System.out.println("Username nije null " + new Date());
-            //Alert al = new Alert(Alert.AlertType.CONFIRMATION, username);
-            //al.show();
 
             User currentUser = userManager.getUserByUsername(username);
             tokenNumber.setText(Integer.toString(currentUser.getTokens()));
@@ -60,38 +55,16 @@ public class MainController {
 
 
             subjectsAndTasksTabController.injectMainController(this);
+            subjectsAndTasksTabController.injectToDoListController(toDoTabController);
             subjectsAndTasksTabController.initialize();
 
-            //System.out.println("EVO ME U MAIN KONTROLER INITIALIZE " + this.getUsername());
+            toDoTabController.injectMainController(this);
+            toDoTabController.injectSubjectTaskController(subjectsAndTasksTabController);
+            toDoTabController.initialize();
+
         }
 
-        /*if(username != null) {
-            System.out.println("Username nije null " + new Date());
-            Alert al = new Alert(Alert.AlertType.CONFIRMATION, username);
-            al.show();
-            User currentUser = userManager.getUserByUsername(username);
-            tokenNumber.setText(Integer.toString(currentUser.getTokens()));
-
-            Date date = new Date();
-            SimpleDateFormat dateFormat = new SimpleDateFormat("EEEEEEEEEE, dd.MM.yyyy.");
-            currentDate.setText(dateFormat.format(date));
-
-        }else
-            System.out.println("Username je null " + new Date());*/
     }
-
-    /*public void initializeDateAndTokens() throws PlanerException, IOException {
-        System.out.println("Username nije null " + new Date());
-        Alert al = new Alert(Alert.AlertType.CONFIRMATION, username);
-        al.show();
-        User currentUser = userManager.getUserByUsername(username);
-        tokenNumber.setText(Integer.toString(currentUser.getTokens()));
-
-        Date date = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("EEEEEEEEEE, dd.MM.yyyy.");
-        currentDate.setText(dateFormat.format(date));
-
-    }*/
 
     public void setUsername (String usernamea) {
         username = usernamea;
@@ -105,8 +78,6 @@ public class MainController {
     public void switchToLogin(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
         stage = (Stage)logOutButton.getParentPopup().getOwnerWindow();
-        //scene = stage.getScene();
-        //stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, stage.getScene().getWidth(),stage.getScene().getHeight());
         stage.setScene(scene);
         stage.show();

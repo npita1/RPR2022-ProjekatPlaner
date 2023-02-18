@@ -6,11 +6,21 @@ public class ToDoList implements Idable {
 
     private int id;
     private int taskId;
+    private String taskText;
+    private String subjectAcronym;
+    private int userId;
 
 
-    public ToDoList(int id, int taskId) {
-        this.id = id;
+    public ToDoList(int userID,int taskId, String taskText, String subjectAcronym) {
         this.taskId = taskId;
+        this.taskText = taskText;
+        this.subjectAcronym = subjectAcronym;
+        this.userId = userID;
+    }
+
+    public ToDoList(int userID,int taskId) {
+        this.taskId = taskId;
+        this.userId = userID;
     }
 
     public ToDoList() {
@@ -51,5 +61,29 @@ public class ToDoList implements Idable {
     @Override
     public int hashCode() {
         return Objects.hash(id,taskId);
+    }
+
+    public String getTaskText() {
+        return taskText;
+    }
+
+    public void setTaskText(String taskText) {
+        this.taskText = taskText;
+    }
+
+    public String getSubjectAcronym() {
+        return subjectAcronym;
+    }
+
+    public void setSubjectAcronym(String subjectAcronym) {
+        this.subjectAcronym = subjectAcronym;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 }

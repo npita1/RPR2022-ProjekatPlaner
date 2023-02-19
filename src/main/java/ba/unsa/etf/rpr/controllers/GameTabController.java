@@ -8,10 +8,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
+import java.text.ParseException;
+
 public class GameTabController {
 
     // Database managers
     private final UserManager userManager = new UserManager();
+
+
     public Label warningLabel;
     public Button playButton;
 
@@ -21,13 +25,20 @@ public class GameTabController {
 
     @FXML
     public void initialize() throws PlanerException {
+        warningLabel.setVisible(false);
         if(mainController != null) {
             user = userManager.getUserByUsername(mainController.getUsername());
         }
     }
 
-    public void playGame(ActionEvent actionEvent) {
-
+    public void playGame(ActionEvent actionEvent) throws PlanerException, ParseException {
+        if(user != null) {
+            if(user.getTokens() >= 20) {
+                user.setTokens(user.getTokens() - 20);
+                userManager.update(user);
+                mainController.initialize();
+            }
+        }
 
     }
 

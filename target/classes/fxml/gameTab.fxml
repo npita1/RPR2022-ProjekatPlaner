@@ -43,7 +43,7 @@
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </padding>
             </Label>
-            <Button mnemonicParsing="false" prefHeight="258.0" prefWidth="258.0" styleClass="playButton" GridPane.rowIndex="1">
+            <Button fx:id="playButton" mnemonicParsing="false" onAction="#playGame" prefHeight="258.0" prefWidth="258.0" styleClass="playButton" GridPane.rowIndex="1">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

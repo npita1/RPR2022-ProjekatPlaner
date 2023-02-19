@@ -5,6 +5,7 @@ import ba.unsa.etf.rpr.domain.Subject;
 import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.exceptions.PlanerException;
 import javafx.animation.PauseTransition;
+import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -48,16 +49,14 @@ public class GameTabController {
                 userManager.update(user);
                 mainController.initialize();
 
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/game.fxml"));
-                Parent root = loader.load();
-                Scene scene = new Scene(root, 500, 650);
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/game.fxml"));
+                Scene scene = new Scene(fxmlLoader.load());
                 scene.getRoot().requestFocus();
                 Stage stage = new Stage();
-                stage.setTitle("Flappy bird");
+                stage.setTitle("Flappy Bird");
                 stage.setScene(scene);
                 stage.setResizable(false);
                 stage.show();
-
 
             } else {
                 if(!warningLabel.isVisible()) {

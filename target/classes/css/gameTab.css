@@ -1,0 +1,35 @@
+.mainBackground {
+-fx-background-color:white;
+}
+
+.breakText {
+    -fx-alignment: center;
+    -fx-background-color: #E4F6F8;
+}
+
+.underText {
+    -fx-alignment: center;
+    -fx-background-color: whitesmoke;
+}
+
+.warningLabel {
+-fx-background-color: #ffdacc;
+-fx-text-fill: #b33000;
+    -fx-alignment: center;
+}
+
+.playButton {
+    -fx-background-radius: 130;
+    -fx-background-color: lightgreen;
+    -fx-effect: dropshadow(three-pass-box,black,10,0,0,0);
+}
+
+.playButton:hover {
+    -fx-background-radius: 130;
+    -fx-background-color: #82d682;
+    -fx-effect: dropshadow(three-pass-box,black,10,0,0,0);
+}
+
+.triangle {
+-fx-background-color: red;
+}

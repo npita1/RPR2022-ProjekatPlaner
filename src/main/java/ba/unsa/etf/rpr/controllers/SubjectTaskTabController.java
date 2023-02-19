@@ -9,6 +9,7 @@ import ba.unsa.etf.rpr.domain.Task;
 import ba.unsa.etf.rpr.domain.ToDoList;
 import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.exceptions.PlanerException;
+import javafx.animation.PauseTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -23,6 +24,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -69,6 +71,7 @@ public class SubjectTaskTabController {
 
         // Initial initialization after login
         if(main != null) {
+            taskAdddedConfirmation.setVisible(false);
             User user = userManager.getUserByUsername(main.getUsername());
 
             ObservableList<Subject> userSubjects = FXCollections.observableArrayList(subjectManager.getSubjectsFromUser(user.getId()));
@@ -82,7 +85,7 @@ public class SubjectTaskTabController {
 
         // Initialization after adding subject
         if(addSubCon != null) {
-
+            taskAdddedConfirmation.setVisible(false);
             User user = userManager.getUserByUsername(username);
 
             ObservableList<Subject> userSubjects = FXCollections.observableArrayList(subjectManager.getSubjectsFromUser(user.getId()));
@@ -97,6 +100,7 @@ public class SubjectTaskTabController {
 
         // Initialization after adding task
         if(addTaskController != null) {
+            taskAdddedConfirmation.setVisible(false);
             Object o = subjectsTableView.getSelectionModel().getSelectedItem();
             if(o instanceof Subject) {
                 if(changedSubjectTask.getName().equals(((Subject) o).getName())) {
@@ -238,6 +242,12 @@ public class SubjectTaskTabController {
                         toDoTabController.setUsername(username);
 
                     toDoTabController.initialize();
+                    if(!taskAdddedConfirmation.isVisible()) {
+                        taskAdddedConfirmation.setVisible(true);
+                        PauseTransition pause = new PauseTransition(Duration.seconds(2));
+                        pause.setOnFinished(e -> taskAdddedConfirmation.setVisible(false));
+                        pause.play();
+                    }
                 }
             }
 

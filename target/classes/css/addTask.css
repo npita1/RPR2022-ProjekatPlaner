@@ -8,10 +8,24 @@
 
 .addButton {
 -fx-background-color: silver;
+-fx-background-radius: 5;
+}
+
+.addButton:hover {
+-fx-background-color: #adadad;
+-fx-background-radius: 5;
+    -fx-cursor: hand;
 }
 
 .cancelButton {
 -fx-background-color: lightgrey;
+-fx-background-radius: 5;
+}
+
+.cancelButton:hover {
+-fx-background-color: #bebebe;
+-fx-background-radius: 5;
+    -fx-cursor: hand;
 }
 
 .combo-box {
@@ -33,10 +47,21 @@
     -fx-cursor: hand;
 }
 
+.combo-box .list-view .list-cell {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+}
+
+.combo-box .list-view .list-cell:hover{
+    -fx-background-color: whitesmoke;
+    -fx-text-fill: black;
+    -fx-cursor: hand;
+}
+
 .warning {
     -fx-text-fill: orangered;
 }
 
-.combo-box-base:focused {
-    -fx-background-color: red;
+.datePicker:hover {
+-fx-cursor: hand;
 }

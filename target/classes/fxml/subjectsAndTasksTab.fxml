@@ -130,5 +130,16 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
       </ButtonBar>
+      <Label fx:id="taskAdddedConfirmation" prefHeight="27.0" prefWidth="192.0" styleClass="taskAdded" text="Task added to TO-DO LIST!" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+         <GridPane.margin>
+            <Insets left="350.0" />
+         </GridPane.margin>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font>
+      </Label>
    </children>
 </GridPane>

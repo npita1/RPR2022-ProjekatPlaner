@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+
+<AnchorPane fx:id="gameBackground" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#pressed" prefHeight="650.0" prefWidth="500.0" stylesheets="@../css/game.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.GameController">
+   <children>
+      <Rectangle fx:id="bird" arcHeight="5.0" arcWidth="5.0" fill="#ffff4d" height="50.0" layoutX="225.0" layoutY="105.0" stroke="#e6e600" strokeType="INSIDE" strokeWidth="2.0" width="50.0" AnchorPane.bottomAnchor="495.0" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="225.0" />
+   </children>
+</AnchorPane>

@@ -1,15 +1,23 @@
 package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.business.UserManager;
+import ba.unsa.etf.rpr.domain.Subject;
 import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.exceptions.PlanerException;
 import javafx.animation.PauseTransition;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.text.ParseException;
 
 public class GameTabController {
@@ -33,12 +41,24 @@ public class GameTabController {
         }
     }
 
-    public void playGame(ActionEvent actionEvent) throws PlanerException, ParseException {
+    public void playGame(ActionEvent actionEvent) throws PlanerException, ParseException, IOException {
         if(user != null) {
             if(user.getTokens() >= 20) {
                 user.setTokens(user.getTokens() - 20);
                 userManager.update(user);
                 mainController.initialize();
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/game.fxml"));
+                Parent root = loader.load();
+                Scene scene = new Scene(root, 500, 650);
+                scene.getRoot().requestFocus();
+                Stage stage = new Stage();
+                stage.setTitle("Flappy bird");
+                stage.setScene(scene);
+                stage.setResizable(false);
+                stage.show();
+
+
             } else {
                 if(!warningLabel.isVisible()) {
                     warningLabel.setVisible(true);

@@ -24,9 +24,6 @@ public class GameTabController {
 
 
 
-
-
-
     // Controller injections
     public void injectMainController(MainController mainController) {
         this.mainController = mainController;

@@ -72,6 +72,7 @@ public class SubjectTaskTabController {
         // Initial initialization after login
         if(main != null) {
             taskAdddedConfirmation.setVisible(false);
+
             User user = userManager.getUserByUsername(main.getUsername());
 
             ObservableList<Subject> userSubjects = FXCollections.observableArrayList(subjectManager.getSubjectsFromUser(user.getId()));
@@ -244,7 +245,7 @@ public class SubjectTaskTabController {
                     toDoTabController.initialize();
                     if(!taskAdddedConfirmation.isVisible()) {
                         taskAdddedConfirmation.setVisible(true);
-                        PauseTransition pause = new PauseTransition(Duration.seconds(2));
+                        PauseTransition pause = new PauseTransition(Duration.seconds(1.5));
                         pause.setOnFinished(e -> taskAdddedConfirmation.setVisible(false));
                         pause.play();
                     }

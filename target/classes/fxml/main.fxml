@@ -43,8 +43,10 @@
             <Tab fx:id="timerTab" text="Pomodoro timer">
                 <fx:include source="timerTab.fxml" />
             </Tab>
-            <Tab fx:id="gameTab" text="Game">
-                <fx:include source="gameTab.fxml" />
+            <Tab text="Game">
+                <content>
+                    <fx:include fx:id="gameTab" source="gameTab.fxml" />
+                </content>
             </Tab>
         </tabs>
       </TabPane>

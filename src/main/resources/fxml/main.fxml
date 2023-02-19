@@ -40,11 +40,15 @@
                   <fx:include fx:id="toDoTab" source="toDoTab.fxml" />
               </content>
           </Tab>
-            <Tab fx:id="timerTab" text="Pomodoro timer">
-                <fx:include source="timerTab.fxml" />
+            <Tab text="Pomodoro timer">
+                <content>
+                    <fx:include fx:id="timerTab" source="timerTab.fxml" />
+                </content>
             </Tab>
-            <Tab fx:id="gameTab" text="Game">
-                <fx:include source="gameTab.fxml" />
+            <Tab text="Game">
+                <content>
+                    <fx:include fx:id="gameTab" source="gameTab.fxml" />
+                </content>
             </Tab>
         </tabs>
       </TabPane>

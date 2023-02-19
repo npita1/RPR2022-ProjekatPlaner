@@ -8,14 +8,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.Tab;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-import javax.inject.Inject;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -29,6 +26,9 @@ public class MainController {
     private SubjectTaskTabController subjectsAndTasksTabController;
     @FXML
     private ToDoTabController toDoTabController;
+    @FXML
+    private GameTabController gameTabController;
+
     @FXML
     public GridPane subjectsAndTasksTab;
 
@@ -61,6 +61,10 @@ public class MainController {
             toDoTabController.injectMainController(this);
             toDoTabController.injectSubjectTaskController(subjectsAndTasksTabController);
             toDoTabController.initialize();
+
+            gameTabController.injectMainController(this);
+            gameTabController.initialize();
+
 
         }
 

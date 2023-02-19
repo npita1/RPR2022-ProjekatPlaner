@@ -16,6 +16,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 public class SignupController {
 
@@ -32,6 +33,7 @@ public class SignupController {
 
     private Stage stage;
     private Scene scene;
+    private Parent root;
 
     @FXML
     public void initialize() {
@@ -105,7 +107,7 @@ public class SignupController {
     }
 
 
-    public void signUpAccount(ActionEvent event) throws PlanerException, IOException {
+    public void signUpAccount(ActionEvent event) throws PlanerException, IOException, ParseException {
         if(!userManager.validatePasswordLength(passwordField.getText()) && userManager.validateConfirmPassword(passwordField.getText(),confirmPasswordField.getText()) && !userManager.validateNewUsernameExist(usernameField.getText()) && !userManager.validateNewUsernameLength(usernameField.getText())) {
             String gen = "";
             if(maleRadioButton.isSelected()) gen = maleRadioButton.getText();
@@ -136,8 +138,14 @@ public class SignupController {
 
 
 
-    public void switchToMain (ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/main.fxml"));
+    public void switchToMain (ActionEvent event) throws IOException, PlanerException, ParseException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
+        root = loader.load();
+
+        MainController main = loader.getController();
+        main.setUsername(usernameField.getText());
+        main.initialize();
+
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, stage.getScene().getWidth(),stage.getScene().getHeight());
         stage.setScene(scene);

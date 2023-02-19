@@ -141,3 +141,8 @@
 .tasksTableView .table-row-cell:selected .table-cell{
 	-fx-text-fill: black;
 }
+
+.taskAdded {
+-fx-background-color: #f4fdf4;
+-fx-text-fill: #568f56;
+}

@@ -131,7 +131,7 @@ public class GameController implements Initializable {
             for (double j = width; j > 0 ; j = j - 25) {
                 if(spaceCheck % 2 == 0){
                     Rectangle rectangle = new Rectangle(j,i,30,30);
-                    rectangle.setFill(Color.RED);
+                    rectangle.setFill(Color.ORANGERED);
                     scene.getChildren().add(rectangle);
                     bricks.add(rectangle);
                 }
@@ -186,7 +186,7 @@ public class GameController implements Initializable {
 
             circle.setLayoutX(300);
             circle.setLayoutY(300);
-            
+
         }
     }
 

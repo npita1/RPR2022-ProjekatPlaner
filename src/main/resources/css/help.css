@@ -10,5 +10,5 @@
 .accordion .titled-pane .title{
 -fx-background-color: powderblue;
 -fx-border-color: whitesmoke;
--
+-fx-border-width: 2px;
 }

@@ -19,6 +19,11 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.Date;
 
+/**
+ * Controller for managing tasks adding
+ *
+ * @author Naida Pita
+ */
 public class AddTaskController {
 
     // Database managers
@@ -40,7 +45,7 @@ public class AddTaskController {
     // Controllers for injection
     private SubjectTaskTabController subjectTaskTabController;
 
-    // Observable lists
+    // Observable lists, needed data
     private ObservableList<Subject> insertedSubjects;
     private ObservableList<String> comboBoxSubjectsNames = FXCollections.observableArrayList();
 

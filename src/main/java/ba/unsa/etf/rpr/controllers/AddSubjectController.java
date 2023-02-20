@@ -114,7 +114,6 @@ public class AddSubjectController {
      * fetched through injection from SubjectTaskController
      *
      */
-
     public void setUsername(String username) {
         this.username = username;
     }

@@ -161,10 +161,23 @@ public class AddTaskController {
         stage.close();
     }
 
+
+    /**
+     * Setter for atribute insertedSubjects
+     * fetched through injection from SubjectTaskController
+     *
+     * @return username
+     */
     public void setInsertedSubjects(ObservableList<Subject> insertedSubjects) {
         this.insertedSubjects = insertedSubjects;
     }
 
+    /**
+     * Getter for atribute insertedSubjects
+     * fetched through injection from SubjectTaskController
+     *
+     * @return username
+     */
     public ObservableList<Subject> getInsertedSubjects () {
         return this.insertedSubjects;
     }

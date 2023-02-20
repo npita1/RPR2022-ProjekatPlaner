@@ -28,8 +28,8 @@ public class GameController {
     public Label winnerLabel;
 
 
-    private ArrayList<Button> playerClicked;
-    private ArrayList<Button> AIClicked;
+    private ArrayList<Button> playerClicked = new ArrayList<>();
+    private ArrayList<Button> AIClicked = new ArrayList<>();
     private final ArrayList<String> randomTurnArray = new ArrayList<String>(Arrays.asList("Player","AI"));
     private String nowTurn;
     private String firstOneToPlay;
@@ -70,6 +70,7 @@ public class GameController {
 
     public void button1Clicked(ActionEvent actionEvent) {
         playerClicked.add(button1);
+        checkTheWinner();
         // player O
         if(firstOneToPlay.equals("AI")) {
             nowTurn = "Player";
@@ -96,6 +97,7 @@ public class GameController {
 
     public void button2Clicked(ActionEvent actionEvent) {
         playerClicked.add(button2);
+        checkTheWinner();
         // player O
         if(firstOneToPlay.equals("AI")) {
             nowTurn = "Player";
@@ -121,6 +123,7 @@ public class GameController {
 
     public void button3Clicked(ActionEvent actionEvent) {
         playerClicked.add(button3);
+        checkTheWinner();
         // player O
         if(firstOneToPlay.equals("AI")) {
             nowTurn = "Player";
@@ -146,6 +149,7 @@ public class GameController {
 
     public void button4Clicked(ActionEvent actionEvent) {
         playerClicked.add(button4);
+        checkTheWinner();
         // player O
         if(firstOneToPlay.equals("AI")) {
             nowTurn = "Player";
@@ -171,6 +175,7 @@ public class GameController {
 
     public void button5Clicked(ActionEvent actionEvent) {
         playerClicked.add(button5);
+        checkTheWinner();
         // player O
         if(firstOneToPlay.equals("AI")) {
             nowTurn = "Player";
@@ -196,6 +201,7 @@ public class GameController {
 
     public void button6Clicked(ActionEvent actionEvent) {
         playerClicked.add(button6);
+        checkTheWinner();
         // player O
         if(firstOneToPlay.equals("AI")) {
             nowTurn = "Player";
@@ -221,6 +227,7 @@ public class GameController {
 
     public void button7Clicked(ActionEvent actionEvent) {
         playerClicked.add(button7);
+        checkTheWinner();
         // player O
         if(firstOneToPlay.equals("AI")) {
             nowTurn = "Player";
@@ -246,6 +253,7 @@ public class GameController {
 
     public void button8Clicked(ActionEvent actionEvent) {
         playerClicked.add(button8);
+        checkTheWinner();
         // player O
         if(firstOneToPlay.equals("AI")) {
             nowTurn = "Player";
@@ -272,6 +280,7 @@ public class GameController {
 
     public void button9Clicked(ActionEvent actionEvent) {
         playerClicked.add(button9);
+        checkTheWinner();
         // player O
         if(firstOneToPlay.equals("AI")) {
             nowTurn = "Player";
@@ -301,10 +310,12 @@ public class GameController {
         if(AISign.equals("X")) {
             enabledButtons.get(randomButton).setText("X");
             enabledButtons.get(randomButton).setDisable(true);
+            AIClicked.add(enabledButtons.get(randomButton));
             enabledButtons.remove(enabledButtons.get(randomButton));
         } else {
             enabledButtons.get(randomButton).setText("O");
             enabledButtons.get(randomButton).setDisable(true);
+            AIClicked.add(enabledButtons.get(randomButton));
             enabledButtons.remove(enabledButtons.get(randomButton));
         }
     }

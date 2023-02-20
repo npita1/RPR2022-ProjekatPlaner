@@ -87,4 +87,18 @@ public class MainController {
         stage.show();
     }
 
+
+    public void openHelpWindow(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/help.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        scene.getRoot().requestFocus();
+        Stage stage = new Stage();
+        stage.setTitle("Brick Breaker");
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+
+    }
+
+
 }

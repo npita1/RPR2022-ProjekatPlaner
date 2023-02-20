@@ -23,7 +23,7 @@
                   <MenuItem fx:id="logOutButton" onAction="#switchToLogin" text="Log out" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Help" />
+          <Menu fx:id="helpButton" mnemonicParsing="false" onAction="#openHelpWindow" text="Help" />
         </menus>
       </MenuBar>
    </top>

@@ -80,6 +80,17 @@
                <font>
                   <Font name="Arial Bold" size="15.0" />
                </font>
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <center>
+                        <Label prefHeight="223.0" prefWidth="663.0" styleClass="text" text="You may see the tasks that you added from the task list and want to complete .&#10;&#10;You receive 10 tokens for each task completed, which you may use to play a game during your break.&#10;&#10;Your progress meter will be filled if you complete 4 tasks in a single session.&#10;&#10;As soon as you select a task and click the &quot;TASK DONE&quot; button, that task is marked as completed, &#10;and you are given a token reward.&#10;&#10;The &quot;Remove one item&quot; and &quot;Clear all tasks&quot; buttons only remove your tasks from the TO-DO &#10;list that is currently open. " BorderPane.alignment="CENTER">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+                     </center>
+                  </BorderPane>
+               </content>
             </TitledPane>
             <TitledPane prefHeight="200.0" prefWidth="200.0" text="Game">
                <font>

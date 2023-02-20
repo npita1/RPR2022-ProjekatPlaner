@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
@@ -14,10 +15,13 @@
    <bottom>
       <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <buttons>
-          <Button mnemonicParsing="false" text="OK">
+          <Button defaultButton="true" mnemonicParsing="false" text="OK">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
         </buttons>
          <padding>
@@ -96,6 +100,17 @@
                <font>
                   <Font name="Arial Bold" size="15.0" />
                </font>
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <center>
+                        <Label prefHeight="233.0" prefWidth="663.0" styleClass="text" text="Playing the in-app game costs you 20 tokens. &#10;You can earn tokens by completing your daily tasks.&#10;&#10;This game is meant to encourage you to do your responsibilities more quickly so that you can play it.&#10;It employs the work-and-reward system, which has been shown to be highly productive.&#10;It is beneficial to quickly take your mind off the work you were performing earlier during your break times.&#10;The importance of breaks cannot be understated. &#10;" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+                     </center>
+                  </BorderPane>
+               </content>
             </TitledPane>
         </panes>
          <BorderPane.margin>

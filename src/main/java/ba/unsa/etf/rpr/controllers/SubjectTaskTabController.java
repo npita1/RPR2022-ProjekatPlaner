@@ -195,11 +195,12 @@ public class SubjectTaskTabController {
         allTasks = tasksTableView.getItems();
         oneTask = tasksTableView.getSelectionModel().getSelectedItems();
         Task sub = oneTask.get(0);
-        oneTask.forEach(allTasks::remove);
+        allTasks.removeAll(oneTask);
 
         ToDoList toDoTask = toDoListManager.getToDoItemByTaskID(sub.getId());
         toDoListManager.delete(toDoTask.getId());
         taskManager.delete(sub.getId());
+        toDoTabController.initialize();
     }
 
 

@@ -73,4 +73,19 @@ public class ToDoListDaoSQLImpl extends AbstractDao<ToDoList> implements ToDoLis
         return (ArrayList<ToDoList>) executeQuery("SELECT * FROM to_do_lists WHERE subject_acronym=?", new Object[]{acronym});
     }
 
+    @Override
+    public boolean isSubjectOnTODO(String acronym) throws PlanerException {
+        ArrayList<ToDoList> list = getAllTODOBySubjectAcronym(acronym);
+        if(list.size() == 0) return false;
+        return true;
+    }
+
+    @Override
+    public boolean isTaskOnTODO(int id) throws PlanerException {
+        ArrayList<ToDoList> list = (ArrayList<ToDoList>) executeQuery("SELECT * FROM to_do_lists WHERE task_id=?", new Object[]{id});
+        if(list.size() == 0) return false;
+        return true;
+    }
+
+
 }

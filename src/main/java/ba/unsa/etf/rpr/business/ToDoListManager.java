@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr.business;
 
+import ba.unsa.etf.rpr.dao.Dao;
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.ToDoList;
 import ba.unsa.etf.rpr.exceptions.PlanerException;
@@ -44,4 +45,10 @@ public class ToDoListManager {
     public ArrayList<ToDoList> getTasksBySubjectAcronym (String acronym) throws PlanerException {
         return DaoFactory.toDoListDao().getAllTODOBySubjectAcronym(acronym);
     }
+
+    public boolean isSubjectOnTODO(String acronym) throws PlanerException {
+        return DaoFactory.toDoListDao().isSubjectOnTODO(acronym);
+    }
+
+
 }

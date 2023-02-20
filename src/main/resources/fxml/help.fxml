@@ -64,6 +64,17 @@
                <font>
                   <Font name="Arial Bold" size="15.0" />
                </font>
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <center>
+                        <Label prefHeight="214.0" prefWidth="663.0" styleClass="text" text="Once your subjects have been added, you may create tasks for them by using the &quot;Create task&quot; button.&#10;&#10;The subjects for the task and the text must be added from a drop-down list of the entered subjects; &#10;the task's deadline is optional.&#10;&#10;No tasks with deadlines in the past can be added, and tasks that have passed their deadline are deleted.&#10;&#10;You can add the tasks you want to do to your TO-DO list by selecting the task, than clicking on the &#10;&quot;Add to TO-DO list button&quot;.&#10;&#10; " BorderPane.alignment="CENTER">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+                     </center>
+                  </BorderPane>
+               </content>
             </TitledPane>
             <TitledPane animated="false" text="TO-DO list">
                <font>

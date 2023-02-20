@@ -340,6 +340,10 @@ public class GameController {
         }
     }
 
+    /**
+     * AI in-game turn method
+     * defines the AI behaviour
+     */
     private void AITurn() {
         nowTurn = "AI";
         int randomButton = ThreadLocalRandom.current().nextInt(0,enabledButtons.size());
@@ -358,6 +362,10 @@ public class GameController {
         }
     }
 
+    /**
+     * winner check method
+     * checks if the game stops or who wins
+     */
     public void checkTheWinner() {
         ArrayList<Button> c1 = new ArrayList<Button>(Arrays.asList(button1,button2,button3));
         ArrayList<Button> c2 = new ArrayList<Button>(Arrays.asList(button4,button5,button6));

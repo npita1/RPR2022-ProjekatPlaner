@@ -200,6 +200,7 @@ public class SubjectTaskTabController {
         taskManager.delete(sub.getId());
     }
 
+
     public void clickedItem(MouseEvent mouseEvent) throws PlanerException, ParseException {
         Object o = subjectsTableView.getSelectionModel().getSelectedItem();
         if(o instanceof Subject) {

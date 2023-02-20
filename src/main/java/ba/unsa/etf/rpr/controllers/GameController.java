@@ -52,7 +52,11 @@ public class GameController {
         enabledButtons = new ArrayList<>(Arrays.asList(button1,button2,button3,button4,button5,button6,button7, button8,button9));
     }
 
-
+    /**
+     * game start event handler
+     *
+     * @param actionEvent
+     */
     public void startGame(ActionEvent actionEvent) {
 
         int randomFirst = ThreadLocalRandom.current().nextInt(0,2);
@@ -75,6 +79,12 @@ public class GameController {
         startButton.setDisable(true);
     }
 
+    /**
+     * button click event handlers
+     *
+     *
+     * @param actionEvent
+     */
 
     public void button1Clicked(ActionEvent actionEvent) {
         if(firstOneToPlay != null) {

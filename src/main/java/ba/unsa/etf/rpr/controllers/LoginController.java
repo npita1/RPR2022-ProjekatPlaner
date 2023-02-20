@@ -103,10 +103,14 @@ public class LoginController {
         stage.show();
     }
 
-    public  String loadUsername() {
-        return usernameField.getText();
-    }
-
+    /**
+     * login event handler
+     * validation - if ok, switches to main screen
+     * @param event
+     * @throws IOException
+     * @throws PlanerException
+     * @throws ParseException
+     */
     public void validate(ActionEvent event) throws IOException, PlanerException, ParseException {
         if(userManager.validateUsername(usernameField.getText())) {
             if(userManager.validatePassword(usernameField.getText(), passwordField.getText())) {

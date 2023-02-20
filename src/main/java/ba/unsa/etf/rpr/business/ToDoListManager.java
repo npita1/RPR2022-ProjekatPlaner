@@ -35,7 +35,6 @@ public class ToDoListManager {
         return DaoFactory.toDoListDao().add(u);
     }
 
-
     public ToDoList getToDoItemByTaskID (int id) throws PlanerException {
         return DaoFactory.toDoListDao().getToDoListItemByTaskID(id);
     }

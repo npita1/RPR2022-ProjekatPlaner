@@ -6,6 +6,11 @@ import ba.unsa.etf.rpr.exceptions.PlanerException;
 
 import java.util.List;
 
+/**
+ * Business logic layer for managing Users
+ *
+ * @author Naida Pita
+ */
 
 public class UserManager {
 

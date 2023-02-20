@@ -90,6 +90,7 @@ public class GameController {
             button1.setDisable(true);
             enabledButtons.remove(button1);
         }
+        AITurn();
     }
 
     public void button2Clicked(ActionEvent actionEvent) {
@@ -113,6 +114,7 @@ public class GameController {
             button2.setDisable(true);
             enabledButtons.remove(button2);
         }
+        AITurn();
     }
 
     public void button3Clicked(ActionEvent actionEvent) {
@@ -136,6 +138,7 @@ public class GameController {
             button3.setDisable(true);
             enabledButtons.remove(button3);
         }
+        AITurn();
     }
 
     public void button4Clicked(ActionEvent actionEvent) {
@@ -159,6 +162,7 @@ public class GameController {
             button4.setDisable(true);
             enabledButtons.remove(button4);
         }
+        AITurn();
     }
 
     public void button5Clicked(ActionEvent actionEvent) {
@@ -182,6 +186,7 @@ public class GameController {
             button5.setDisable(true);
             enabledButtons.remove(button5);
         }
+        AITurn();
     }
 
     public void button6Clicked(ActionEvent actionEvent) {
@@ -205,6 +210,7 @@ public class GameController {
             button6.setDisable(true);
             enabledButtons.remove(button6);
         }
+        AITurn();
     }
 
     public void button7Clicked(ActionEvent actionEvent) {
@@ -228,6 +234,7 @@ public class GameController {
             button7.setDisable(true);
             enabledButtons.remove(button7);
         }
+        AITurn();
     }
 
     public void button8Clicked(ActionEvent actionEvent) {
@@ -251,6 +258,7 @@ public class GameController {
             button8.setDisable(true);
             enabledButtons.remove(button8);
         }
+        AITurn();
     }
 
     public void button9Clicked(ActionEvent actionEvent) {
@@ -274,6 +282,7 @@ public class GameController {
             button9.setDisable(true);
             enabledButtons.remove(button9);
         }
+        AITurn();
     }
 
     private void AITurn() {

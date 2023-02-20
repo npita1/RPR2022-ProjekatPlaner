@@ -73,5 +73,12 @@ public class TaskDaoSQLImpl extends AbstractDao<Task> implements TaskDao{
         return true;
     }
 
+    @Override
+    public boolean hasAnyTasks(int id) throws PlanerException {
+        ArrayList<Task> list = getTasksBySubjectID(id);
+        if(list.size() == 0) return false;
+        return true;
+    }
+
 
 }

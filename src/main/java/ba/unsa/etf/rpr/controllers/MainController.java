@@ -93,11 +93,10 @@ public class MainController {
         Scene scene = new Scene(fxmlLoader.load());
         scene.getRoot().requestFocus();
         Stage stage = new Stage();
-        stage.setTitle("Brick Breaker");
+        stage.setTitle("Help");
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
-
     }
 
 

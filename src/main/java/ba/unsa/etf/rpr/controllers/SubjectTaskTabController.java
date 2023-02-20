@@ -180,9 +180,11 @@ public class SubjectTaskTabController {
                 toDoListManager.delete(t.getId());
         }
 
-        ArrayList<Task> removeTasks = taskManager.getTasksWithSubjectID(sub.getId());
-        for(Task t : removeTasks)
-            taskManager.delete(t.getId());
+        if(taskManager.hasAnyTasks(sub.getId())) {
+            ArrayList<Task> removeTasks = taskManager.getTasksWithSubjectID(sub.getId());
+            for (Task t : removeTasks)
+                taskManager.delete(t.getId());
+        }
 
         subjectManager.delete(sub.getId());
 

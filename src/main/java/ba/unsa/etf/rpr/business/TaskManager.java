@@ -40,4 +40,8 @@ public class TaskManager {
         return DaoFactory.taskDao().checkDate(date);
     }
 
+    public boolean hasAnyTasks(int id) throws PlanerException {
+        return DaoFactory.taskDao().hasAnyTasks(id);
+    }
+
 }

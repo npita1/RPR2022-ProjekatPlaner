@@ -26,8 +26,10 @@ import java.text.ParseException;
  */
 public class SignupController {
 
+    // Database managers
     private final UserManager userManager = new UserManager();
 
+    // FX COMPONENTS
     public TextField usernameField;
     public RadioButton maleRadioButton;
     public RadioButton femaleRadioButton;
@@ -36,10 +38,10 @@ public class SignupController {
     public Label warningLabel;
     public Button signUpButton;
     public ToggleGroup gender;
-
     private Stage stage;
     private Scene scene;
     private Parent root;
+    
 
     @FXML
     public void initialize() {

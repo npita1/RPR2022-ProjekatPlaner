@@ -16,5 +16,5 @@ public class HelpController {
         Stage stage = (Stage) okButton.getScene().getWindow();
         stage.close();
     }
-    
+
 }

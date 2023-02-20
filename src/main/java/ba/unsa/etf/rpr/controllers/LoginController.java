@@ -6,7 +6,6 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Bounds;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -18,12 +17,14 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
-
 import java.io.IOException;
 import java.text.ParseException;
 
-import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
-
+/**
+ * Controller for managing login window
+ *
+ * @author Naida Pita
+ */
 public class LoginController {
 
     private final UserManager userManager = new UserManager();

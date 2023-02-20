@@ -41,7 +41,7 @@ public class SignupController {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    
+
 
     @FXML
     public void initialize() {
@@ -114,7 +114,13 @@ public class SignupController {
 
     }
 
-
+    /**
+     * sign up event handler
+     * @param event
+     * @throws PlanerException
+     * @throws IOException
+     * @throws ParseException
+     */
     public void signUpAccount(ActionEvent event) throws PlanerException, IOException, ParseException {
         if(!userManager.validatePasswordLength(passwordField.getText()) && userManager.validateConfirmPassword(passwordField.getText(),confirmPasswordField.getText()) && !userManager.validateNewUsernameExist(usernameField.getText()) && !userManager.validateNewUsernameLength(usernameField.getText())) {
             String gen = "";
@@ -143,7 +149,6 @@ public class SignupController {
             }
         }
     }
-
 
 
     public void switchToMain (ActionEvent event) throws IOException, PlanerException, ParseException {

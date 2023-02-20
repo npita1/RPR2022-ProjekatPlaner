@@ -40,4 +40,8 @@ public class ToDoListManager {
     public ArrayList<ToDoList> chechIfTaskAlreadyAdded(int taskId) throws PlanerException {
         return DaoFactory.toDoListDao().checkIfTaskIDExists(taskId);
     }
+
+    public ArrayList<ToDoList> getTasksBySubjectAcronym (String acronym) throws PlanerException {
+        return DaoFactory.toDoListDao().getAllTODOBySubjectAcronym(acronym);
+    }
 }

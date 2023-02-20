@@ -11,4 +11,6 @@ public interface ToDoListDao extends Dao<ToDoList> {
 
     ArrayList<ToDoList> getAllTODOTasksFromUser (int id) throws PlanerException;
     ArrayList<ToDoList> checkIfTaskIDExists(int taskId) throws PlanerException;
+
+    ArrayList<ToDoList> getAllTODOBySubjectAcronym(String acronym) throws PlanerException;
 }

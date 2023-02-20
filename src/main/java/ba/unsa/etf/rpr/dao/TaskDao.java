@@ -12,4 +12,5 @@ public interface TaskDao extends Dao<Task>{
     public ArrayList<Task> getTasksBySubjectID (int id) throws PlanerException;
 
     boolean checkDate(Date date) throws PlanerException, ParseException;
+
 }

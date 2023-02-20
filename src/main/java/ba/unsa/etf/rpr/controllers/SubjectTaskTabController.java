@@ -108,7 +108,7 @@ public class SubjectTaskTabController {
                     ObservableList<Task> taskFromClickedSubject = FXCollections.observableArrayList(taskManager.getTasksWithSubjectID(changedSubjectTask.getId()));
 
                     // auto-removing tasks with deadlines in past
-                    ObservableList<Task> remove =   FXCollections.observableArrayList();
+                    ObservableList<Task> remove = FXCollections.observableArrayList();
                     for(Task t : taskFromClickedSubject) {
                         if(!taskManager.validateEnteredDate(t.getDeadline())) {
                             remove.add(t);
@@ -167,13 +167,25 @@ public class SubjectTaskTabController {
     }
 
 
-    public void removeSubjectAction(ActionEvent actionEvent) throws PlanerException {
+    public void removeSubjectAction(ActionEvent actionEvent) throws PlanerException, ParseException {
         ObservableList<Subject> allSubjects, oneSubject;
         allSubjects = subjectsTableView.getItems();
         oneSubject = subjectsTableView.getSelectionModel().getSelectedItems();
         Subject sub = oneSubject.get(0);
         oneSubject.forEach(allSubjects::remove);
+
+        ArrayList<ToDoList> removeTODO = toDoListManager.getTasksBySubjectAcronym(sub.getAcronym());
+        for(ToDoList t : removeTODO)
+            toDoListManager.delete(t.getId());
+
+        ArrayList<Task> removeTasks = taskManager.getTasksWithSubjectID(sub.getId());
+        for(Task t : removeTasks)
+            taskManager.delete(t.getId());
+
         subjectManager.delete(sub.getId());
+        this.initialize();
+        toDoTabController.initialize();
+        tasksTableView.refresh();
     }
 
     public void removeTaskAction (ActionEvent actionEvent) throws PlanerException {
@@ -183,6 +195,8 @@ public class SubjectTaskTabController {
         Task sub = oneTask.get(0);
         oneTask.forEach(allTasks::remove);
 
+        ToDoList toDoTask = toDoListManager.getToDoItemByTaskID(sub.getId());
+        toDoListManager.delete(toDoTask.getId());
         taskManager.delete(sub.getId());
     }
 

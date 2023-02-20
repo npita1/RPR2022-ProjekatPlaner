@@ -27,8 +27,10 @@ import java.text.ParseException;
  */
 public class LoginController {
 
+    // Database managers
     private final UserManager userManager = new UserManager();
 
+    // FX COMPONENTS
     public Button signupMain;
     public TextField usernameField;
     public Label usernameWarning;
@@ -38,6 +40,7 @@ public class LoginController {
     private Stage stage;
     private Scene scene;
     private Parent root;
+
 
     @FXML
     public void initialize() {

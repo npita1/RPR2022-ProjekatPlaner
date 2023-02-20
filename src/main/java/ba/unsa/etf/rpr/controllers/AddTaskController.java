@@ -86,6 +86,10 @@ public class AddTaskController {
 
     }
 
+    /**
+     * add task event handler
+     * @param actionEvent
+     */
     public void addTaskToList(ActionEvent actionEvent) throws PlanerException, ParseException {
             if(deadlineDatePicker.getValue() != null) {
                 LocalDate currentDate = deadlineDatePicker.getValue();

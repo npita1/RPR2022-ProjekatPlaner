@@ -60,6 +60,11 @@ public class AddSubjectController {
         });
     }
 
+    /**
+     * close window event handler
+     * @param actionEvent
+     * @throws IOException
+     */
     public void closeWindow (ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) cancelButton.getScene().getWindow();
         stage.close();

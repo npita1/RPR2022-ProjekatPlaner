@@ -24,7 +24,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="120.0" text="X">
+            <Button fx:id="button1" mnemonicParsing="false" prefHeight="100.0" prefWidth="120.0" text="X">
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
@@ -32,7 +32,7 @@
                   <Font name="Arial Bold" size="55.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="120.0" GridPane.columnIndex="1">
+            <Button fx:id="button2" mnemonicParsing="false" prefHeight="100.0" prefWidth="120.0" GridPane.columnIndex="1">
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
@@ -40,37 +40,37 @@
                   <Font name="Arial Bold" size="55.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="120.0" GridPane.columnIndex="2">
+            <Button fx:id="button3" mnemonicParsing="false" prefHeight="100.0" prefWidth="120.0" GridPane.columnIndex="2">
                <font>
                   <Font name="Arial Bold" size="55.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="120.0" GridPane.rowIndex="1">
+            <Button fx:id="button4" mnemonicParsing="false" prefHeight="100.0" prefWidth="120.0" GridPane.rowIndex="1">
                <font>
                   <Font name="Arial Bold" size="55.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="120.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button fx:id="button5" mnemonicParsing="false" prefHeight="100.0" prefWidth="120.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font name="Arial Bold" size="55.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="120.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Button fx:id="button6" mnemonicParsing="false" prefHeight="100.0" prefWidth="120.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font name="Arial Bold" size="55.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="120.0" GridPane.rowIndex="2">
+            <Button fx:id="button7" mnemonicParsing="false" prefHeight="100.0" prefWidth="120.0" GridPane.rowIndex="2">
                <font>
                   <Font name="Arial Bold" size="55.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="120.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Button fx:id="button8" mnemonicParsing="false" prefHeight="100.0" prefWidth="120.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font name="Arial Bold" size="55.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="120.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <Button fx:id="button9" mnemonicParsing="false" prefHeight="100.0" prefWidth="120.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <font>
                   <Font name="Arial Bold" size="55.0" />
                </font>
@@ -81,7 +81,7 @@
    <bottom>
       <AnchorPane prefHeight="60.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="216.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="169.0" text="START GAME">
+            <Button fx:id="startButton" layoutX="216.0" mnemonicParsing="false" onAction="#startGame" prefHeight="44.0" prefWidth="169.0" text="START GAME">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>

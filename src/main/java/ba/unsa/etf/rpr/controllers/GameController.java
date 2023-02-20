@@ -26,6 +26,7 @@ public class GameController {
     public Button button9;
     public Button startButton;
     public Label winnerLabel;
+    public Button restartButton;
 
 
     private ArrayList<Button> playerClicked = new ArrayList<>();
@@ -41,6 +42,7 @@ public class GameController {
 
     @FXML
     public void initialize() {
+        restartButton.setVisible(false);
         enabledButtons = new ArrayList<>(Arrays.asList(button1,button2,button3,button4,button5,button6,button7, button8,button9));
     }
 
@@ -92,7 +94,8 @@ public class GameController {
                 button1.setDisable(true);
                 enabledButtons.remove(button1);
             }
-            AITurn();
+            if(playerClicked.size() + AIClicked.size() != 9)
+                AITurn();
         }
     }
 
@@ -119,7 +122,8 @@ public class GameController {
                 button2.setDisable(true);
                 enabledButtons.remove(button2);
             }
-            AITurn();
+            if(playerClicked.size() + AIClicked.size() != 9)
+                AITurn();
         }
     }
 
@@ -146,7 +150,8 @@ public class GameController {
                 button3.setDisable(true);
                 enabledButtons.remove(button3);
             }
-            AITurn();
+            if(playerClicked.size() + AIClicked.size() != 9)
+                AITurn();
         }
     }
 
@@ -173,7 +178,8 @@ public class GameController {
                 button4.setDisable(true);
                 enabledButtons.remove(button4);
             }
-            AITurn();
+            if(playerClicked.size() + AIClicked.size() != 9)
+                AITurn();
         }
 
     }
@@ -201,7 +207,8 @@ public class GameController {
                 button5.setDisable(true);
                 enabledButtons.remove(button5);
             }
-            AITurn();
+            if(playerClicked.size() + AIClicked.size() != 9)
+                AITurn();
         }
     }
 
@@ -228,7 +235,8 @@ public class GameController {
                 button6.setDisable(true);
                 enabledButtons.remove(button6);
             }
-            AITurn();
+            if(playerClicked.size() + AIClicked.size() != 9)
+                AITurn();
         }
     }
 
@@ -255,7 +263,8 @@ public class GameController {
                 button7.setDisable(true);
                 enabledButtons.remove(button7);
             }
-            AITurn();
+            if(playerClicked.size() + AIClicked.size() != 9)
+                AITurn();
         }
     }
 
@@ -282,8 +291,8 @@ public class GameController {
                 button8.setDisable(true);
                 enabledButtons.remove(button8);
             }
-
-            AITurn();
+            if(playerClicked.size() + AIClicked.size() != 9)
+                AITurn();
         }
     }
 
@@ -310,7 +319,8 @@ public class GameController {
                 button9.setDisable(true);
                 enabledButtons.remove(button9);
             }
-            AITurn();
+            if(playerClicked.size() + AIClicked.size() != 9)
+                AITurn();
         }
     }
 
@@ -346,32 +356,45 @@ public class GameController {
             winnerLabel.setText("Player wins!");
             for(Button b : enabledButtons)
                 b.setDisable(true);
+            restartButton.setVisible(true);
         }
         if(playerClicked.containsAll(c5) || playerClicked.containsAll(c6) || playerClicked.containsAll(c7) || playerClicked.containsAll(c8)){
             winnerLabel.setText("Player wins!");
             for(Button b : enabledButtons)
                 b.setDisable(true);
+            restartButton.setVisible(true);
         }
 
         if(AIClicked.containsAll(c1) || AIClicked.containsAll(c2) || AIClicked.containsAll(c3) || AIClicked.containsAll(c4)){
             winnerLabel.setText("AI wins!");
             for(Button b : enabledButtons)
                 b.setDisable(true);
+            restartButton.setVisible(true);
         }
         if(AIClicked.containsAll(c5) || AIClicked.containsAll(c6) || AIClicked.containsAll(c7) || AIClicked.containsAll(c8)){
             winnerLabel.setText("AI wins!");
             for(Button b : enabledButtons)
                 b.setDisable(true);
+            restartButton.setVisible(true);
         }
-
+        if(playerClicked.size() + AIClicked.size() == 9) {
+            winnerLabel.setText("It's a tie!");
+            restartButton.setVisible(true);
+        }
     }
 
     public void restartGame(ActionEvent actionEvent) {
         enabledButtons = new ArrayList<>(Arrays.asList(button1,button2,button3,button4,button5,button6,button7, button8,button9));
+        playerClicked.clear();
+        AIClicked.clear();
         for(Button b : enabledButtons) {
             if(b.isDisable())
                 b.setDisable(false);
+            b.setText("");
         }
+        winnerLabel.setText("");
+        restartButton.setVisible(false);
+        startButton.setDisable(false);
         startGame(actionEvent);
     }
 

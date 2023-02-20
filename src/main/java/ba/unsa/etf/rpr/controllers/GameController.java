@@ -1,8 +1,11 @@
 package ba.unsa.etf.rpr.controllers;
 
+import com.mysql.cj.conf.BooleanProperty;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.beans.binding.BooleanBinding;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -38,6 +41,14 @@ public class GameController implements Initializable {
     @FXML
     private Button startButton;
 
+    //  Boolean properties for pressed keys
+    private SimpleBooleanProperty aPressed = new SimpleBooleanProperty();
+    private SimpleBooleanProperty dPressed = new SimpleBooleanProperty();
+    private SimpleBooleanProperty leftPressed = new SimpleBooleanProperty();
+    private SimpleBooleanProperty rightPressed = new SimpleBooleanProperty();
+    private BooleanBinding anyKeyPressed = aPressed.or(dPressed).or(leftPressed).or(rightPressed);
+
+
     Robot robot = new Robot();
 
     private ArrayList<Rectangle> bricks = new ArrayList<>();
@@ -45,7 +56,6 @@ public class GameController implements Initializable {
     double deltaX = -1;
     double deltaY = -3;
 
-    //1 Frame evey 10 millis, which means 100 FPS
     Timeline timeline = new Timeline(new KeyFrame(Duration.millis(10), new EventHandler<ActionEvent>() {
         @Override
         public void handle(ActionEvent actionEvent) {
@@ -141,7 +151,7 @@ public class GameController implements Initializable {
     }
 
     public void movePaddle(){
-        Bounds bounds = scene.localToScreen(scene.getBoundsInLocal());
+        /*Bounds bounds = scene.localToScreen(scene.getBoundsInLocal());
         double sceneXPos = bounds.getMinX();
 
         double xPos = robot.getMouseX();
@@ -153,7 +163,9 @@ public class GameController implements Initializable {
             paddle.setLayoutX(0);
         } else if (xPos > (sceneXPos + scene.getWidth()) - (paddleWidth/2)){
             paddle.setLayoutX(scene.getWidth() - paddleWidth);
-        }
+        }*/
+
+
     }
 
     public void checkCollisionPaddle(Rectangle paddle){

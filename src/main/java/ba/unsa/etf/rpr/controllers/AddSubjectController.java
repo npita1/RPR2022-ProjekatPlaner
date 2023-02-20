@@ -65,6 +65,10 @@ public class AddSubjectController {
         stage.close();
     }
 
+    /**
+     * add subject event handler
+     * @param actionEvent
+     * */
     public void addSubjectToList(ActionEvent actionEvent) throws IOException, PlanerException, ParseException {
         User user = userManager.getUserByUsername(username);
         if(!subjectManager.hasDuplicateAcronymUser(user.getId(),subjectAcronymField.getText()) && !subjectManager.hasDuplicateSubjectUser(user.getId(),subjectNameField.getText()) ) {

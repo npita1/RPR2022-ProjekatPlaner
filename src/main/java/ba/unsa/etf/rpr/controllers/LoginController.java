@@ -67,6 +67,12 @@ public class LoginController {
 
     }
 
+    /**
+     * switch to sign up window event handler
+     *
+     * @param event
+     * @throws IOException
+     */
     public void switchToSignup(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/signup.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -75,6 +81,14 @@ public class LoginController {
         stage.show();
     }
 
+
+    /**
+     * switch to main window event handler
+     * @param event
+     * @throws IOException
+     * @throws PlanerException
+     * @throws ParseException
+     */
     public void switchToMain (ActionEvent event) throws IOException, PlanerException, ParseException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
         root = loader.load();

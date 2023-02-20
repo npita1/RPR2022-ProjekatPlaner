@@ -5,10 +5,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
-import java.sql.SQLSyntaxErrorException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
@@ -57,6 +55,7 @@ public class GameController {
             int randomButton =  ThreadLocalRandom.current().nextInt(0,enabledButtons.size());
             enabledButtons.get(randomButton).setText("X");
             enabledButtons.get(randomButton).setDisable(true);
+            AIClicked.add(enabledButtons.get(randomButton));
             enabledButtons.remove(enabledButtons.get(randomButton));
             playerSign = "O";
             AISign = "X";
@@ -70,6 +69,7 @@ public class GameController {
 
 
     public void button1Clicked(ActionEvent actionEvent) {
+        playerClicked.add(button1);
         // player O
         if(firstOneToPlay.equals("AI")) {
             nowTurn = "Player";
@@ -84,6 +84,7 @@ public class GameController {
         if(playerSign.equals("X")) {
             button1.setText("X");
             button1.setDisable(true);
+
             enabledButtons.remove(button1);
         } else {
             button1.setText("O");
@@ -94,6 +95,7 @@ public class GameController {
     }
 
     public void button2Clicked(ActionEvent actionEvent) {
+        playerClicked.add(button2);
         // player O
         if(firstOneToPlay.equals("AI")) {
             nowTurn = "Player";
@@ -118,6 +120,7 @@ public class GameController {
     }
 
     public void button3Clicked(ActionEvent actionEvent) {
+        playerClicked.add(button3);
         // player O
         if(firstOneToPlay.equals("AI")) {
             nowTurn = "Player";
@@ -142,6 +145,7 @@ public class GameController {
     }
 
     public void button4Clicked(ActionEvent actionEvent) {
+        playerClicked.add(button4);
         // player O
         if(firstOneToPlay.equals("AI")) {
             nowTurn = "Player";
@@ -166,6 +170,7 @@ public class GameController {
     }
 
     public void button5Clicked(ActionEvent actionEvent) {
+        playerClicked.add(button5);
         // player O
         if(firstOneToPlay.equals("AI")) {
             nowTurn = "Player";
@@ -190,6 +195,7 @@ public class GameController {
     }
 
     public void button6Clicked(ActionEvent actionEvent) {
+        playerClicked.add(button6);
         // player O
         if(firstOneToPlay.equals("AI")) {
             nowTurn = "Player";
@@ -214,6 +220,7 @@ public class GameController {
     }
 
     public void button7Clicked(ActionEvent actionEvent) {
+        playerClicked.add(button7);
         // player O
         if(firstOneToPlay.equals("AI")) {
             nowTurn = "Player";
@@ -238,6 +245,7 @@ public class GameController {
     }
 
     public void button8Clicked(ActionEvent actionEvent) {
+        playerClicked.add(button8);
         // player O
         if(firstOneToPlay.equals("AI")) {
             nowTurn = "Player";
@@ -258,10 +266,12 @@ public class GameController {
             button8.setDisable(true);
             enabledButtons.remove(button8);
         }
+
         AITurn();
     }
 
     public void button9Clicked(ActionEvent actionEvent) {
+        playerClicked.add(button9);
         // player O
         if(firstOneToPlay.equals("AI")) {
             nowTurn = "Player";

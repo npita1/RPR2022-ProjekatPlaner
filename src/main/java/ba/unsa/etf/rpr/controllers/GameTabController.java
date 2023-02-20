@@ -21,6 +21,11 @@ import javafx.util.Duration;
 import java.io.IOException;
 import java.text.ParseException;
 
+/**
+ * Controller for managing the game tab
+ *
+ * @author Naida Pita
+ */
 public class GameTabController {
 
     // Database managers

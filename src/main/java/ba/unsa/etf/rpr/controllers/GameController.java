@@ -411,7 +411,6 @@ public class GameController {
      * game reset event handler
      * @param actionEvent
      */
-
     public void restartGame(ActionEvent actionEvent) {
         enabledButtons = new ArrayList<>(Arrays.asList(button1,button2,button3,button4,button5,button6,button7, button8,button9));
         playerClicked.clear();

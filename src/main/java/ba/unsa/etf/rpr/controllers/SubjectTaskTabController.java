@@ -185,7 +185,7 @@ public class SubjectTaskTabController {
             taskManager.delete(t.getId());
 
         subjectManager.delete(sub.getId());
-        
+
         this.initialize();
         toDoTabController.initialize();
         tasksTableView.refresh();

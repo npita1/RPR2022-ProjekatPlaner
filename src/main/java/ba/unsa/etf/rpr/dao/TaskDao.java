@@ -9,8 +9,9 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public interface TaskDao extends Dao<Task>{
-    public ArrayList<Task> getTasksBySubjectID (int id) throws PlanerException;
+    ArrayList<Task> getTasksBySubjectID (int id) throws PlanerException;
 
     boolean checkDate(Date date) throws PlanerException, ParseException;
+
 
 }

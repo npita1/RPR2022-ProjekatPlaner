@@ -36,6 +36,8 @@ public class GameController {
     private String nowTurn;
     private String firstOneToPlay;
     private ArrayList<Button> enabledButtons;
+    private String playerSign;
+    private String AISign;
 
 
 
@@ -56,6 +58,11 @@ public class GameController {
             enabledButtons.get(randomButton).setText("X");
             enabledButtons.get(randomButton).setDisable(true);
             enabledButtons.remove(enabledButtons.get(randomButton));
+            playerSign = "O";
+            AISign = "X";
+        } else {
+            playerSign = "X";
+            AISign = "O";
         }
 
         startButton.setDisable(true);
@@ -64,7 +71,7 @@ public class GameController {
 
     public void button1Clicked(ActionEvent actionEvent) {
         // player O
-        if(nowTurn.equals("AI")) {
+        if(firstOneToPlay.equals("AI")) {
             nowTurn = "Player";
             button1.setText("O");
             button1.setDisable(true);
@@ -78,7 +85,7 @@ public class GameController {
 
     public void button2Clicked(ActionEvent actionEvent) {
         // player O
-        if(nowTurn.equals("AI")) {
+        if(firstOneToPlay.equals("AI")) {
             nowTurn = "Player";
             button2.setText("O");
             button2.setDisable(true);
@@ -92,7 +99,7 @@ public class GameController {
 
     public void button3Clicked(ActionEvent actionEvent) {
         // player O
-        if(nowTurn.equals("AI")) {
+        if(firstOneToPlay.equals("AI")) {
             nowTurn = "Player";
             button3.setText("O");
             button3.setDisable(true);
@@ -106,7 +113,7 @@ public class GameController {
 
     public void button4Clicked(ActionEvent actionEvent) {
         // player O
-        if(nowTurn.equals("AI")) {
+        if(firstOneToPlay.equals("AI")) {
             nowTurn = "Player";
             button4.setText("O");
             button4.setDisable(true);
@@ -195,7 +202,12 @@ public class GameController {
             enabledButtons.get(randomButton).setText("X");
             enabledButtons.get(randomButton).setDisable(true);
             enabledButtons.remove(enabledButtons.get(randomButton));
+        } else {
+            enabledButtons.get(randomButton).setText("O");
+            enabledButtons.get(randomButton).setDisable(true);
+            enabledButtons.remove(enabledButtons.get(randomButton));
         }
+        nowTurn = "Player";
     }
 
 }

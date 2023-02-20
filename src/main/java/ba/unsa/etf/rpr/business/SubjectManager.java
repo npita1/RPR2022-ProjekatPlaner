@@ -7,6 +7,11 @@ import ba.unsa.etf.rpr.exceptions.PlanerException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Business logic layer for managing Subjects
+ *
+ * @author Naida Pita
+ */
 public class SubjectManager {
 
     public List<Subject> getAll() throws PlanerException {

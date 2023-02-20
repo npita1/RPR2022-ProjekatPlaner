@@ -29,18 +29,9 @@ public class MainController {
     // Database managers
     private final UserManager userManager = new UserManager();
 
-    // Controllers for injection
-    @FXML
-    private SubjectTaskTabController subjectsAndTasksTabController;
-    @FXML
-    private ToDoTabController toDoTabController;
-    @FXML
-    private GameTabController gameTabController;
-
     // FX COMPONENTS
     @FXML
     public GridPane subjectsAndTasksTab;
-
     public MenuItem logOutButton;
     public Label tokenNumber;
     public Label currentDate;
@@ -49,7 +40,17 @@ public class MainController {
     private Parent root;
 
 
+    // Controllers for injection
+    @FXML
+    private SubjectTaskTabController subjectsAndTasksTabController;
+    @FXML
+    private ToDoTabController toDoTabController;
+    @FXML
+    private GameTabController gameTabController;
+
+    // Data from injection
     private String username;
+
 
     @FXML
     public void initialize() throws PlanerException, ParseException {
@@ -79,15 +80,11 @@ public class MainController {
 
     }
 
-    public void setUsername (String usernamea) {
-        username = usernamea;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-
+    /**
+     * switch to login, logout event handler
+     * @param event
+     * @throws IOException
+     */
     public void switchToLogin(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
         stage = (Stage)logOutButton.getParentPopup().getOwnerWindow();
@@ -107,5 +104,12 @@ public class MainController {
         stage.show();
     }
 
+    public void setUsername (String usernamea) {
+        username = usernamea;
+    }
+
+    public String getUsername() {
+        return username;
+    }
 
 }

@@ -30,12 +30,13 @@ public class AppFX extends Application
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
         stage.setTitle("Mirus planner app");
         stage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
-        stage.setMinHeight(660);
-        stage.setMinWidth(970);
+        stage.setMinHeight(670);
+        stage.setMinWidth(980);
         stage.show();
     }
 
     public static void main( String[] args ) {
         launch(args);
     }
+
 }

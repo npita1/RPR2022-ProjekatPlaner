@@ -309,6 +309,41 @@ public class GameController {
         }
     }
 
+    public void checkTheWinner() {
+        ArrayList<Button> c1 = new ArrayList<Button>(Arrays.asList(button1,button2,button3));
+        ArrayList<Button> c2 = new ArrayList<Button>(Arrays.asList(button4,button5,button6));
+        ArrayList<Button> c3 = new ArrayList<Button>(Arrays.asList(button7,button8,button9));
+        ArrayList<Button> c4 = new ArrayList<Button>(Arrays.asList(button1,button4,button7));
+        ArrayList<Button> c5 = new ArrayList<Button>(Arrays.asList(button2,button5,button8));
+        ArrayList<Button> c6 = new ArrayList<Button>(Arrays.asList(button3,button6,button9));
+        ArrayList<Button> c7 = new ArrayList<Button>(Arrays.asList(button1,button5,button9));
+        ArrayList<Button> c8 = new ArrayList<Button>(Arrays.asList(button3,button5,button7));
+
+        if(playerClicked.containsAll(c1) || playerClicked.containsAll(c2) || playerClicked.containsAll(c3) || playerClicked.containsAll(c4)){
+            winnerLabel.setText("Player wins!");
+            for(Button b : enabledButtons)
+                b.setDisable(true);
+        }
+        if(playerClicked.containsAll(c5) || playerClicked.containsAll(c6) || playerClicked.containsAll(c7) || playerClicked.containsAll(c8)){
+            winnerLabel.setText("Player wins!");
+            for(Button b : enabledButtons)
+                b.setDisable(true);
+        }
+
+        if(AIClicked.containsAll(c1) || AIClicked.containsAll(c2) || AIClicked.containsAll(c3) || AIClicked.containsAll(c4)){
+            winnerLabel.setText("AI wins!");
+            for(Button b : enabledButtons)
+                b.setDisable(true);
+        }
+        if(AIClicked.containsAll(c5) || AIClicked.containsAll(c6) || AIClicked.containsAll(c7) || AIClicked.containsAll(c8)){
+            winnerLabel.setText("AI wins!");
+            for(Button b : enabledButtons)
+                b.setDisable(true);
+        }
+
+
+    }
+
 }
 
 

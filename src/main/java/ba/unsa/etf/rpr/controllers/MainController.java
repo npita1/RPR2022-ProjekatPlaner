@@ -18,10 +18,18 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+
+/**
+ * Controller for managing main window
+ *
+ * @author Naida Pita
+ */
 public class MainController {
 
+    // Database managers
     private final UserManager userManager = new UserManager();
 
+    // Controllers for injection
     @FXML
     private SubjectTaskTabController subjectsAndTasksTabController;
     @FXML
@@ -29,6 +37,7 @@ public class MainController {
     @FXML
     private GameTabController gameTabController;
 
+    // FX COMPONENTS
     @FXML
     public GridPane subjectsAndTasksTab;
 

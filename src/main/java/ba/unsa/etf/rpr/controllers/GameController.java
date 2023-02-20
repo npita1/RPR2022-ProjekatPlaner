@@ -11,9 +11,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * Controller for managing game
+ *
+ * @author Naida Pita
+ */
 public class GameController {
 
-
+    // FX COMPONENTS
     public GridPane buttonGrid;
     public Button button1;
     public Button button2;
@@ -29,6 +34,7 @@ public class GameController {
     public Button restartButton;
 
 
+    // Needed attributes
     private ArrayList<Button> playerClicked = new ArrayList<>();
     private ArrayList<Button> AIClicked = new ArrayList<>();
     private final ArrayList<String> randomTurnArray = new ArrayList<String>(Arrays.asList("Player","AI"));

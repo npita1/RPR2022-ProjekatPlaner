@@ -99,9 +99,21 @@ public class AddSubjectController {
 
     }
 
+    /**
+     * Getter for atribute username
+     * fetched through injection from SubjectTaskController
+     *
+     * @return username
+     */
     public String getUsername() {
         return username;
     }
+
+    /**
+     * Setter for atribute username
+     * fetched through injection from SubjectTaskController
+     *
+     */
 
     public void setUsername(String username) {
         this.username = username;

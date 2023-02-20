@@ -9,6 +9,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
+/**
+ * Business logic layer for managing Tasks
+ *
+ * @author Naida Pita
+ */
+
 public class TaskManager {
 
     public List<Task> getAll() throws PlanerException {

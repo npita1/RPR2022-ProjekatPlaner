@@ -1,12 +1,17 @@
 package ba.unsa.etf.rpr.business;
 
-import ba.unsa.etf.rpr.dao.Dao;
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.ToDoList;
 import ba.unsa.etf.rpr.exceptions.PlanerException;
 
 import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * Business logic layer for managing To-Do list items
+ *
+ * @author Naida Pita
+ */
 
 public class ToDoListManager {
 
@@ -30,6 +35,7 @@ public class ToDoListManager {
         return DaoFactory.toDoListDao().add(u);
     }
 
+    
     public ToDoList getToDoItemByTaskID (int id) throws PlanerException {
         return DaoFactory.toDoListDao().getToDoListItemByTaskID(id);
     }

@@ -1,17 +1,12 @@
 package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.business.UserManager;
-import ba.unsa.etf.rpr.domain.Subject;
 import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.exceptions.PlanerException;
 import javafx.animation.PauseTransition;
-import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -32,13 +27,17 @@ public class GameTabController {
     private final UserManager userManager = new UserManager();
 
 
+    // FX COMPONENTS
     public Label warningLabel;
     public Button playButton;
 
+    // Controllers for injection
     private MainController mainController;
 
+    // Fetched and needed data
     private User user;
 
+    
     @FXML
     public void initialize() throws PlanerException {
         warningLabel.setVisible(false);

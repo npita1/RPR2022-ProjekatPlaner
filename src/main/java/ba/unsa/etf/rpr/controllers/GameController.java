@@ -311,11 +311,13 @@ public class GameController {
             enabledButtons.get(randomButton).setText("X");
             enabledButtons.get(randomButton).setDisable(true);
             AIClicked.add(enabledButtons.get(randomButton));
+            checkTheWinner();
             enabledButtons.remove(enabledButtons.get(randomButton));
         } else {
             enabledButtons.get(randomButton).setText("O");
             enabledButtons.get(randomButton).setDisable(true);
             AIClicked.add(enabledButtons.get(randomButton));
+            checkTheWinner();
             enabledButtons.remove(enabledButtons.get(randomButton));
         }
     }

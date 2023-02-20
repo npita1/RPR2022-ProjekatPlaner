@@ -18,6 +18,12 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.text.ParseException;
 
+
+/**
+ * Controller for managing singup
+ *
+ * @author Naida Pita
+ */
 public class SignupController {
 
     private final UserManager userManager = new UserManager();

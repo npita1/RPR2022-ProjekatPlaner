@@ -69,239 +69,249 @@ public class GameController {
 
 
     public void button1Clicked(ActionEvent actionEvent) {
-        playerClicked.add(button1);
-        checkTheWinner();
-        // player O
-        if(firstOneToPlay.equals("AI")) {
-            nowTurn = "Player";
-            button1.setText("O");
-            button1.setDisable(true);
-            enabledButtons.remove(button1);
-        } else {
-            button1.setText("X");
-            button1.setDisable(true);
-            enabledButtons.remove(button1);
-        }
-        if(playerSign.equals("X")) {
-            button1.setText("X");
-            button1.setDisable(true);
+        if(firstOneToPlay != null) {
+            playerClicked.add(button1);
+            checkTheWinner();
+            if (firstOneToPlay.equals("AI")) {
+                nowTurn = "Player";
+                button1.setText("O");
+                button1.setDisable(true);
+                enabledButtons.remove(button1);
+            } else {
+                button1.setText("X");
+                button1.setDisable(true);
+                enabledButtons.remove(button1);
+            }
+            if (playerSign.equals("X")) {
+                button1.setText("X");
+                button1.setDisable(true);
 
-            enabledButtons.remove(button1);
-        } else {
-            button1.setText("O");
-            button1.setDisable(true);
-            enabledButtons.remove(button1);
+                enabledButtons.remove(button1);
+            } else {
+                button1.setText("O");
+                button1.setDisable(true);
+                enabledButtons.remove(button1);
+            }
+            AITurn();
         }
-        AITurn();
     }
 
     public void button2Clicked(ActionEvent actionEvent) {
-        playerClicked.add(button2);
-        checkTheWinner();
-        // player O
-        if(firstOneToPlay.equals("AI")) {
-            nowTurn = "Player";
-            button2.setText("O");
-            button2.setDisable(true);
-            enabledButtons.remove(button2);
-        } else {
-            button2.setText("X");
-            button2.setDisable(true);
-            enabledButtons.remove(button2);
+        if(firstOneToPlay != null) {
+            playerClicked.add(button2);
+            checkTheWinner();
+            if (firstOneToPlay.equals("AI")) {
+                nowTurn = "Player";
+                button2.setText("O");
+                button2.setDisable(true);
+                enabledButtons.remove(button2);
+            } else {
+                button2.setText("X");
+                button2.setDisable(true);
+                enabledButtons.remove(button2);
+            }
+            if (playerSign.equals("X")) {
+                button2.setText("X");
+                button2.setDisable(true);
+                enabledButtons.remove(button2);
+            } else {
+                button2.setText("O");
+                button2.setDisable(true);
+                enabledButtons.remove(button2);
+            }
+            AITurn();
         }
-        if(playerSign.equals("X")) {
-            button2.setText("X");
-            button2.setDisable(true);
-            enabledButtons.remove(button2);
-        } else {
-            button2.setText("O");
-            button2.setDisable(true);
-            enabledButtons.remove(button2);
-        }
-        AITurn();
     }
 
     public void button3Clicked(ActionEvent actionEvent) {
-        playerClicked.add(button3);
-        checkTheWinner();
-        // player O
-        if(firstOneToPlay.equals("AI")) {
-            nowTurn = "Player";
-            button3.setText("O");
-            button3.setDisable(true);
-            enabledButtons.remove(button3);
-        } else {
-            button3.setText("X");
-            button3.setDisable(true);
-            enabledButtons.remove(button3);
+        if(firstOneToPlay != null) {
+            playerClicked.add(button3);
+            checkTheWinner();
+            if (firstOneToPlay.equals("AI")) {
+                nowTurn = "Player";
+                button3.setText("O");
+                button3.setDisable(true);
+                enabledButtons.remove(button3);
+            } else {
+                button3.setText("X");
+                button3.setDisable(true);
+                enabledButtons.remove(button3);
+            }
+            if (playerSign.equals("X")) {
+                button3.setText("X");
+                button3.setDisable(true);
+                enabledButtons.remove(button3);
+            } else {
+                button3.setText("O");
+                button3.setDisable(true);
+                enabledButtons.remove(button3);
+            }
+            AITurn();
         }
-        if(playerSign.equals("X")) {
-            button3.setText("X");
-            button3.setDisable(true);
-            enabledButtons.remove(button3);
-        } else {
-            button3.setText("O");
-            button3.setDisable(true);
-            enabledButtons.remove(button3);
-        }
-        AITurn();
     }
 
     public void button4Clicked(ActionEvent actionEvent) {
-        playerClicked.add(button4);
-        checkTheWinner();
-        // player O
-        if(firstOneToPlay.equals("AI")) {
-            nowTurn = "Player";
-            button4.setText("O");
-            button4.setDisable(true);
-            enabledButtons.remove(button4);
-        } else {
-            button4.setText("X");
-            button4.setDisable(true);
-            enabledButtons.remove(button4);
+        if(firstOneToPlay != null) {
+            playerClicked.add(button4);
+            checkTheWinner();
+            if (firstOneToPlay.equals("AI")) {
+                nowTurn = "Player";
+                button4.setText("O");
+                button4.setDisable(true);
+                enabledButtons.remove(button4);
+            } else {
+                button4.setText("X");
+                button4.setDisable(true);
+                enabledButtons.remove(button4);
+            }
+            if (playerSign.equals("X")) {
+                button4.setText("X");
+                button4.setDisable(true);
+                enabledButtons.remove(button4);
+            } else {
+                button4.setText("O");
+                button4.setDisable(true);
+                enabledButtons.remove(button4);
+            }
+            AITurn();
         }
-        if(playerSign.equals("X")) {
-            button4.setText("X");
-            button4.setDisable(true);
-            enabledButtons.remove(button4);
-        } else {
-            button4.setText("O");
-            button4.setDisable(true);
-            enabledButtons.remove(button4);
-        }
-        AITurn();
+
     }
 
     public void button5Clicked(ActionEvent actionEvent) {
-        playerClicked.add(button5);
-        checkTheWinner();
-        // player O
-        if(firstOneToPlay.equals("AI")) {
-            nowTurn = "Player";
-            button5.setText("O");
-            button5.setDisable(true);
-            enabledButtons.remove(button5);
-        } else {
-            button5.setText("X");
-            button5.setDisable(true);
-            enabledButtons.remove(button5);
+        if(firstOneToPlay != null) {
+            playerClicked.add(button5);
+            checkTheWinner();
+            if (firstOneToPlay.equals("AI")) {
+                nowTurn = "Player";
+                button5.setText("O");
+                button5.setDisable(true);
+                enabledButtons.remove(button5);
+            } else {
+                button5.setText("X");
+                button5.setDisable(true);
+                enabledButtons.remove(button5);
+            }
+            if (playerSign.equals("X")) {
+                button5.setText("X");
+                button5.setDisable(true);
+                enabledButtons.remove(button5);
+            } else {
+                button5.setText("O");
+                button5.setDisable(true);
+                enabledButtons.remove(button5);
+            }
+            AITurn();
         }
-        if(playerSign.equals("X")) {
-            button5.setText("X");
-            button5.setDisable(true);
-            enabledButtons.remove(button5);
-        } else {
-            button5.setText("O");
-            button5.setDisable(true);
-            enabledButtons.remove(button5);
-        }
-        AITurn();
     }
 
     public void button6Clicked(ActionEvent actionEvent) {
-        playerClicked.add(button6);
-        checkTheWinner();
-        // player O
-        if(firstOneToPlay.equals("AI")) {
-            nowTurn = "Player";
-            button6.setText("O");
-            button6.setDisable(true);
-            enabledButtons.remove(button6);
-        } else {
-            button6.setText("X");
-            button6.setDisable(true);
-            enabledButtons.remove(button6);
+        if(firstOneToPlay != null) {
+            playerClicked.add(button6);
+            checkTheWinner();
+            if (firstOneToPlay.equals("AI")) {
+                nowTurn = "Player";
+                button6.setText("O");
+                button6.setDisable(true);
+                enabledButtons.remove(button6);
+            } else {
+                button6.setText("X");
+                button6.setDisable(true);
+                enabledButtons.remove(button6);
+            }
+            if (playerSign.equals("X")) {
+                button6.setText("X");
+                button6.setDisable(true);
+                enabledButtons.remove(button6);
+            } else {
+                button6.setText("O");
+                button6.setDisable(true);
+                enabledButtons.remove(button6);
+            }
+            AITurn();
         }
-        if(playerSign.equals("X")) {
-            button6.setText("X");
-            button6.setDisable(true);
-            enabledButtons.remove(button6);
-        } else {
-            button6.setText("O");
-            button6.setDisable(true);
-            enabledButtons.remove(button6);
-        }
-        AITurn();
     }
 
     public void button7Clicked(ActionEvent actionEvent) {
-        playerClicked.add(button7);
-        checkTheWinner();
-        // player O
-        if(firstOneToPlay.equals("AI")) {
-            nowTurn = "Player";
-            button7.setText("O");
-            button7.setDisable(true);
-            enabledButtons.remove(button7);
-        } else {
-            button7.setText("X");
-            button7.setDisable(true);
-            enabledButtons.remove(button7);
+        if(firstOneToPlay != null) {
+            playerClicked.add(button7);
+            checkTheWinner();
+            if (firstOneToPlay.equals("AI")) {
+                nowTurn = "Player";
+                button7.setText("O");
+                button7.setDisable(true);
+                enabledButtons.remove(button7);
+            } else {
+                button7.setText("X");
+                button7.setDisable(true);
+                enabledButtons.remove(button7);
+            }
+            if (playerSign.equals("X")) {
+                button7.setText("X");
+                button7.setDisable(true);
+                enabledButtons.remove(button7);
+            } else {
+                button7.setText("O");
+                button7.setDisable(true);
+                enabledButtons.remove(button7);
+            }
+            AITurn();
         }
-        if(playerSign.equals("X")) {
-            button7.setText("X");
-            button7.setDisable(true);
-            enabledButtons.remove(button7);
-        } else {
-            button7.setText("O");
-            button7.setDisable(true);
-            enabledButtons.remove(button7);
-        }
-        AITurn();
     }
 
     public void button8Clicked(ActionEvent actionEvent) {
-        playerClicked.add(button8);
-        checkTheWinner();
-        // player O
-        if(firstOneToPlay.equals("AI")) {
-            nowTurn = "Player";
-            button8.setText("O");
-            button8.setDisable(true);
-            enabledButtons.remove(button8);
-        } else {
-            button8.setText("X");
-            button8.setDisable(true);
-            enabledButtons.remove(button8);
-        }
-        if(playerSign.equals("X")) {
-            button8.setText("X");
-            button8.setDisable(true);
-            enabledButtons.remove(button8);
-        } else {
-            button8.setText("O");
-            button8.setDisable(true);
-            enabledButtons.remove(button8);
-        }
+        if(firstOneToPlay != null) {
+            playerClicked.add(button8);
+            checkTheWinner();
+            if (firstOneToPlay.equals("AI")) {
+                nowTurn = "Player";
+                button8.setText("O");
+                button8.setDisable(true);
+                enabledButtons.remove(button8);
+            } else {
+                button8.setText("X");
+                button8.setDisable(true);
+                enabledButtons.remove(button8);
+            }
+            if (playerSign.equals("X")) {
+                button8.setText("X");
+                button8.setDisable(true);
+                enabledButtons.remove(button8);
+            } else {
+                button8.setText("O");
+                button8.setDisable(true);
+                enabledButtons.remove(button8);
+            }
 
-        AITurn();
+            AITurn();
+        }
     }
 
     public void button9Clicked(ActionEvent actionEvent) {
-        playerClicked.add(button9);
-        checkTheWinner();
-        // player O
-        if(firstOneToPlay.equals("AI")) {
-            nowTurn = "Player";
-            button9.setText("O");
-            button9.setDisable(true);
-            enabledButtons.remove(button9);
-        } else {
-            button9.setText("X");
-            button9.setDisable(true);
-            enabledButtons.remove(button9);
+        if(firstOneToPlay != null) {
+            playerClicked.add(button9);
+            checkTheWinner();
+            if (firstOneToPlay.equals("AI")) {
+                nowTurn = "Player";
+                button9.setText("O");
+                button9.setDisable(true);
+                enabledButtons.remove(button9);
+            } else {
+                button9.setText("X");
+                button9.setDisable(true);
+                enabledButtons.remove(button9);
+            }
+            if (playerSign.equals("X")) {
+                button9.setText("X");
+                button9.setDisable(true);
+                enabledButtons.remove(button9);
+            } else {
+                button9.setText("O");
+                button9.setDisable(true);
+                enabledButtons.remove(button9);
+            }
+            AITurn();
         }
-        if(playerSign.equals("X")) {
-            button9.setText("X");
-            button9.setDisable(true);
-            enabledButtons.remove(button9);
-        } else {
-            button9.setText("O");
-            button9.setDisable(true);
-            enabledButtons.remove(button9);
-        }
-        AITurn();
     }
 
     private void AITurn() {
@@ -354,7 +364,15 @@ public class GameController {
                 b.setDisable(true);
         }
 
+    }
 
+    public void restartGame(ActionEvent actionEvent) {
+        enabledButtons = new ArrayList<>(Arrays.asList(button1,button2,button3,button4,button5,button6,button7, button8,button9));
+        for(Button b : enabledButtons) {
+            if(b.isDisable())
+                b.setDisable(false);
+        }
+        startGame(actionEvent);
     }
 
 }

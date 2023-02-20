@@ -57,12 +57,12 @@ public class SubjectDaoSQLImpl extends AbstractDao<Subject> implements SubjectDa
 
     @Override
     public Subject getSubjectByName(String name)throws PlanerException {
-        return executeQueryUnique("SELECT * FROM subjects where name=?", new Object[]{name});
+        return (Subject) executeQuery("SELECT * FROM subjects where name=?", new Object[]{name});
     }
 
     @Override
     public Subject getSubjectByAcronym(String acronym) throws PlanerException {
-        return executeQueryUnique("SELECT * FROM subjects where acronym=?", new Object[]{acronym});
+        return (Subject) executeQuery("SELECT * FROM subjects where acronym=?", new Object[]{acronym});
     }
 
     @Override
@@ -90,20 +90,10 @@ public class SubjectDaoSQLImpl extends AbstractDao<Subject> implements SubjectDa
         return false;
     }
 
+    @Override
+    public ArrayList<Subject> getSubjectFromNameAndUserID(String name, int id) throws PlanerException {
+        return (ArrayList<Subject>) executeQuery("SELECT * FROM subjects WHERE name=? AND user_id=?", new Object[]{name,id});
+    }
 
-
-
-
-
-    /*public SubjectDaoSQLImpl() throws IOException {
-        Properties p = new Properties();
-        InputStream is = new FileInputStream("db.properties");
-        p.load(is);
-        try {
-            this.connection = DriverManager.getConnection(p.getProperty("url"), p.getProperty("username"), p.getProperty("password"));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }*/
 
 }

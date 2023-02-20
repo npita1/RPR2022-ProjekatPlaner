@@ -3,6 +3,7 @@ package ba.unsa.etf.rpr.dao;
 import ba.unsa.etf.rpr.domain.Subject;
 import ba.unsa.etf.rpr.exceptions.PlanerException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface SubjectDao extends Dao<Subject>{
@@ -15,5 +16,7 @@ public interface SubjectDao extends Dao<Subject>{
 
     boolean duplicateSubjectForOneUser(int userID, String subjectName) throws PlanerException;
     boolean duplicateAcronymForUser(int userID,String acronym) throws PlanerException;
+
+    ArrayList<Subject> getSubjectFromNameAndUserID(String name, int id) throws PlanerException;
 
 }

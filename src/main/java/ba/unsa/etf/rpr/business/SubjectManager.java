@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr.business;
 
+import ba.unsa.etf.rpr.dao.Dao;
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Subject;
 import ba.unsa.etf.rpr.exceptions.PlanerException;
@@ -48,6 +49,10 @@ public class SubjectManager {
 
     public boolean hasDuplicateAcronymUser (int userID, String acronym) throws PlanerException {
         return DaoFactory.subjectDao().duplicateAcronymForUser(userID,acronym);
+    }
+
+    public ArrayList<Subject> getSubjectFromNameAndUserID(String name, int id) throws PlanerException {
+        return DaoFactory.subjectDao().getSubjectFromNameAndUserID(name,id);
     }
 
 }

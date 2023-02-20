@@ -2,8 +2,10 @@ package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.business.SubjectManager;
 import ba.unsa.etf.rpr.business.TaskManager;
+import ba.unsa.etf.rpr.business.UserManager;
 import ba.unsa.etf.rpr.domain.Subject;
 import ba.unsa.etf.rpr.domain.Task;
+import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.exceptions.PlanerException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,6 +19,7 @@ import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -29,6 +32,7 @@ public class AddTaskController {
     // Database managers
     private final SubjectManager subjectManager = new SubjectManager();
     private final TaskManager taskManager = new TaskManager();
+    private final UserManager userManager = new UserManager();
 
 
     // FX Components
@@ -101,8 +105,12 @@ public class AddTaskController {
 
 
                     if (!subjectComboBox.getSelectionModel().isEmpty()) {
-                        if (taskTextField.getText().length() >= 3 || !taskTextField.getText().replaceAll("\\s", "").isEmpty()) { // dodaj i u ostalim dijelovima ove provjere
-                            Subject chosenSubject = subjectManager.getSubjectByName((String) subjectComboBox.getValue());
+                        if (taskTextField.getText().length() >= 3 || !taskTextField.getText().replaceAll("\\s", "").isEmpty()) {
+                            User user = userManager.getUserByUsername(subjectTaskTabController.getUsername());
+                            ArrayList<Subject> s = subjectManager.getSubjectFromNameAndUserID((String) subjectComboBox.getValue(),user.getId());
+                            Subject chosenSubject = s.get(0);
+
+                            //Subject chosenSubject = subjectManager.getSubjectByName((String) subjectComboBox.getValue());
 
                             taskManager.add(new Task(taskTextField.getText(), utilDate, chosenSubject.getId()));
 
@@ -127,15 +135,21 @@ public class AddTaskController {
                 }
             } else {
                 if (!subjectComboBox.getSelectionModel().isEmpty()) {
-                    if (taskTextField.getText().length() >= 3 || !taskTextField.getText().replaceAll("\\s", "").isEmpty()) { // dodaj i u ostalim dijelovima ove provjere
-                        Subject chosenSubject = subjectManager.getSubjectByName((String) subjectComboBox.getValue());
-
-                        taskManager.add(new Task(taskTextField.getText(), null, chosenSubject.getId()));
-
+                    if (taskTextField.getText().length() >= 3 || !taskTextField.getText().replaceAll("\\s", "").isEmpty()) {
                         SubjectTaskTabController subtask = this.getSubjectTaskTabController();
                         subtask.injectAddTaskController(this);
+                        User user = userManager.getUserByUsername(subjectTaskTabController.getUsername());
+                        ArrayList<Subject> s = subjectManager.getSubjectFromNameAndUserID((String) subjectComboBox.getValue(),user.getId());
+                        Subject chosenSubject = s.get(0);
+
+                        taskManager.add(new Task(taskTextField.getText(), null, chosenSubject.getId()));
                         subtask.getAddedTaskSubject(chosenSubject);
                         subtask.initialize();
+
+                        /*SubjectTaskTabController subtask = this.getSubjectTaskTabController();
+                        subtask.injectAddTaskController(this);
+                        subtask.getAddedTaskSubject(chosenSubject);
+                        subtask.initialize();*/
 
                         Stage stage = (Stage) addTaskButton.getScene().getWindow();
                         stage.close();

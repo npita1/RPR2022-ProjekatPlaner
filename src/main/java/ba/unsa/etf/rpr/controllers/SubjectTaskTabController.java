@@ -62,6 +62,7 @@ public class SubjectTaskTabController {
     // Needed data
     private String subAddName;
     private String subAddAcronym;
+
     private String username;
     private Subject changedSubjectTask;
 
@@ -81,6 +82,8 @@ public class SubjectTaskTabController {
             acronymTableColumn.setCellValueFactory(new PropertyValueFactory<Subject,String>("acronym"));
 
             subjectsTableView.setItems(userSubjects);
+
+            setUsername(main.getUsername());
 
         }
 
@@ -279,6 +282,14 @@ public class SubjectTaskTabController {
 
         }
 
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     // Controller injections

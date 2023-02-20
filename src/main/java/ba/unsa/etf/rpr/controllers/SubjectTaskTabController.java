@@ -186,6 +186,8 @@ public class SubjectTaskTabController {
         this.initialize();
         toDoTabController.initialize();
         tasksTableView.refresh();
+        tasksTableView.setItems(FXCollections.observableArrayList());
+        subjectsTableView.getSelectionModel().clearSelection();
     }
 
     public void removeTaskAction (ActionEvent actionEvent) throws PlanerException {

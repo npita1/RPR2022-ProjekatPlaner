@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
+import java.sql.SQLSyntaxErrorException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
@@ -40,6 +41,7 @@ public class GameController {
     @FXML
     public void initialize() {
         enabledButtons = new ArrayList<>(Arrays.asList(button1,button2,button3,button4,button5,button6,button7, button8,button9));
+        System.out.println("initia");
     }
 
 
@@ -48,11 +50,15 @@ public class GameController {
         int randomFirst = ThreadLocalRandom.current().nextInt(0,2);
         nowTurn = randomTurnArray.get(randomFirst);
         System.out.println(nowTurn);
+        System.out.println(enabledButtons.size());
         if(nowTurn.equals("AI")) {
-            int random =  ThreadLocalRandom.current().nextInt(0,enabledButtons.size() + 1);
-
+            int randomButton =  ThreadLocalRandom.current().nextInt(0,enabledButtons.size());
+            enabledButtons.get(randomButton).setText("X");
+            enabledButtons.get(randomButton).setDisable(true);
+            System.out.println(randomButton);
+            enabledButtons.remove(enabledButtons.get(randomButton));
         }
-        //startButton.setDisable(true);
+        startButton.setDisable(true);
     }
 
 

@@ -34,22 +34,18 @@ public class SubjectManager {
         return DaoFactory.subjectDao().add(u);
     }
 
-    // method for getting all subjects from user id
     public ArrayList<Subject> getSubjectsFromUser(int id) throws PlanerException {
         return (ArrayList<Subject>) DaoFactory.subjectDao().getSubjectsFromUserID(id);
     }
 
-    // method for getting Subject by its name
     public Subject getSubjectByName(String name) throws PlanerException {
         return DaoFactory.subjectDao().getSubjectByName(name);
     }
 
-    // checking if duplicate subjects names exist
     public boolean hasDuplicateSubjectUser(int userID,String subjectName) throws PlanerException {
         return DaoFactory.subjectDao().duplicateSubjectForOneUser(userID,subjectName);
     }
 
-    // checking if duplicate subject acronyms exist
     public boolean hasDuplicateAcronymUser (int userID, String acronym) throws PlanerException {
         return DaoFactory.subjectDao().duplicateAcronymForUser(userID,acronym);
     }

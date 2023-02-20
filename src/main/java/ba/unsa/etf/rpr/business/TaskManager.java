@@ -38,7 +38,6 @@ public class TaskManager {
         return DaoFactory.taskDao().add(u);
     }
 
-    // method for getting all tasks from subject id
     public ArrayList<Task> getTasksWithSubjectID (int id) throws PlanerException {
         return DaoFactory.taskDao().getTasksBySubjectID(id);
     }

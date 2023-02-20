@@ -37,7 +37,7 @@ public class GameTabController {
     // Fetched and needed data
     private User user;
 
-    
+
     @FXML
     public void initialize() throws PlanerException {
         warningLabel.setVisible(false);
@@ -46,6 +46,14 @@ public class GameTabController {
         }
     }
 
+    /**
+     * game launch event handler
+     *
+     * @param actionEvent
+     * @throws PlanerException
+     * @throws ParseException
+     * @throws IOException
+     */
     public void playGame(ActionEvent actionEvent) throws PlanerException, ParseException, IOException {
         if(user != null) {
             if(user.getTokens() >= 20) {
@@ -73,7 +81,6 @@ public class GameTabController {
         }
 
     }
-
 
 
     // Controller injections

@@ -15,6 +15,12 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.text.ParseException;
 
+/**
+ * Controller for managing subjects adding
+ *
+ * @author Naida Pita
+ */
+
 public class AddSubjectController {
 
     // Database managers

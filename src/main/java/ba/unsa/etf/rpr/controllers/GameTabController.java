@@ -53,7 +53,7 @@ public class GameTabController {
                 Scene scene = new Scene(fxmlLoader.load());
                 scene.getRoot().requestFocus();
                 Stage stage = new Stage();
-                stage.setTitle("Brick Breaker");
+                stage.setTitle("Tic Tac Toe");
                 stage.setScene(scene);
                 stage.setResizable(false);
                 stage.show();
@@ -69,7 +69,6 @@ public class GameTabController {
         }
 
     }
-
 
 
 

@@ -93,7 +93,11 @@ public class MainController {
         stage.show();
     }
 
-
+    /**
+     * help window open event handler
+     * @param actionEvent
+     * @throws IOException
+     */
     public void openHelpWindow(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/help.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
@@ -104,6 +108,7 @@ public class MainController {
         stage.show();
     }
 
+    // Getter and setter for username
     public void setUsername (String usernamea) {
         username = usernamea;
     }

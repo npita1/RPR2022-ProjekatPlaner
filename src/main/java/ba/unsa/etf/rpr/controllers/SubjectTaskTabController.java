@@ -174,15 +174,18 @@ public class SubjectTaskTabController {
         Subject sub = oneSubject.get(0);
         oneSubject.forEach(allSubjects::remove);
 
-        ArrayList<ToDoList> removeTODO = toDoListManager.getTasksBySubjectAcronym(sub.getAcronym());
-        for(ToDoList t : removeTODO)
-            toDoListManager.delete(t.getId());
+        if(toDoListManager.isSubjectOnTODO(sub.getAcronym())) {
+            ArrayList<ToDoList> removeTODO = toDoListManager.getTasksBySubjectAcronym(sub.getAcronym());
+            for (ToDoList t : removeTODO)
+                toDoListManager.delete(t.getId());
+        }
 
         ArrayList<Task> removeTasks = taskManager.getTasksWithSubjectID(sub.getId());
         for(Task t : removeTasks)
             taskManager.delete(t.getId());
 
         subjectManager.delete(sub.getId());
+        
         this.initialize();
         toDoTabController.initialize();
         tasksTableView.refresh();
@@ -197,10 +200,12 @@ public class SubjectTaskTabController {
         Task sub = oneTask.get(0);
         allTasks.removeAll(oneTask);
 
-        ToDoList toDoTask = toDoListManager.getToDoItemByTaskID(sub.getId());
-        toDoListManager.delete(toDoTask.getId());
+        if(toDoListManager.isTaskOnTODO(sub.getId())) {
+            ToDoList toDoTask = toDoListManager.getToDoItemByTaskID(sub.getId());
+            toDoListManager.delete(toDoTask.getId());
+            toDoTabController.initialize();
+        }
         taskManager.delete(sub.getId());
-        toDoTabController.initialize();
     }
 
 

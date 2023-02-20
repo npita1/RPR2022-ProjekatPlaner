@@ -50,5 +50,8 @@ public class ToDoListManager {
         return DaoFactory.toDoListDao().isSubjectOnTODO(acronym);
     }
 
+    public boolean isTaskOnTODO(int id) throws PlanerException {
+        return DaoFactory.toDoListDao().isTaskOnTODO(id);
+    }
 
 }

@@ -31,7 +31,6 @@ public class ToDoTabController {
     // FX Components
     public TableColumn subjectColumn;
     public TableColumn taskColumn;
-    public TableColumn doneColumn;
     public ProgressIndicator progressCircle;
     public TableView toDoListTableView;
 
@@ -40,6 +39,8 @@ public class ToDoTabController {
     private SubjectTaskTabController subjectTaskTabController;
     private MainController mainController;
 
+
+    // Data
     private Task selectedTask;
     private String username;
     private Task doneTask;
@@ -71,6 +72,13 @@ public class ToDoTabController {
         }
     }
 
+
+    /**
+     * task done event handler
+     * @param actionEvent
+     * @throws PlanerException
+     * @throws ParseException
+     */
     // done removes from list and database + progress + tokens
     // remove and clear removes from list + nothing
     public void taskDoneAction(ActionEvent actionEvent) throws PlanerException, ParseException {

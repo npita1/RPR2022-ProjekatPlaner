@@ -50,4 +50,8 @@ public class TaskManager {
         return DaoFactory.taskDao().hasAnyTasks(id);
     }
 
+    public ArrayList<Task> searchTasksByTaskName(String taskName, int subjectID) throws PlanerException {
+        return DaoFactory.taskDao().searchTasksByTaskName(taskName,subjectID);
+    }
+
 }

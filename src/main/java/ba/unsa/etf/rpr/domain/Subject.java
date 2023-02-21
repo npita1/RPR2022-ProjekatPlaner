@@ -13,13 +13,24 @@ public class Subject implements Idable {
     private String color;
     private Integer userId;
 
+    public int getTaskNumber() {
+        return taskNumber;
+    }
+
+    public void setTaskNumber(int taskNumber) {
+        this.taskNumber = taskNumber;
+    }
+
+    private Integer taskNumber = 0;
+
     public Subject() {}
 
-    public Subject(String name, String acronym, String color,Integer userId) {
+    public Subject(String name, String acronym, String color,Integer userId, int taskNumber) {
         this.name = name;
         this.acronym = acronym;
         this.color = color;
         this.userId = userId;
+        this.taskNumber = taskNumber;
     }
 
     public int getId() {

@@ -41,6 +41,7 @@ public class SubjectDaoSQLImpl extends AbstractDao<Subject> implements SubjectDa
             u.setAcronym(rs.getString("acronym"));
             u.setColor(rs.getString("color"));
             u.setUserId(rs.getInt("user_id"));
+            u.setTaskNumber(rs.getInt("broj_taskova"));
             return u;
         } catch (Exception e) {
             throw new PlanerException(e.getMessage(), e);
@@ -55,6 +56,7 @@ public class SubjectDaoSQLImpl extends AbstractDao<Subject> implements SubjectDa
         item.put("acronym", object.getAcronym());
         item.put("color", object.getColor());
         item.put("user_id", object.getUserId());
+        //item.put("broj_taskova",object.getTaskNumber());
         return item;
     }
 
@@ -70,7 +72,7 @@ public class SubjectDaoSQLImpl extends AbstractDao<Subject> implements SubjectDa
 
     @Override
     public List<Subject> getSubjectsFromUserID(int id) throws PlanerException {
-        ArrayList<Subject> subjects = (ArrayList<Subject>) executeQuery("SELECT * FROM subjects WHERE user_id=?",new Object[]{id});
+        ArrayList<Subject> subjects = (ArrayList<Subject>) executeQuery("SELECT subjects.*,count(tasks.id) \"broj_taskova\" FROM subjects LEFT JOIN tasks ON subjects.id=tasks.subject_id  WHERE user_id=? GROUP BY subjects.id ",new Object[]{id});
         return subjects;
     }
 
@@ -92,6 +94,12 @@ public class SubjectDaoSQLImpl extends AbstractDao<Subject> implements SubjectDa
     public ArrayList<Subject> getSubjectFromNameAndUserID(String name, int id) throws PlanerException {
         return (ArrayList<Subject>) executeQuery("SELECT * FROM subjects WHERE name=? AND user_id=?", new Object[]{name,id});
     }
+
+    @Override
+    public int getNumberOfTasks(int id) throws PlanerException {
+        ArrayList<Subject> sub = (ArrayList<Subject>) executeQuery("SELECT COUNT(*) FROM subjects INNER JOIN tasks ON subjects.id=? AND subjects.id = tasks.subject_id",new Object[]{id});
+        return sub.size();
+     }
 
 
 }

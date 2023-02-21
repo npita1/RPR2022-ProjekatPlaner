@@ -17,10 +17,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -48,6 +45,9 @@ public class SubjectTaskTabController {
     public TableColumn<Task,String> taskTextTableColumn;
     public TableColumn<Task, Date> deadlineTableColumn;
     public Label taskAdddedConfirmation;
+    public Button searchButton;
+    public TextField searchTextFieldArea;
+    public TableColumn taskNumberColumn;
 
 
     // Controllers for injection
@@ -80,6 +80,7 @@ public class SubjectTaskTabController {
 
             subjectTableColumn.setCellValueFactory(new PropertyValueFactory<Subject,String>("name"));
             acronymTableColumn.setCellValueFactory(new PropertyValueFactory<Subject,String>("acronym"));
+            taskNumberColumn.setCellValueFactory(new PropertyValueFactory<Subject,Integer>("taskNumber"));
 
             subjectsTableView.setItems(userSubjects);
 
@@ -96,6 +97,7 @@ public class SubjectTaskTabController {
 
             subjectTableColumn.setCellValueFactory(new PropertyValueFactory<Subject,String>("name"));
             acronymTableColumn.setCellValueFactory(new PropertyValueFactory<Subject,String>("acronym"));
+            taskNumberColumn.setCellValueFactory(new PropertyValueFactory<Subject,Integer>("taskNumber"));
 
             subjectsTableView.setItems(userSubjects);
             subjectsTableView.refresh();
@@ -119,9 +121,12 @@ public class SubjectTaskTabController {
                         }
                     }
                     taskFromClickedSubject.removeAll(remove);
+                    User user = userManager.getUserByUsername(main.getUsername());
+                    ObservableList<Subject> userSubjects = FXCollections.observableArrayList(subjectManager.getSubjectsFromUser(user.getId()));
 
                     taskTextTableColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("taskText"));
                     deadlineTableColumn.setCellValueFactory(new PropertyValueFactory<Task, Date>("deadline"));
+                    taskNumberColumn.setCellValueFactory(new PropertyValueFactory<Subject,Integer>("taskNumber"));
 
                     tasksTableView.setItems(taskFromClickedSubject);
                     subjectsTableView.refresh();
@@ -190,7 +195,8 @@ public class SubjectTaskTabController {
         allSubjects = subjectsTableView.getItems();
         oneSubject = subjectsTableView.getSelectionModel().getSelectedItems();
         Subject sub = oneSubject.get(0);
-        oneSubject.forEach(allSubjects::remove);
+        if(allSubjects.size()!= 1)
+            oneSubject.forEach(allSubjects::remove);
 
         if(toDoListManager.isSubjectOnTODO(sub.getAcronym())) {
             ArrayList<ToDoList> removeTODO = toDoListManager.getTasksBySubjectAcronym(sub.getAcronym());
@@ -335,6 +341,20 @@ public class SubjectTaskTabController {
     }
     public void injectToDoListController (ToDoTabController toDoTabController) {
         this.toDoTabController = toDoTabController;
+    }
+
+    public void searchTaskByName(ActionEvent actionEvent) throws PlanerException {
+        Object selectedSubject = subjectsTableView.getSelectionModel().getSelectedItem();
+        if(selectedSubject instanceof Subject) {
+            if (!searchTextFieldArea.getText().isEmpty()) {
+
+                ArrayList<Task> searchTasks = taskManager.searchTasksByTaskName(searchTextFieldArea.getText(), ((Subject) selectedSubject).getId());
+                ObservableList<Task> list = FXCollections.observableArrayList(searchTasks);
+
+                tasksTableView.setItems(list);
+                tasksTableView.refresh();
+            }
+        }
     }
 
 }

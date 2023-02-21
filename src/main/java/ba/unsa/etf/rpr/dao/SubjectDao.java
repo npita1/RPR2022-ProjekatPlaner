@@ -65,4 +65,6 @@ public interface SubjectDao extends Dao<Subject>{
      */
     ArrayList<Subject> getSubjectFromNameAndUserID(String name, int id) throws PlanerException;
 
+    int getNumberOfTasks(int id) throws PlanerException;
+
 }

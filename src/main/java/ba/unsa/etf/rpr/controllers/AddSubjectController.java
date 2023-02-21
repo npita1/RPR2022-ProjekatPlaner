@@ -79,7 +79,7 @@ public class AddSubjectController {
         if(!subjectManager.hasDuplicateAcronymUser(user.getId(),subjectAcronymField.getText()) && !subjectManager.hasDuplicateSubjectUser(user.getId(),subjectNameField.getText()) ) {
             if(subjectNameField.getText().length() >= 5 && subjectAcronymField.getText().length()>=2) {
 
-                subjectManager.add(new Subject(subjectNameField.getText(), subjectAcronymField.getText(), "null", user.getId()));
+                subjectManager.add(new Subject(subjectNameField.getText(), subjectAcronymField.getText(), "null", user.getId(),0));
 
                 subjectName = subjectNameField.getText();
                 subjectAcronym = subjectAcronymField.getText();

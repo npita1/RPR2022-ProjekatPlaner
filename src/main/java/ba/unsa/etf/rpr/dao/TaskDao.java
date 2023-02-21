@@ -39,4 +39,8 @@ public interface TaskDao extends Dao<Task>{
      */
     boolean hasAnyTasks(int id) throws PlanerException;
 
+    ArrayList<Task> searchTasksByTaskName(String taskName, int subjectID) throws PlanerException;
+
+
+
 }

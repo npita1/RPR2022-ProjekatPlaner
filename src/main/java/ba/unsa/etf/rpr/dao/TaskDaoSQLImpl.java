@@ -84,5 +84,18 @@ public class TaskDaoSQLImpl extends AbstractDao<Task> implements TaskDao{
         return true;
     }
 
+    @Override
+    public ArrayList<Task> searchTasksByTaskName(String taskName, int subjectID) throws PlanerException {
+        ArrayList<Task> taskoviOdSubjecta = (ArrayList<Task>) executeQuery("SELECT * FROM tasks WHERE subject_id=?", new Object[]{subjectID});
+        ArrayList<Task> res = new ArrayList<>();
+        for(Task t : taskoviOdSubjecta) {
+            if(t.getTaskText().contains(taskName)) {
+                res.add(t);
+            }
+        }
+        return res;
+    }
+
+
 
 }

@@ -73,7 +73,7 @@ public class AppTest
 
     @Test
     public void subjectNameSetterAndGetter() throws PlanerException, ParseException {
-        Subject s = new Subject("ime","akronim","boja",2);
+        Subject s = new Subject("ime","akronim","boja",2,0);
         s.setName("drugo ime");
         assertEquals(s.getName(),"drugo ime");
     }

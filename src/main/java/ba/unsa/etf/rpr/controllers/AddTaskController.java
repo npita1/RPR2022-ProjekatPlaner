@@ -110,6 +110,7 @@ public class AddTaskController {
                             User user = userManager.getUserByUsername(subjectTaskTabController.getUsername());
                             ArrayList<Subject> s = subjectManager.getSubjectFromNameAndUserID((String) subjectComboBox.getValue(),user.getId());
                             Subject chosenSubject = s.get(0);
+                            chosenSubject.setTaskNumber(chosenSubject.getTaskNumber() + 1);
 
                             taskManager.add(new Task(taskTextField.getText(), utilDate, chosenSubject.getId()));
 
@@ -141,6 +142,7 @@ public class AddTaskController {
                         User user = userManager.getUserByUsername(subjectTaskTabController.getUsername());
                         ArrayList<Subject> s = subjectManager.getSubjectFromNameAndUserID((String) subjectComboBox.getValue(),user.getId());
                         Subject chosenSubject = s.get(0);
+                        chosenSubject.setTaskNumber(chosenSubject.getTaskNumber() + 1);
 
                         taskManager.add(new Task(taskTextField.getText(), null, chosenSubject.getId()));
                         subtask.getAddedTaskSubject(chosenSubject);

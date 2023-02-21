@@ -117,6 +117,11 @@ public class ToDoTabController {
         }
     }
 
+    /**
+     * remove one task event handler
+     * @param actionEvent
+     * @throws PlanerException
+     */
     public void removeOneTask(ActionEvent actionEvent) throws PlanerException {
         Object o = toDoListTableView.getSelectionModel().getSelectedItem();
         if(o instanceof ToDoList) {
@@ -134,6 +139,11 @@ public class ToDoTabController {
         }
     }
 
+    /**
+     * remove all tasks from TO-DO list event handler
+     * @param actionEvent
+     * @throws PlanerException
+     */
     public void removeAllTasks(ActionEvent actionEvent) throws PlanerException {
         User user;
         if(mainController != null)

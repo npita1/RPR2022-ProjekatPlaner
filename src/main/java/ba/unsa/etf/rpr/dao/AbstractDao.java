@@ -214,7 +214,11 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
         return new AbstractMap.SimpleEntry<>(columns.toString(), questions.toString());
     }
 
-
+    /**
+     * Prepare columns for update statement id=?, name=?, ...
+     * @param row - row to be converted intro string
+     * @return String for update statement
+     */
     private String prepareUpdateParts(Map<String, Object> row){
         StringBuilder columns = new StringBuilder();
 

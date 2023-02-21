@@ -233,7 +233,12 @@ public class SubjectTaskTabController {
         taskManager.delete(sub.getId());
     }
 
-
+    /**
+     * selected row in table view mouse event handler
+     * @param mouseEvent
+     * @throws PlanerException
+     * @throws ParseException
+     */
     public void clickedItem(MouseEvent mouseEvent) throws PlanerException, ParseException {
         Object o = subjectsTableView.getSelectionModel().getSelectedItem();
         if(o instanceof Subject) {
@@ -257,6 +262,8 @@ public class SubjectTaskTabController {
         }
     }
 
+
+    // Injection methods for data
     public void getAddedTaskSubject (Subject subject) {
         this.changedSubjectTask = subject;
     }
@@ -268,6 +275,11 @@ public class SubjectTaskTabController {
     }
 
 
+    /**
+     * send to TO-DO list event handler
+     * @param actionEvent
+     * @throws PlanerException
+     */
     public void sendToTODOList(ActionEvent actionEvent) throws PlanerException {
         if(toDoTabController != null) {
 

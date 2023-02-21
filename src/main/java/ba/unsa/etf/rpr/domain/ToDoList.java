@@ -1,8 +1,11 @@
 package ba.unsa.etf.rpr.domain;
 
-import java.awt.*;
 import java.util.Objects;
 
+/**
+ * bean for todolist
+ * @author Naida Pita
+ */
 public class ToDoList implements Idable {
 
     private int id;

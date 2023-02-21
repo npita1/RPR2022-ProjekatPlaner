@@ -3,6 +3,10 @@ package ba.unsa.etf.rpr.domain;
 import java.util.Date;
 import java.util.Objects;
 
+/**
+ * bean for task
+ * @author Naida Pita
+ */
 public class Task implements Idable{
     private int id;
     private String taskText;

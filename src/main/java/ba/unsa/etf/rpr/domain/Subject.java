@@ -2,6 +2,10 @@ package ba.unsa.etf.rpr.domain;
 
 import java.util.Objects;
 
+/**
+ * bean for subject
+ * @author Naida Pita
+ */
 public class Subject implements Idable {
     private Integer id;
     private String name;

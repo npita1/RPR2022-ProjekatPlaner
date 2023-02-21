@@ -3,13 +3,16 @@ package ba.unsa.etf.rpr.dao;
 import ba.unsa.etf.rpr.domain.Idable;
 import ba.unsa.etf.rpr.exceptions.PlanerException;
 
-import java.io.Closeable;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
 import java.util.*;
 
+/**
+ * Abstract class that implements core DAO CRUD methods for every entity
+ *
+ * @author Dino Keco
+ */
 public abstract class AbstractDao<T extends Idable> implements Dao<T> {
     private static Connection connection = null;
     private String tableName;
@@ -55,7 +58,19 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
         return AbstractDao.connection;
     }
 
+    /**
+     * Method for mapping ResultSet into Object
+     * @param rs - result set from database
+     * @return a Bean object for specific table
+     * @throws PlanerException in case of error with db
+     */
     public abstract T row2object(ResultSet rs) throws PlanerException;
+
+    /**
+     * Method for mapping Object into Map
+     * @param object - a bean object for specific table
+     * @return key, value sorted map of object
+     */
     public abstract Map<String,Object> object2row (T object);
 
     public T getById(int id) throws PlanerException {

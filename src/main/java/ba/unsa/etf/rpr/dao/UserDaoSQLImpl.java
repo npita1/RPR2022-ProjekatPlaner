@@ -8,6 +8,10 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * MySQL implementation of the DAO
+ * @author Naida Pita
+ */
 public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao {
 
     private static UserDaoSQLImpl instance = null;

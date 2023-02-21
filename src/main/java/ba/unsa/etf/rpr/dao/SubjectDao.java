@@ -29,10 +29,30 @@ public interface SubjectDao extends Dao<Subject>{
      */
     Subject getSubjectByAcronym(String acronym) throws PlanerException;
 
-    
+    /**
+     * Returns all subjects from given user, id
+     * @param id
+     * @return
+     * @throws PlanerException
+     */
     List<Subject> getSubjectsFromUserID(int id) throws PlanerException;
 
+    /**
+     * Checks for duplicate subject name of one user
+     * @param userID
+     * @param subjectName
+     * @return
+     * @throws PlanerException
+     */
     boolean duplicateSubjectForOneUser(int userID, String subjectName) throws PlanerException;
+
+    /**
+     * 
+     * @param userID
+     * @param acronym
+     * @return
+     * @throws PlanerException
+     */
     boolean duplicateAcronymForUser(int userID,String acronym) throws PlanerException;
 
     ArrayList<Subject> getSubjectFromNameAndUserID(String name, int id) throws PlanerException;

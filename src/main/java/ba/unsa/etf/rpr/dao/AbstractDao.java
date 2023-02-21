@@ -192,6 +192,10 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
         }
     }
 
+    /**
+     * Accepts KV storage of column names and return CSV of columns and question marks for insert statement
+     * Example: (id, name, date) ?,?,?
+     */
     private Map.Entry<String, String> prepareInsertParts(Map<String, Object> row){
         StringBuilder columns = new StringBuilder();
         StringBuilder questions = new StringBuilder();
@@ -209,6 +213,7 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
         }
         return new AbstractMap.SimpleEntry<>(columns.toString(), questions.toString());
     }
+
 
     private String prepareUpdateParts(Map<String, Object> row){
         StringBuilder columns = new StringBuilder();

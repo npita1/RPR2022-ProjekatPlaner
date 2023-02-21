@@ -44,15 +44,27 @@ public interface UserDao extends Dao<User>{
     boolean validPassword(String username, String password) throws PlanerException;
 
     /**
-     * 
+     * Checks if the new sign up username already exists
      * @param username
      * @return
      * @throws PlanerException
      */
     boolean validNewUsernameExist(String username) throws PlanerException;
 
+    /**
+     * Checks the length of the sign up username
+     * @param username
+     * @return
+     * @throws PlanerException
+     */
     boolean validNewUsernameLength (String username) throws PlanerException;
 
+    /**
+     * 
+     * @param password
+     * @return
+     * @throws PlanerException
+     */
     boolean validPasswordLength(String password) throws PlanerException;
 
     boolean validConfirmPassword(String password, String confirmPassword) throws PlanerException;

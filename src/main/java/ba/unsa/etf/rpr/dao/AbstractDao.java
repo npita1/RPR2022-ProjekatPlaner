@@ -150,7 +150,13 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
     }
 
 
-
+    /**
+     * Utility method for executing any kind of query
+     * @param query - SQL query
+     * @param params - params for query
+     * @return List of objects from database
+     * @throws PlanerException in case of error with db
+     */
     public List<T> executeQuery(String query, Object[] params) throws PlanerException{
         try {
             PreparedStatement stmt = getConnection().prepareStatement(query);
@@ -170,6 +176,13 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
         }
     }
 
+    /**
+     * Utility for query execution that always return single record
+     * @param query - query that returns single record
+     * @param params - list of params for sql query
+     * @return Object
+     * @throws PlanerException in case when object is not found
+     */
     public T executeQueryUnique(String query, Object[] params) throws PlanerException{
         List<T> result = executeQuery(query, params);
         if (result != null && result.size() == 1){

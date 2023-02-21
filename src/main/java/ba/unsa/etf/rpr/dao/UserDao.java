@@ -60,13 +60,20 @@ public interface UserDao extends Dao<User>{
     boolean validNewUsernameLength (String username) throws PlanerException;
 
     /**
-     * 
+     * Checks the password length
      * @param password
      * @return
      * @throws PlanerException
      */
     boolean validPasswordLength(String password) throws PlanerException;
 
+    /**
+     * Checks if the password is valid
+     * @param password
+     * @param confirmPassword
+     * @return
+     * @throws PlanerException
+     */
     boolean validConfirmPassword(String password, String confirmPassword) throws PlanerException;
 
 }

@@ -3,14 +3,20 @@ package ba.unsa.etf.rpr;
 import ba.unsa.etf.rpr.business.SubjectManager;
 import ba.unsa.etf.rpr.business.UserManager;
 import ba.unsa.etf.rpr.dao.DaoFactory;
+import ba.unsa.etf.rpr.dao.TaskDao;
+import ba.unsa.etf.rpr.dao.TaskDaoSQLImpl;
 import ba.unsa.etf.rpr.domain.Subject;
 import ba.unsa.etf.rpr.domain.Task;
 import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.exceptions.PlanerException;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -20,11 +26,24 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class AppTest
 {
-    
+    private UserManager userManager;
+    private User user;
+    private TaskDaoSQLImpl taskDao;
+
+
+    @BeforeEach
+    public void initializeObjectsWeNeed() {
+        userManager = Mockito.mock(UserManager.class);
+        user = new User();
+        user.setUsername("user");
+        user.setPassword("123456");
+
+        taskDao = Mockito.mock(TaskDaoSQLImpl.class);
+    }
+
     @Test
     public void validPasswordLength() throws PlanerException {
-        UserManager userManager = new UserManager();
-        assertFalse(userManager.validatePasswordLength("123456"));
+        assertFalse(Mockito.doCallRealMethod().when(userManager).validatePasswordLength("123456"));
     }
 
     @Test

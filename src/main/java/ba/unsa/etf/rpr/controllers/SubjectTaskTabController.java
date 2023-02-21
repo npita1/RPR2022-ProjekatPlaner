@@ -179,7 +179,12 @@ public class SubjectTaskTabController {
         stage.show();
     }
 
-
+    /**
+     * remove subject event handler
+     * @param actionEvent
+     * @throws PlanerException
+     * @throws ParseException
+     */
     public void removeSubjectAction(ActionEvent actionEvent) throws PlanerException, ParseException {
         ObservableList<Subject> allSubjects, oneSubject;
         allSubjects = subjectsTableView.getItems();
@@ -208,6 +213,11 @@ public class SubjectTaskTabController {
         subjectsTableView.getSelectionModel().clearSelection();
     }
 
+    /**
+     * remove task event handler
+     * @param actionEvent
+     * @throws PlanerException
+     */
     public void removeTaskAction (ActionEvent actionEvent) throws PlanerException {
         ObservableList<Task> allTasks, oneTask;
         allTasks = tasksTableView.getItems();

@@ -1,16 +1,20 @@
 package ba.unsa.etf.rpr.dao;
 
-import ba.unsa.etf.rpr.domain.Subject;
 import ba.unsa.etf.rpr.domain.Task;
 import ba.unsa.etf.rpr.exceptions.PlanerException;
-import javafx.collections.ObservableList;
 
 import java.sql.ResultSet;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Map;
+import java.util.TreeMap;
 
+/**
+ * MySQL implementation of the DAO
+ * @author Naida Pita
+ */
 public class TaskDaoSQLImpl extends AbstractDao<Task> implements TaskDao{
     private static TaskDaoSQLImpl instance = null;
 

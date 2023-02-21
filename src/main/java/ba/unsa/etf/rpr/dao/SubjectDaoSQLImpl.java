@@ -9,6 +9,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * MySQL implementation of the DAO
+ * @author Naida Pita
+ */
 public class SubjectDaoSQLImpl extends AbstractDao<Subject> implements SubjectDao {
 
     private static SubjectDaoSQLImpl instance = null;

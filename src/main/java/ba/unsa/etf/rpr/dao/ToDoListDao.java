@@ -37,13 +37,19 @@ public interface ToDoListDao extends Dao<ToDoList> {
     ArrayList<ToDoList> checkIfTaskIDExists(int taskId) throws PlanerException;
 
     /**
-     * 
+     * Returns all to do list items that are connected to their subject acronym
      * @param acronym
      * @return
      * @throws PlanerException
      */
     ArrayList<ToDoList> getAllTODOBySubjectAcronym(String acronym) throws PlanerException;
 
+    /**
+     * 
+     * @param acronym
+     * @return
+     * @throws PlanerException
+     */
     boolean isSubjectOnTODO(String acronym) throws PlanerException;
 
     boolean isTaskOnTODO(int id) throws PlanerException;

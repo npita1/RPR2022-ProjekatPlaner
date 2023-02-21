@@ -78,6 +78,7 @@ public class AddSubjectController {
         User user = userManager.getUserByUsername(username);
         if(!subjectManager.hasDuplicateAcronymUser(user.getId(),subjectAcronymField.getText()) && !subjectManager.hasDuplicateSubjectUser(user.getId(),subjectNameField.getText()) ) {
             if(subjectNameField.getText().length() >= 5 && subjectAcronymField.getText().length()>=2) {
+
                 subjectManager.add(new Subject(subjectNameField.getText(), subjectAcronymField.getText(), "null", user.getId()));
 
                 subjectName = subjectNameField.getText();
@@ -91,6 +92,7 @@ public class AddSubjectController {
 
                 Stage stage = (Stage) addButton.getScene().getWindow();
                 stage.close();
+
             }else {
                 warningMessage.setText("Subject name must be 5 and acronym 2 characters long.");
                 subjectNameField.setText("");

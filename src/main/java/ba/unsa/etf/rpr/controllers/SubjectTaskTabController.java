@@ -131,7 +131,11 @@ public class SubjectTaskTabController {
 
     }
 
-
+    /**
+     * open add subject event handler
+     * @param actionEvent
+     * @throws IOException
+     */
     public void openAddSubject (ActionEvent actionEvent) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/addSubject.fxml"));
@@ -149,6 +153,12 @@ public class SubjectTaskTabController {
         stage.show();
     }
 
+    /**
+     * open add task event handler
+     * @param actionEvent
+     * @throws IOException
+     * @throws PlanerException
+     */
     public void openAddTask (ActionEvent actionEvent) throws IOException, PlanerException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/addTask.fxml"));
         root = loader.load();
@@ -217,7 +227,6 @@ public class SubjectTaskTabController {
     public void clickedItem(MouseEvent mouseEvent) throws PlanerException, ParseException {
         Object o = subjectsTableView.getSelectionModel().getSelectedItem();
         if(o instanceof Subject) {
-            //Subject clickedSubject = subjectManager.getSubjectByName(((Subject) o).getName());
 
             ObservableList<Task> taskFromClickedSubject = FXCollections.observableArrayList(taskManager.getTasksWithSubjectID(((Subject) o).getId()));
             ObservableList<Task> remove =   FXCollections.observableArrayList();

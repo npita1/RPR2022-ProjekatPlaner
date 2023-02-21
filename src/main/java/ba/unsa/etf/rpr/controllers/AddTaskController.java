@@ -106,11 +106,10 @@ public class AddTaskController {
 
                     if (!subjectComboBox.getSelectionModel().isEmpty()) {
                         if (taskTextField.getText().length() >= 3 || !taskTextField.getText().replaceAll("\\s", "").isEmpty()) {
+
                             User user = userManager.getUserByUsername(subjectTaskTabController.getUsername());
                             ArrayList<Subject> s = subjectManager.getSubjectFromNameAndUserID((String) subjectComboBox.getValue(),user.getId());
                             Subject chosenSubject = s.get(0);
-
-                            //Subject chosenSubject = subjectManager.getSubjectByName((String) subjectComboBox.getValue());
 
                             taskManager.add(new Task(taskTextField.getText(), utilDate, chosenSubject.getId()));
 
@@ -121,6 +120,7 @@ public class AddTaskController {
 
                             Stage stage = (Stage) addTaskButton.getScene().getWindow();
                             stage.close();
+
                         } else {
                             taskTextField.setText("");
                             taskWarning.setText("Task text must be at least 3 characters long!");

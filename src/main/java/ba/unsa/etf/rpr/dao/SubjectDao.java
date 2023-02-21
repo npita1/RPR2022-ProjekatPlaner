@@ -47,7 +47,7 @@ public interface SubjectDao extends Dao<Subject>{
     boolean duplicateSubjectForOneUser(int userID, String subjectName) throws PlanerException;
 
     /**
-     * 
+     * Checks for duplicate acronym name of one user
      * @param userID
      * @param acronym
      * @return
@@ -55,6 +55,14 @@ public interface SubjectDao extends Dao<Subject>{
      */
     boolean duplicateAcronymForUser(int userID,String acronym) throws PlanerException;
 
+    /**
+     * Returns all subjects from user by given name
+     * Returns only one subject beacuse the names are unique for every user
+     * @param name
+     * @param id
+     * @return
+     * @throws PlanerException
+     */
     ArrayList<Subject> getSubjectFromNameAndUserID(String name, int id) throws PlanerException;
 
 }

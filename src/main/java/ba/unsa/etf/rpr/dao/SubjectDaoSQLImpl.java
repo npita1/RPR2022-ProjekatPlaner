@@ -65,11 +65,6 @@ public class SubjectDaoSQLImpl extends AbstractDao<Subject> implements SubjectDa
     }
 
     @Override
-    public Subject getSubjectByColor(String color) throws PlanerException {
-        return executeQueryUnique("SELECT * FROM subjects where color=?", new Object[]{color});
-    }
-
-    @Override
     public List<Subject> getSubjectsFromUserID(int id) throws PlanerException {
         ArrayList<Subject> subjects = (ArrayList<Subject>) executeQuery("SELECT * FROM subjects WHERE user_id=?",new Object[]{id});
         return subjects;
